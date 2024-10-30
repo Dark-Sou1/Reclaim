@@ -1,0 +1,50 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Build;
+using UnityEngine;
+
+namespace Giacomo
+{
+
+    public class BoostTower : Tower
+    {
+        public string modifierName;
+        public List<BoostTowerUpgrade> buffs;
+
+        protected float boostDuration = 1;
+        protected float boostFrequency = 2;
+
+
+        protected float nextBoostTime;
+        private void Update()
+        {
+            if (Time.time < nextBoostTime) return;
+            nextBoostTime = Time.time + 1f / boostFrequency;
+
+            foreach (var t in GridManager.Instance.GetNeighbors(GridManager.FixCoordinates(transform.position)))
+            {
+                var tower = t.GetComponentInChildren<AttackingTower>();
+                if (!tower) continue;
+
+
+                StatModifierEffect speedBoostEffect = new StatModifierEffect(tower.stats);
+                foreach(var buff in buffs)
+                {
+                    speedBoostEffect.AddModifier(buff.stat, modifierName, buff.add, buff.multiply);
+                }
+
+                tower.effects?.AddEffect("attackSpeedBoost", speedBoostEffect, boostDuration);
+            }
+        }
+
+        [Serializable]
+        public class BoostTowerUpgrade
+        {
+            public string stat;
+            public float add;
+            public float multiply;
+        }
+    }
+
+}
