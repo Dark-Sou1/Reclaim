@@ -9,8 +9,8 @@ namespace Giacomo
 {
     public class Targetable : MonoBehaviour
     {
-        [DisableInEditorMode, PropertyRange(0, "b_maxHealth")]
-        public float currentHealth;
+        [DisableInEditorMode]
+        public float currentHealth = 0;
         public float b_maxHealth;
         public bool isAlive = true;
 
@@ -20,15 +20,25 @@ namespace Giacomo
 
         public virtual void Start()
         {
-            stats = gameObject.AddComponent<Stats>();
             Initialize();
         }
 
-        protected virtual void Initialize()
+        protected bool isInitialized;
+        public virtual void Initialize()
         {
+            if(isInitialized) return;
+            isInitialized = true;
+
+            stats = gameObject.AddComponent<Stats>();
             stats.AddStat("maxHealth", b_maxHealth);
             stats.AddStat("damageTakenMultiplier", 1);
             currentHealth = stats["maxHealth"];
+            stats["maxHealth"].OnValueChanged += OnMaxHealthChanged;
+        }
+
+        protected void OnMaxHealthChanged(Stat.StatValueChangedEventArgs args)
+        {
+            currentHealth = currentHealth / args.previousValue * args.newValue;
         }
 
         public void Damage(float amount)
@@ -56,6 +66,8 @@ namespace Giacomo
             if (currentHealth > stats["maxHealth"])
                 currentHealth = stats["maxHealth"];
         }
+
+
 
         protected virtual void Kill()
         {

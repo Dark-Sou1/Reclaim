@@ -3,50 +3,61 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Diagnostics;
 
 namespace Giacomo
 {
     public class Spawner : MonoBehaviour
     {
+        public int startSpawningAfterWaves = 0;
         public List<Wave> waves;
-        public float defaultWaveDelay;
 
+        public bool finishedWaves;
+        public bool disableAtLastWave;
 
-
-        [DisableInEditorMode] public int currentWaveIndex;
-        public Wave currentWave => waves[currentWaveIndex];
-
-        private void Start()
+        protected int wavesWhileActive;
+        protected int currentWaveIndex;
+        public float SpawnNextWave()
         {
-            currentWaveIndex = 0;
-            StartSpawning();
-        }
+            if (!isActiveAndEnabled)
+                return -1;
 
-        public void StartSpawning()
-        {
-            StartCoroutine(SpawnWaves());
-        }
+            wavesWhileActive++;
+            if (wavesWhileActive < startSpawningAfterWaves)
+                return -1;
 
-        protected IEnumerator SpawnWaves()
-        {
-            while (currentWaveIndex < waves.Count)
+            if (currentWaveIndex >= waves.Count)
+                return -1;
+
+            StartCoroutine(SpawnWaveCoroutine());
+            float delayAfter = waves[currentWaveIndex].advancedSettings.customDelayAfterWave;
+
+            currentWaveIndex++;
+            if(currentWaveIndex == waves.Count)
             {
-                for (int i = 0; i < currentWave.amount; i++)
+                finishedWaves = true;
+                if(disableAtLastWave)
+                    gameObject.SetActive(false);
+            }
+
+            return delayAfter;
+        }
+
+        protected IEnumerator SpawnWaveCoroutine()
+        {
+            Wave wave = waves[currentWaveIndex];
+            for (int i = 0; i < wave.amount; i++)
+            {
+                foreach (Wave.WaveEnemy e in wave.enemies)
                 {
-                    foreach (Wave.WaveEnemy e in currentWave.enemies)
+                    var enemy = Instantiate(e.prefab, transform.position, Quaternion.identity).GetComponent<Enemy>();
+                    if (wave.advancedSettings.hpMultiplier != 1)
                     {
-                        Instantiate(e.prefab, transform.position, Quaternion.identity);
-                        yield return Helpers.GetWait(e.delay);
+                        enemy.Initialize();
+                        enemy.stats.AddModifier("baseHpModifier", "maxHealth", multiply: wave.advancedSettings.hpMultiplier);
                     }
+
+                    yield return Helpers.GetWait(e.delay);
                 }
-
-                float delay = defaultWaveDelay;
-                if (currentWave.advancedSettings.customDelayAfterWave != -1)
-                    delay = currentWave.advancedSettings.customDelayAfterWave;
-                yield return Helpers.GetWait(delay);
-
-                currentWaveIndex++;
             }
         }
     }
@@ -78,6 +89,7 @@ namespace Giacomo
         {
             public List<int> spawnOrder;
             public float customDelayAfterWave = -1;
+            public float hpMultiplier = 1;
         }
     }
 }

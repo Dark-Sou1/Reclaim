@@ -17,13 +17,19 @@ namespace Giacomo
 
         public Tower tower;
 
-        protected virtual void SetupGrid()
+        private void Awake()
+        {
+            if(GridManager.Instance.isSetup)
+                SetupTile();
+        }
+
+        protected virtual void SetupTile()
         {
             UpdatePosition();
 
-            var c = GetComponentInChildren<Tower>();
-            if(c != null)
-                PlaceTower(c);
+            var t = GetComponentInChildren<Tower>();
+            if(t != null)
+                PlaceTower(t);
         }
 
         private void OnDestroy()

@@ -43,10 +43,14 @@ public class Stat
     public float baseValue { get; private set; }
     [ShowInInspector, ReadOnly]
     public float value { get; private set; }
+    [ShowInInspector]
     public float minValue { get; private set; }
+    [ShowInInspector]
     public float maxValue { get; private set; }
+    [ShowInInspector]
     public Dictionary<string, StatModifier> modifiers { get; private set; }
     
+    public event Action<StatValueChangedEventArgs> OnValueChanged;
 
     public static implicit operator float(Stat s) => s.value;
 
@@ -108,10 +112,24 @@ public class Stat
         float multiply = 1 + modifiers.Sum(x => x.Value.multiply - 1);
 
         float res = baseValue * multiply + add;
+        float newVal = Mathf.Clamp(res, minValue, maxValue);
 
-        value = Mathf.Clamp(res, minValue, maxValue);
+        if (newVal != value)
+            OnValueChanged?.Invoke(new StatValueChangedEventArgs(value, newVal));
+
+        value = newVal;
     }
 
+    public class StatValueChangedEventArgs
+    {
+        public float previousValue;
+        public float newValue;
+        public StatValueChangedEventArgs(float previousValue, float newValue)
+        {
+            this.previousValue = previousValue;
+            this.newValue = newValue;
+        }
+    }
 
     [Serializable]
     public class StatModifier

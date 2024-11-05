@@ -12,8 +12,8 @@ namespace Giacomo
         [DisableInEditorMode] public Vector3 positionOffset;
 
         public event Action OnArrive;
+        public List<Tile> path;
 
-        protected List<Tile> path;
         protected int currentTileIndex;
         protected Vector3 nextTargetPosition;
 

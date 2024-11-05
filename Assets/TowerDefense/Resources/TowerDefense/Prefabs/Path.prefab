@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   position: {x: 0, y: 0}
-  IsWalkable: 0
+  IsWalkable: 1
   isHome: 0
   canBuildOver: 0
   tower: {fileID: 0}

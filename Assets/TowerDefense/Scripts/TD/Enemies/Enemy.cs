@@ -1,8 +1,3 @@
-using Sirenix.OdinInspector;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace Giacomo
@@ -11,25 +6,32 @@ namespace Giacomo
     {
         public float b_moveSpeed = 1;
         public int b_damageToTower = 1;
+        public int moneyReward = 10;
 
         public FollowPathMovement movement;
 
         public EffectHandler EffectHandler;
 
-        protected override void Initialize()
+        public override void Initialize()
         {
+            if (isInitialized) return;
             base.Initialize();
 
             if(!TryGetComponent(out EffectHandler))
                 EffectHandler = gameObject.AddComponent<EffectHandler>();
+            
+            stats.AddStat("moveSpeed", b_moveSpeed, 0);
+            stats.AddStat("damageToTower", b_damageToTower, 0);
 
             GameManager.AddEnemy(this);
+
             movement = GetComponent<FollowPathMovement>();
             movement.SetDestination(GridManager.Instance.GetHome());
             movement.OnArrive += ReachedHomeTile;
+            if (movement.path?.Count <= 1)
+                Debug.LogError($"Path not found ({name})", gameObject);
 
-            stats.AddStat("moveSpeed", b_moveSpeed, 0);
-            stats.AddStat("damageToTower", b_damageToTower, 0);
+            isInitialized = true;
         }
 
         private void Update()
@@ -51,6 +53,8 @@ namespace Giacomo
 
         protected void Die()
         {
+            GameStats.Instance.ModifyCoins(moneyReward);
+
             GameManager.RemoveEnemy(this);
             Destroy(gameObject);
         }

@@ -4916,11 +4916,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 25
-  b_maxHealth: 30
+  b_maxHealth: 20
   isAlive: 1
   stats: {fileID: 0}
-  b_moveSpeed: 1.7
+  b_moveSpeed: 2
   b_damageToTower: 1
+  moneyReward: 5
   movement: {fileID: 298876572304416505}
   EffectHandler: {fileID: 0}
 --- !u!114 &298876572304416505
@@ -4938,6 +4939,7 @@ MonoBehaviour:
   startTile: {fileID: 0}
   destinationTile: {fileID: 0}
   positionOffset: {x: 0, y: 0, z: 0}
+  path: []
 --- !u!58 &3020634580567556648
 CircleCollider2D:
   m_ObjectHideFlags: 0

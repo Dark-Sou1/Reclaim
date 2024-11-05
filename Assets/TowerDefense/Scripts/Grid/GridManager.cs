@@ -8,10 +8,13 @@ namespace Giacomo
     public class GridManager : Singleton<GridManager>
     {
         [ShowInInspector] Dictionary<Vector2Int, Tile> tiles;
+
+        public bool isSetup;
         protected void Awake()
         {
             tiles = new Dictionary<Vector2Int, Tile>();
-            BroadcastMessage("SetupGrid");
+            BroadcastMessage("SetupTile");
+            isSetup = true;
         }
 
 

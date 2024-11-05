@@ -4916,7 +4916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 50
-  b_maxHealth: 50
+  b_maxHealth: 35
   isAlive: 1
   stats: {fileID: 0}
   b_moveSpeed: 1
@@ -4938,6 +4938,7 @@ MonoBehaviour:
   startTile: {fileID: 0}
   destinationTile: {fileID: 0}
   positionOffset: {x: 0, y: 0, z: 0}
+  path: []
 --- !u!58 &6122133733019106477
 CircleCollider2D:
   m_ObjectHideFlags: 0
