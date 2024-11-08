@@ -7,8 +7,9 @@ namespace Giacomo
     public class GameManager : Singleton<GameManager>
     {
         public static int gameTickFrequency = 20;
-        public List<Enemy> enemies;
 
+        public static List<Enemy> Enemies => Instance.enemies;
+        public List<Enemy> enemies;
 
         private void Awake()
         {
@@ -27,7 +28,6 @@ namespace Giacomo
                 Instance.enemies.Remove(enemy);
         }
 
-        public static List<Enemy> GetEnemies() => Instance.enemies;
 
         public void LoseGame()
         {

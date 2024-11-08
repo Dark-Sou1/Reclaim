@@ -11,8 +11,10 @@ namespace Giacomo
         public int startSpawningAfterWaves = 0;
         public List<Wave> waves;
 
-        public bool finishedWaves;
         public bool disableAtLastWave;
+
+        public bool isSpawning;
+        public bool finishedWaves;
 
         protected int wavesWhileActive;
         protected int currentWaveIndex;
@@ -44,6 +46,7 @@ namespace Giacomo
 
         protected IEnumerator SpawnWaveCoroutine()
         {
+            isSpawning = true;
             Wave wave = waves[currentWaveIndex];
             for (int i = 0; i < wave.amount; i++)
             {
@@ -59,6 +62,7 @@ namespace Giacomo
                     yield return Helpers.GetWait(e.delay);
                 }
             }
+            isSpawning = false;
         }
     }
 
@@ -87,7 +91,6 @@ namespace Giacomo
         [Serializable]
         public class AdvancedSettings
         {
-            public List<int> spawnOrder;
             public float customDelayAfterWave = -1;
             public float hpMultiplier = 1;
         }

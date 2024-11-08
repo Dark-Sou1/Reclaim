@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Giacomo
@@ -18,6 +16,8 @@ namespace Giacomo
 
         [Header("Advanced")]
         public Transform cannon;
+        public Transform maxRangeIndicator;
+        public Transform minRangeIndicator;
         public float attackAngleThreshold = 5;
         public bool rotateTowardsTarget = true;
 
@@ -32,7 +32,25 @@ namespace Giacomo
             stats.AddStat("minRange", b_minRange, 0);
             stats.AddStat("damage", b_damage, 0);
             stats.AddStat("attackSpeed", b_attackSpeed, 0);
+            stats["maxRange"].OnValueChanged += UpdateRangeIndicators;
+            stats["minRange"].OnValueChanged += UpdateRangeIndicators;
+            UpdateRangeIndicators(null);
         }
+
+        protected void UpdateRangeIndicators(Stat.StatValueChangedEventArgs args)
+        {
+            if (maxRangeIndicator)
+            {
+                float max = stats["maxRange"] * 2;
+                maxRangeIndicator.localScale = new Vector3(max, max);
+            }
+            if (minRangeIndicator)
+            {
+                float min = stats["minRange"] * 2;
+                minRangeIndicator.localScale = new Vector3(min, min);
+            }
+        }
+
 
         private void Update()
         {
@@ -97,7 +115,7 @@ namespace Giacomo
         {
             Enemy bestEnemy = null;
             float bestDistance = float.MaxValue;
-            foreach (Enemy e in GameManager.GetEnemies())
+            foreach (Enemy e in GameManager.Enemies)
             {
                 if (!IsValidTarget(e))
                     continue;

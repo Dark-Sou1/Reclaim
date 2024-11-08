@@ -48,21 +48,23 @@ MonoBehaviour:
   stats: {fileID: 0}
   effects: {fileID: 0}
   cost: 50
-  placingPreview: {fileID: 8119239187962549065, guid: c99976373a4233e42aef01bed929c257, type: 3}
-  shopIcon: {fileID: 8119239187962549065, guid: c99976373a4233e42aef01bed929c257, type: 3}
+  placingPreview: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
+  shopIcon: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   b_rotationSpeed: 180
   b_maxRange: 3
   b_minRange: 0
-  b_damage: 5
-  b_attackSpeed: 1
+  b_damage: 3
+  b_attackSpeed: 1.5
   cannon: {fileID: 6944747023187206097}
+  maxRangeIndicator: {fileID: 0}
+  minRangeIndicator: {fileID: 0}
   attackAngleThreshold: 5
   rotateTowardsTarget: 1
   target: {fileID: 0}
-  projectilePrefab: {fileID: 8598423996874606982, guid: 87ca5140c912f71448bc74b68ca0074a, type: 3}
+  projectilePrefab: {fileID: 8598423996874606982, guid: e6194e598376ae141aa03420272ff9e2, type: 3}
   bulletSpawnpoint: {fileID: 8621983799480754852}
   b_projectileSpeed: 5
-  b_splashDamageArea: 0
+  b_splashDamageArea: 0.75
   b_projectileLifetime: 10
 --- !u!1 &3213607579433340139
 GameObject:
@@ -105,7 +107,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3213607579433340139}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -115,6 +117,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -163,11 +168,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShadowGroup: 0
-  m_ComponentVersion: 1
+  m_Priority: 1
+  m_ComponentVersion: 5
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: 0000000085e95a79
   m_ShapePath:
   - {x: -0.16591859, y: -0.17131186, z: 0}
@@ -180,11 +187,31 @@ MonoBehaviour:
   - {x: 0.17400837, y: -0.16591859, z: 0}
   - {x: 0.0030415058, y: -0.2324357, z: 0}
   m_ShapePathHash: 587270839
-  m_Mesh: {fileID: 0}
   m_InstanceId: 71356
-  m_LocalBounds:
-    m_Center: {x: 0.0030415952, y: 0.11165485, z: 0}
-    m_Extent: {x: 0.23460332, y: 0.34409055, z: 0}
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.0030415952, y: 0.11165485, z: 0}
+      m_Extent: {x: 0.23460332, y: 0.34409055, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &5817201754520451289
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +325,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -322,7 +352,7 @@ SpriteRenderer:
   m_SortingLayerID: -723450557
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8119239187962549065, guid: c99976373a4233e42aef01bed929c257, type: 3}
+  m_Sprite: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

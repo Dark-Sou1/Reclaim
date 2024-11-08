@@ -18,7 +18,7 @@ namespace Giacomo
 
         protected void UpdateHealthBar()
         {
-            slider.value = targetable.currentHealth / targetable.b_maxHealth;
+            slider.value = targetable.currentHealth / targetable.stats["maxHealth"];
         }
     }
 }

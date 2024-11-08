@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Giacomo
 {
-    public class StunTower : AttackingTower 
+    public class StunTower : AttackingTower
     {
 
         [Header("Stun stats")]
@@ -19,7 +19,7 @@ namespace Giacomo
 
         protected override void Attack()
         {
-            foreach (Enemy e in GameManager.GetEnemies())
+            foreach (Enemy e in GameManager.Enemies)
             {
                 var dist = Vector2.Distance(transform.position, e.transform.position);
                 if (dist < stats["minRange"] || dist > stats["maxRange"]) continue;
@@ -33,7 +33,15 @@ namespace Giacomo
                 stunEffect.AddModifier("moveSpeed", "stun", multiply: 0);
                 eh.AddEffect("stun", stunEffect, stats["stunDuration"]);
             }
+            StartCoroutine(AttackEffect());
+        }
+
+        //does not work with high fire rates. to fix I'd need to increase the animation speed (but this is fine for now)
+        protected IEnumerator AttackEffect()
+        {
+            maxRangeIndicator.gameObject.SetActive(true);
+            yield return Helpers.GetWait(0.2f);
+            maxRangeIndicator.gameObject.SetActive(false);
         }
     }
-
 }

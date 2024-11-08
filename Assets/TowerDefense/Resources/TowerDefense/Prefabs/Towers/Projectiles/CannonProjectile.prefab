@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7893556399832548471}
   - component: {fileID: 5627702797345443952}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: CannonProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3913066007486096084, guid: c99976373a4233e42aef01bed929c257, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -6328272545065174605, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

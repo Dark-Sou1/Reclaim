@@ -30,7 +30,7 @@ namespace Giacomo
             tile.position = position;
         }
 
-        public List<Tile> GetNeighbors(Vector2Int position)
+        public List<Tile> GetAdjacentTiles(Vector2Int position)
         {
             List<Tile> neighbors = new List<Tile>();
 

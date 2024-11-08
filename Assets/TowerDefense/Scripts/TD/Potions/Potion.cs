@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -10,9 +11,12 @@ namespace Giacomo
         public Sprite icon;
         public float cooldown;
 
-
-        protected bool isSelected;
+        public float NextAvailableTime => nextAvailableTime;
         protected float nextAvailableTime;
+        protected bool isSelected;
+
+        public event Action OnUsed;
+
         public void Use() 
         {
             if(isSelected) 
@@ -45,10 +49,13 @@ namespace Giacomo
                 }
 
                 var mousePos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
+                
                 PlayPotion(mousePos);
-                InputManager.Instance.SetPotionStatus(false);
+                
                 isSelected = false;
+                InputManager.Instance.SetPotionStatus(false);
                 nextAvailableTime = Time.time + cooldown;
+                OnUsed?.Invoke();
             }
         }
 

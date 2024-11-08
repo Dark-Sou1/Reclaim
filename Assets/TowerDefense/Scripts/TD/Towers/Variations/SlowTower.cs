@@ -19,7 +19,7 @@ namespace Giacomo
 
         protected override void Attack()
         {
-            foreach(Enemy e in GameManager.GetEnemies())
+            foreach(Enemy e in GameManager.Enemies)
             {
                 var dist = Vector2.Distance(transform.position, e.transform.position);
                 if (dist < stats["minRange"] || dist > stats["maxRange"]) continue;

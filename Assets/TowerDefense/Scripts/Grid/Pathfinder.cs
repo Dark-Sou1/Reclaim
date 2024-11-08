@@ -29,7 +29,7 @@ namespace Giacomo
                     return RetracePath(tileData[startTile], tileData[endTile]);
 
 
-                foreach (Tile neighbour in grid.GetNeighbors(currentTile.originalTile.position))
+                foreach (Tile neighbour in grid.GetAdjacentTiles(currentTile.originalTile.position))
                 {
                     if (!neighbour || !neighbour.IsWalkable || closedSet.Contains(neighbour))
                         continue;

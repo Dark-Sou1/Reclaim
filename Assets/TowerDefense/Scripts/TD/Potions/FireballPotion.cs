@@ -12,7 +12,7 @@ namespace Giacomo
 
         public override void PlayPotion(Vector2 position)
         {
-            foreach(Enemy e in GameManager.GetEnemies())
+            foreach(Enemy e in GameManager.Enemies)
             {
                 if (Vector2.Distance(e.transform.position, position) > range)
                     continue;

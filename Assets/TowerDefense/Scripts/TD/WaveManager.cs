@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace Giacomo
 {
@@ -9,13 +10,19 @@ namespace Giacomo
     {
         public float defaultWaveDelay;
         [SerializeField] GameObject resumeSpawningButton;
+        public bool SpawningPaused => spawningPaused;
         [SerializeField] protected bool spawningPaused;
-
         public int CurrentWave => currentWave;
         protected int currentWave;
-        protected Spawner[] spawners;
-    
+        public float NextWaveTime => nextWaveTime;
+        protected float nextWaveTime;
+
+        public bool isSpawningEnemies { get; protected set; }
+
         public event Action<int> SpawningNewWave;
+        public event Action FinishedSpawningWave;
+
+        protected Spawner[] spawners;
 
         private void Start()
         {
@@ -48,6 +55,7 @@ namespace Giacomo
         {
             spawningPaused = false;
             resumeSpawningButton?.SetActive(false);
+            nextWaveTime = Time.time;
             
         }
 
@@ -58,6 +66,7 @@ namespace Giacomo
                 if (spawningPaused)
                     yield return new WaitUntil(() => !spawningPaused);
 
+                isSpawningEnemies = true;
                 SpawningNewWave?.Invoke(currentWave);
                 float maxDelay = -1;
                 foreach (Spawner spawner in spawners)
@@ -67,13 +76,21 @@ namespace Giacomo
                 }
 
                 if (maxDelay <= 0)
-                    yield return Helpers.GetWait(defaultWaveDelay);
+                    nextWaveTime = Time.time + defaultWaveDelay;
                 else
-                    yield return Helpers.GetWait(maxDelay);
-            
+                    nextWaveTime = Time.time + maxDelay;
+
+                yield return new WaitUntil(() => spawners.All(x => x.isSpawning == false));
+                FinishedSpawningWave?.Invoke();
+                isSpawningEnemies = false;
+
+                yield return new WaitUntil(IsTimerOver);
                 currentWave++;
             }
         }
+
+        protected bool IsTimerOver() => nextWaveTime <= Time.time;
+
 
         protected bool CheckGameOver()
         {

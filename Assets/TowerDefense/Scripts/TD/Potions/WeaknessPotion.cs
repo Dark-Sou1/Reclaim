@@ -11,7 +11,7 @@ namespace Giacomo
 
         public override void PlayPotion(Vector2 position)
         {
-            foreach (Enemy e in GameManager.GetEnemies())
+            foreach (Enemy e in GameManager.Enemies)
             {
                 StatModifierEffect effect = new StatModifierEffect(e.stats);
                 effect.AddModifier("damageTakenMultiplier", "weakness", multiply: damageMultiplier);

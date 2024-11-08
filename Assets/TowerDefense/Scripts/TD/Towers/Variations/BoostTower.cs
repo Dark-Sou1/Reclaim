@@ -22,7 +22,7 @@ namespace Giacomo
             if (Time.time < nextBoostTime) return;
             nextBoostTime = Time.time + 1f / boostFrequency;
 
-            foreach (var t in GridManager.Instance.GetNeighbors(GridManager.FixCoordinates(transform.position)))
+            foreach (var t in GridManager.Instance.GetAdjacentTiles(GridManager.FixCoordinates(transform.position)))
             {
                 var tower = t.GetComponentInChildren<AttackingTower>();
                 if (!tower) continue;

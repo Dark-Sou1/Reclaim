@@ -30,7 +30,7 @@ namespace Giacomo
         {
             yield return Helpers.GetWait(1);
             WaveManager.Instance.PauseSpawning(false);
-            yield return new WaitUntil(() => GameManager.GetEnemies().Count == 0);
+            yield return new WaitUntil(() => GameManager.Enemies.Count == 0);
             yield return Helpers.GetWait(1);
 
             foreach (GameObject obj in expansion.objects)

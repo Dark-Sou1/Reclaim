@@ -12,7 +12,7 @@ namespace Giacomo
 
         private void Start()
         {
-            var neighbours = GridManager.Instance.GetNeighbors(position);
+            var neighbours = GridManager.Instance.GetAdjacentTiles(position);
             foreach (var neighbor in neighbours)
             {
                 if (!neighbor.type.Equals(type))
