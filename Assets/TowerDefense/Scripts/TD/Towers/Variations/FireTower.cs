@@ -7,7 +7,7 @@ namespace Giacomo
         [Header("Fire Attack")]
         public float b_burnDuration = 2;
         public float b_burnDPS = 5;
-        public Transform fireGO;
+        public ParticleSystem fireParticles;
         public Collider2D attackCollider;
 
         RaycastHit2D[] hit = new RaycastHit2D[50];
@@ -19,6 +19,7 @@ namespace Giacomo
             contactFilter.useTriggers = true;
             stats.AddStat("burnDuration", b_burnDuration);
             stats.AddStat("burnDPS", b_burnDPS);
+            fireParticles.Stop();
         }
 
         protected override void Attack()
@@ -38,5 +39,14 @@ namespace Giacomo
             }
         }
 
+        protected override void OnTargetFound()
+        {
+            fireParticles.Play();
+        }
+
+        protected override void OnTargetLost()
+        {
+            fireParticles.Stop();
+        }
     }
 }

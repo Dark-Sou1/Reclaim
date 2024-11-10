@@ -58,14 +58,22 @@ namespace Giacomo
         }
 
         private float nextShotTime;
+        private bool hadTargetLastFrame;
         protected virtual void UpdateAttack()
         {
             if (!IsValidTarget(target))
             {
+                if (hadTargetLastFrame)
+                    OnTargetLost();
+                hadTargetLastFrame = false;
+
                 FindNewTarget();
 
                 if (target == null)
                     return;
+
+                OnTargetFound();
+                hadTargetLastFrame = true;
             }
 
             RotateTowards(target.transform.position);
@@ -127,9 +135,14 @@ namespace Giacomo
                     bestEnemy = e;
                 }
             }
+
             target = bestEnemy;
             return target != null;
         }
+
+        protected virtual void OnTargetFound() { }
+        protected virtual void OnTargetLost() { }
+
 
         private void OnDrawGizmosSelected()
         {

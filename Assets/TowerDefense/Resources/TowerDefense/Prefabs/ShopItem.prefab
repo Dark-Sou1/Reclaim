@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea7f578bbb0cbd4396c06cad948c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortOrder: 0
   prefab: {fileID: 143269408887725404, guid: e54732859710dec4182905b753b9f8cf, type: 3}
   iconUI: {fileID: 4439425331214751238}
   costUI: {fileID: 5664449979461914851}
@@ -114,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.69803923, g: 0.27450982, b: 0.69464135, a: 0.09411765}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -177,7 +176,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1411057607529195204}
         m_TargetAssemblyTypeName: Giacomo.ShopItem, Assembly-CSharp
-        m_MethodName: Buy
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -252,7 +251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8488583679096227905, guid: c99976373a4233e42aef01bed929c257, type: 3}
+  m_Sprite: {fileID: -5614276131654334275, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

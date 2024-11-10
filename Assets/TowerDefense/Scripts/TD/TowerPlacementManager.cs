@@ -11,8 +11,9 @@ namespace Giacomo
     {
         public SpriteRenderer previewRenderer;
 
-        [ShowInInspector, ReadOnly] protected Tower placingTower;
-        protected Action OnPlace;
+        [ShowInInspector, ReadOnly] public Tower placingTower { get; private set; }
+        protected Action onPlace;
+        protected Action cancelPlacing;
 
 
         public void Update()
@@ -22,6 +23,7 @@ namespace Giacomo
 
             if (Input.GetKey(KeyCode.Escape))
             { 
+                cancelPlacing?.Invoke();
                 StopPlacing();
                 return;
             }
@@ -43,7 +45,7 @@ namespace Giacomo
                     var t = Instantiate(placingTower.gameObject).GetComponent<Tower>();
                     t.name = placingTower.name;
                     hoveringTile.PlaceTower(t);
-                    OnPlace?.Invoke();
+                    onPlace?.Invoke();
 
                     StopPlacing();
                     return;
@@ -65,12 +67,13 @@ namespace Giacomo
         public void StopPlacing()
         {
             placingTower = null;
-            OnPlace = null;
+            onPlace = null;
+            cancelPlacing = null;
             previewRenderer.enabled = false;
             InputManager.Instance.SetPlacingStatus(false);
         }
 
-        public void StartPlacing(Tower tower, Action onPlace = null)
+        public void StartPlacing(Tower tower, Action onPlace = null, Action cancelPlacing = null)
         {
             if (placingTower == tower)
             {
@@ -81,7 +84,8 @@ namespace Giacomo
             InputManager.Instance.SetPlacingStatus(true);
             placingTower = tower;
             previewRenderer.sprite = placingTower.placingPreview;
-            OnPlace = onPlace;
+            this.onPlace = onPlace;
+            this.cancelPlacing = cancelPlacing;
         }
     }
 }

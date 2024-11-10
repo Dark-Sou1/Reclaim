@@ -21,30 +21,35 @@ namespace Giacomo
             {
                 if (expansion.unlockAtWave == wave)
                 {
-                    StartCoroutine(UnlockMapAfterWave(expansion));
+                    StartCoroutine(UnlockMapExpansion(expansion));
                 }
             }
         }
 
-        public IEnumerator UnlockMapAfterWave(MapExpansion expansion)
+        public IEnumerator UnlockMapExpansion(MapExpansion expansion)
         {
             yield return Helpers.GetWait(1);
-            WaveManager.Instance.PauseSpawning(false);
+            if(expansion.pauseGame)
+                WaveManager.Instance.PauseSpawning(false);
             yield return new WaitUntil(() => GameManager.Enemies.Count == 0);
             yield return Helpers.GetWait(1);
 
             foreach (GameObject obj in expansion.objects)
                 obj.SetActive(true);
+            foreach (GameObject obj in expansion.disableObjects)
+                obj.SetActive(false);
             
-            WaveManager.Instance.ShowResumeButton();
+            if(expansion.pauseGame)
+                WaveManager.Instance.ShowResumeButton();
         }
 
         [System.Serializable]
         public class MapExpansion
         {
-            public List<GameObject> objects;
+            public List<GameObject> objects; //enableObjects
+            public List<GameObject> disableObjects;
             public int unlockAtWave;
+            public bool pauseGame = true;
         }
     }
-
 }

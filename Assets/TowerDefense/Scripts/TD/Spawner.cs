@@ -11,8 +11,6 @@ namespace Giacomo
         public int startSpawningAfterWaves = 0;
         public List<Wave> waves;
 
-        public bool disableAtLastWave;
-
         public bool isSpawning;
         public bool finishedWaves;
 
@@ -37,8 +35,6 @@ namespace Giacomo
             if(currentWaveIndex == waves.Count)
             {
                 finishedWaves = true;
-                if(disableAtLastWave)
-                    gameObject.SetActive(false);
             }
 
             return delayAfter;

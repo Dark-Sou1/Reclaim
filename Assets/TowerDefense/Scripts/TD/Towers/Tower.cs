@@ -23,5 +23,27 @@ public class Tower : MonoBehaviour
 
     protected virtual void Initialize() { }
 
+    protected void OnMouseDrag()
+    {
+        if(!InputManager.Instance.acceptInput)
+            return;
+        InputManager.Instance.SetMovingStatus(true);
+        this.Tile.tower = null;
+        TowerPlacementManager.Instance.StartPlacing(this, OnMoveAway, OnCancelMoving);
+        gameObject.SetActive(false);
+    }
+
+    protected void OnMoveAway()
+    {
+        Destroy(gameObject);
+        InputManager.Instance.SetMovingStatus(false);
+    }
+
+    protected void OnCancelMoving()
+    {
+        gameObject.SetActive(true);
+        this.Tile.PlaceTower(this);
+        InputManager.Instance.SetMovingStatus(false);
+    }
 
 }

@@ -11,6 +11,8 @@ namespace Giacomo
         public Sprite icon;
         public float cooldown;
 
+        [SerializeField] GameObject previewCursor;
+
         public float NextAvailableTime => nextAvailableTime;
         protected float nextAvailableTime;
         protected bool isSelected;
@@ -23,6 +25,7 @@ namespace Giacomo
             {
                 isSelected = false;
                 InputManager.Instance.SetPotionStatus(false);
+                previewCursor.SetActive(false);
                 return;
             }
 
@@ -33,6 +36,7 @@ namespace Giacomo
 
             isSelected = true;
             InputManager.Instance.SetPotionStatus(true);
+            previewCursor.SetActive(true);
         }
 
         private void Update()
@@ -53,6 +57,7 @@ namespace Giacomo
                 PlayPotion(mousePos);
                 
                 isSelected = false;
+                previewCursor.SetActive(false);
                 InputManager.Instance.SetPotionStatus(false);
                 nextAvailableTime = Time.time + cooldown;
                 OnUsed?.Invoke();

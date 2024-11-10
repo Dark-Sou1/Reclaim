@@ -7,14 +7,14 @@ using UnityEngine.UI;
 
 namespace Giacomo
 {
-    public class ShopItem : Interactable2D
+    public class ShopItem : MonoBehaviour
     {
         public GameObject prefab;
         public Image iconUI;
         public TMP_Text costUI;
 
         protected Tower tower;
-        protected override void ManagedInitialize()
+        protected void Awake()
         {
             tower = prefab.GetComponent<Tower>();
             iconUI.sprite = tower.shopIcon;
@@ -23,9 +23,14 @@ namespace Giacomo
             UpdatePriceColor();
         }
 
-        public void Buy()
+        public void Select()
         {
-            if (InputManager.Instance && !InputManager.Instance.acceptInput && !InputManager.Instance.placingTower)
+            if(TowerPlacementManager.Instance.placingTower == tower)
+            {
+                TowerPlacementManager.Instance.StopPlacing();
+                return;
+            }
+            if (InputManager.Instance && !InputManager.Instance.acceptInput)
                 return;
             if (GameStats.Instance && GameStats.Instance.coins < tower.cost)
                 return;

@@ -19,7 +19,7 @@ public class CircularLineRenderer : ManagedBehaviour
 
     private LineRenderer lineRenderer;
 
-    private void Awake()
+    protected override void ManagedInitialize()
     {
         lineRenderer = GetComponent<LineRenderer>();
         if(drawOnStart)
