@@ -2,15 +2,28 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   public float MaxTime = 0f;
+   public float HightRange = 0f;
+   public float timer;
+   public GameObject obstical;
+
     void Start()
     {
-        
+        Spawn(); 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (timer › MaxTime)
+SpawnPipe;
+        _timer = 0;
+        _timer += Time.deltaTime;
+    }
+    // Update is called once per frame
+    void Spawn()
+    {
+        Vector3 spawnPos = transform.position + new Vector3(0, Random.Range(-HightRange, HightRange));
+        GameObject pipe = Instantiate(obstical, spawnPos, Quaternion.identity);
+        Destroy(pipe, 10f);
     }
 }
