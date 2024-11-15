@@ -1,16 +1,38 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class gameover : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static gameover instance;
+    TextMeshProUGUI up;
+    TextMeshProUGUI down;
+    public GameObject deathscreen;
+
+    void Awake()
     {
-        
+        if (instance == null)
+            instance = this;
+    }
+    void Start()
+    {  
+        deathscreen.SetActive(false);
+        Time.timeScale = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        { Time.timeScale = 1f;
+            up.text = "";
+            down.text = "";    
+        }
+
+    }
+    // Update is called once per frame
+    public void Gameover()
+    {
+        deathscreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

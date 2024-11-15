@@ -20,4 +20,9 @@ public class flying : MonoBehaviour
         if (Mouse.current.rightButton.wasPressedThisFrame)
             rb.linearVelocity = Vector2.down * _velocity;
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameover.instance.Gameover();
+    }
 }
