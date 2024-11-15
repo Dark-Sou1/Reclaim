@@ -4,7 +4,7 @@ public class flying : MonoBehaviour
 {
 
     [SerializeField] public float _velocity = 0f;
-
+   
      public Rigidbody2D rb;
    
     void Start()
@@ -24,5 +24,9 @@ public class flying : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         gameover.instance.Gameover();
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        gameover.instance.Point();
     }
 }
