@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class movmeing : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] public float speed = 0f;
 
     // Update is called once per frame
     void Update()
     {
-        
+      transform.position += Vector3.left * speed * Time.deltaTime;
     }
 }
