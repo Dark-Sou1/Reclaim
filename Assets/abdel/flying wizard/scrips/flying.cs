@@ -17,5 +17,7 @@ public class flying : MonoBehaviour
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
             rb.linearVelocity = Vector2.up * _velocity;
+        if (Mouse.current.rightButton.wasPressedThisFrame)
+            rb.linearVelocity = Vector2.down * _velocity;
     }
 }
