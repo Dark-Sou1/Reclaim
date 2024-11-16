@@ -94,11 +94,12 @@ namespace Giacomo
 
         protected bool CheckGameOver()
         {
-            foreach(Spawner spawner in spawners)
-                if (!spawner.finishedWaves)
+            //TODO: have a fixed max wave in WaveManager
+            /*foreach(Spawner spawner in spawners)
+                if (!spawner.finishedWaves)*/
                     return false;
 
-            return true;
+            //return true;
         }
 
     }

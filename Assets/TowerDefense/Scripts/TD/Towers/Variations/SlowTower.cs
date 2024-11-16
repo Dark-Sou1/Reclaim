@@ -25,7 +25,7 @@ namespace Giacomo
                 if (dist < stats["minRange"] || dist > stats["maxRange"]) continue;
                 if (!e.TryGetComponent(out EffectHandler eh)) continue;
 
-                e.Damage(stats["damage"]);
+                e.Damage(stats["damage"] * Time.deltaTime);
 
 
                 if (e.stats.HasModifier("burn", "moveSpeed")) continue;

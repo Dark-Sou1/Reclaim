@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1679042965103390246}
   - component: {fileID: 5522203492493274359}
   - component: {fileID: -8063346384651002629}
+  - component: {fileID: -3428087962284545194}
   m_Layer: 0
   m_Name: CannonTower
   m_TagString: Untagged
@@ -48,14 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   effects: {fileID: 0}
-  cost: 50
+  cost: 75
   placingPreview: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   b_rotationSpeed: 180
-  b_maxRange: 3
+  b_maxRange: 4
   b_minRange: 0
-  b_damage: 3
-  b_attackSpeed: 1.5
+  b_damage: 7
+  b_attackSpeed: 2
   cannon: {fileID: 6944747023187206097}
   maxRangeIndicator: {fileID: 0}
   minRangeIndicator: {fileID: 0}
@@ -113,6 +114,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &-3428087962284545194
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2312358700089777820}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3213607579433340139
 GameObject:
   m_ObjectHideFlags: 0

@@ -67,6 +67,10 @@ namespace Giacomo
             GridManager.Instance.AddTile(position, this);
         }
 
+        public virtual void OnNearbyTileChanged()
+        {
+
+        }
 
         public bool CanPlace()
         {

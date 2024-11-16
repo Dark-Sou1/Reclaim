@@ -64,7 +64,7 @@ namespace Giacomo
 
         protected void TargetHit()
         {
-            if (splashArea == 0)
+            if (splashArea <= 0)
             {
                 target.Damage(damage);
             }

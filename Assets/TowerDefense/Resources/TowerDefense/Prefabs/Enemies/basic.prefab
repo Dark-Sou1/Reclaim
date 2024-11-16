@@ -4916,12 +4916,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 50
-  b_maxHealth: 35
+  b_maxHealth: 20
   isAlive: 1
   stats: {fileID: 0}
   b_moveSpeed: 1
   b_damageToTower: 1
-  moneyReward: 10
+  moneyReward: 4
   movement: {fileID: 0}
   EffectHandler: {fileID: 0}
 --- !u!114 &1911891959668728297

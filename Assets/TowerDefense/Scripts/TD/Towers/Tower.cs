@@ -27,6 +27,7 @@ public class Tower : MonoBehaviour
     {
         if(!InputManager.Instance.acceptInput)
             return;
+        Debug.Log(name);
         InputManager.Instance.SetMovingStatus(true);
         this.Tile.tower = null;
         TowerPlacementManager.Instance.StartPlacing(this, OnMoveAway, OnCancelMoving);

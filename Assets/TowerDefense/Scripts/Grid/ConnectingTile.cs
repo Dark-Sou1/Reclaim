@@ -12,6 +12,15 @@ namespace Giacomo
 
         private void Start()
         {
+            UpdateBorders();
+        }
+        public override void OnNearbyTileChanged()
+        {
+            UpdateBorders();
+        }
+
+        protected void UpdateBorders()
+        {
             var neighbours = GridManager.Instance.GetAdjacentTiles(position);
             foreach (var neighbor in neighbours)
             {
@@ -29,8 +38,8 @@ namespace Giacomo
                 if (diff == Vector2Int.down)
                     downBorder.SetActive(false);
             }
-        }
 
+        }
 
     }
 

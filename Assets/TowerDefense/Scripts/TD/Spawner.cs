@@ -12,10 +12,12 @@ namespace Giacomo
         public List<Wave> waves;
 
         public bool isSpawning;
-        public bool finishedWaves;
 
         protected int wavesWhileActive;
         protected int currentWaveIndex;
+
+        public float multiplyHpPerWave = 1.1f;
+
         public float SpawnNextWave()
         {
             if (!isActiveAndEnabled)
@@ -32,10 +34,8 @@ namespace Giacomo
             float delayAfter = waves[currentWaveIndex].advancedSettings.customDelayAfterWave;
 
             currentWaveIndex++;
-            if(currentWaveIndex == waves.Count)
-            {
-                finishedWaves = true;
-            }
+            if(currentWaveIndex >= waves.Count)
+                currentWaveIndex = 0;
 
             return delayAfter;
         }
@@ -49,11 +49,13 @@ namespace Giacomo
                 foreach (Wave.WaveEnemy e in wave.enemies)
                 {
                     var enemy = Instantiate(e.prefab, transform.position, Quaternion.identity).GetComponent<Enemy>();
+                    
+                    enemy.Initialize();
                     if (wave.advancedSettings.hpMultiplier != 1)
-                    {
-                        enemy.Initialize();
-                        enemy.stats.AddModifier("baseHpModifier", "maxHealth", multiply: wave.advancedSettings.hpMultiplier);
-                    }
+                        enemy.stats.AddModifier("waveCustomHealth", "maxHealth", multiply: wave.advancedSettings.hpMultiplier);
+                    
+                    float waveScaling = 1 + (WaveManager.Instance.CurrentWave * (multiplyHpPerWave - 1));
+                    enemy.stats.AddModifier("waveScaling", "maxHealth", multiply: waveScaling);
 
                     yield return Helpers.GetWait(e.delay);
                 }
@@ -61,8 +63,6 @@ namespace Giacomo
             isSpawning = false;
         }
     }
-
-
 
 
 

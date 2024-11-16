@@ -28,15 +28,18 @@ namespace Giacomo
 
         public IEnumerator UnlockMapExpansion(MapExpansion expansion)
         {
+            foreach (GameObject obj in expansion.disableObjectsBeforeWave)
+                obj.SetActive(false);
+
             yield return Helpers.GetWait(1);
             if(expansion.pauseGame)
                 WaveManager.Instance.PauseSpawning(false);
-            yield return new WaitUntil(() => GameManager.Enemies.Count == 0);
+            yield return new WaitUntil(() => GameManager.Enemies.Count == 0 && !WaveManager.Instance.isSpawningEnemies);
             yield return Helpers.GetWait(1);
 
             foreach (GameObject obj in expansion.objects)
                 obj.SetActive(true);
-            foreach (GameObject obj in expansion.disableObjects)
+            foreach (GameObject obj in expansion.disableObjectsAfterWave)
                 obj.SetActive(false);
             
             if(expansion.pauseGame)
@@ -46,8 +49,9 @@ namespace Giacomo
         [System.Serializable]
         public class MapExpansion
         {
-            public List<GameObject> objects; //enableObjects
-            public List<GameObject> disableObjects;
+            public List<GameObject> objects; //enableObjectsAfterWave
+            public List<GameObject> disableObjectsAfterWave;
+            public List<GameObject> disableObjectsBeforeWave;
             public int unlockAtWave;
             public bool pauseGame = true;
         }

@@ -28,6 +28,8 @@ namespace Giacomo
 
             tiles[position] = tile;
             tile.position = position;
+
+            GetAdjacentTiles(position).ForEach(x=>x.OnNearbyTileChanged());
         }
 
         public List<Tile> GetAdjacentTiles(Vector2Int position)
@@ -64,10 +66,12 @@ namespace Giacomo
         public void Remove(Tile tile)
         {
             tiles?.Remove(tiles.FirstOrDefault(x => x.Value == tile).Key);
+            GetAdjacentTiles(tile.position).ForEach(x=>x.OnNearbyTileChanged());
         }
         public void Remove(Vector2Int position)
         {
             tiles?.Remove(position);
+            GetAdjacentTiles(position).ForEach(x=>x.OnNearbyTileChanged());
         }
 
 

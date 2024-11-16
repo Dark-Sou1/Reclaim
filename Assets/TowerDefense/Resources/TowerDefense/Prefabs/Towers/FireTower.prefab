@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2959914068408384694}
   - component: {fileID: 3399822753291046652}
   - component: {fileID: -5241396943819277720}
+  - component: {fileID: 5255534212222839749}
   m_Layer: 0
   m_Name: FireTower
   m_TagString: Untagged
@@ -79,13 +80,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 0}
   effects: {fileID: 0}
-  cost: 100
+  cost: 150
   placingPreview: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   b_rotationSpeed: 180
-  b_maxRange: 2
+  b_maxRange: 2.5
   b_minRange: 0
-  b_damage: 5
+  b_damage: 4
   b_attackSpeed: 999
   cannon: {fileID: 2759899366994034821}
   maxRangeIndicator: {fileID: 0}
@@ -93,7 +94,7 @@ MonoBehaviour:
   attackAngleThreshold: 360
   rotateTowardsTarget: 1
   target: {fileID: 0}
-  b_burnDuration: 2
+  b_burnDuration: 3
   b_burnDPS: 5
   fireParticles: {fileID: 4868819765368545494}
   attackCollider: {fileID: 1090290185925106595}
@@ -143,6 +144,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &5255534212222839749
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965188775826439053}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4200971711654879236
 GameObject:
   m_ObjectHideFlags: 0
