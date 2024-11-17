@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 547628419}
   - component: {fileID: 547628418}
   - component: {fileID: 547628417}
+  - component: {fileID: 547628422}
   - component: {fileID: 547628421}
   m_Layer: 0
   m_Name: shield
@@ -433,7 +434,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 547628418}
   ThatWay: {x: 0, y: 0}
-  speed: 10
+  speed: 50
+--- !u!114 &547628422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547628416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 048f9a01d0bb8b44f990b7f71a2f8a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousePosition: {x: 0, y: 0, z: 0}
+  shield: {fileID: 547628418}
+  ThisWay: {x: 0, y: 0}
+  speed: 100
 --- !u!1 &1173493903
 GameObject:
   m_ObjectHideFlags: 0
