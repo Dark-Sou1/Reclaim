@@ -22,7 +22,7 @@ public class fireball : MonoBehaviour
     void SetRandomTrajectory()
     {
         Vector2 force = Vector2.zero;
-        force.x = Random.Range(-3f, 3f);
+        force.x = Random.Range(-1f, 1f);
         force.y = -1;
 
         fire.AddForce(force.normalized * speed);
