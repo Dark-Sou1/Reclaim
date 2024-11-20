@@ -13,9 +13,9 @@ namespace Giacomo
         RaycastHit2D[] hit = new RaycastHit2D[50];
         ContactFilter2D contactFilter = new ContactFilter2D();
 
-        protected override void Initialize()
+        protected override void ManagedInitialize()
         {
-            base.Initialize();
+            base.ManagedInitialize();
             contactFilter.useTriggers = true;
             stats.AddStat("burnDuration", b_burnDuration);
             stats.AddStat("burnDPS", b_burnDPS);
@@ -31,7 +31,7 @@ namespace Giacomo
                 if (!hit[i].collider.TryGetComponent(out Targetable t)) continue;
                 if (!hit[i].collider.TryGetComponent(out EffectHandler e)) continue;
 
-                t.Damage(stats["damage"] * Time.deltaTime);
+                t.Damage(stats["damage"] / stats["attackSpeed"].baseValue);
 
                 DamageOverTImeEffect burnEffect = new DamageOverTImeEffect(t, stats["burnDPS"]);
                 e.AddEffect("burn", burnEffect, stats["burnDuration"]);

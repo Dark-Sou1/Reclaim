@@ -7,14 +7,18 @@ namespace Giacomo
 {
     public class Projectile : MonoBehaviour
     {
-        [DisableInEditorMode] public float damage;
+        [DisableContextMenu] public float damage;
         [DisableInEditorMode] public float speed;
         [DisableInEditorMode] public float lifetime;
         [DisableInEditorMode] public float splashArea;
         [DisableInEditorMode] public Targetable target;
+        [DisableInEditorMode] public bool destroyIfTargetDied;
 
+        public GameObject impactEffect;
+
+        protected Vector3 lastTargetPosition;
         private bool isInitialized;
-        public void Initialize(float damage, float speed, float lifetime, float splashArea, Targetable target)
+        public void Initialize(float damage, float speed, float lifetime, float splashArea, Targetable target, bool destroyIfTargetDied)
         {
             isInitialized = true;
             this.damage = damage;
@@ -22,6 +26,7 @@ namespace Giacomo
             this.lifetime = lifetime;
             this.splashArea = splashArea;
             this.target = target;
+            this.destroyIfTargetDied = destroyIfTargetDied;
         }
 
         private float despawnTime;
@@ -34,13 +39,27 @@ namespace Giacomo
 
         private void Update()
         {
-            if (target == null || !target.isAlive || Time.time >= despawnTime)
+            if (Time.time >= despawnTime)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            if (MoveTowards(target.transform.position))
+            if (target == null || !target.isAlive)
+            {
+                if (destroyIfTargetDied)
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+            }
+            else
+            {
+                lastTargetPosition = target.transform.position;
+            }
+
+            
+            if (MoveTowards(lastTargetPosition))
             {
                 TargetHit();
                 Destroy(gameObject);
@@ -64,6 +83,11 @@ namespace Giacomo
 
         protected void TargetHit()
         {
+            GameObject impactGO = null;
+            if(impactEffect)
+                impactGO = Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(impactGO, .2f);
+
             if (splashArea <= 0)
             {
                 target.Damage(damage);
@@ -77,8 +101,10 @@ namespace Giacomo
                     if (targetable)
                         targetable.Damage(damage);
                 }
-            }
 
+                if(impactGO)
+                    impactGO.transform.localScale = Vector3.one * splashArea;
+            }
         }
 
     }

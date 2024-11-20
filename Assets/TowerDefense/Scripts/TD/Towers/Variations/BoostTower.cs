@@ -17,7 +17,7 @@ namespace Giacomo
 
 
         protected float nextBoostTime;
-        private void Update()
+        public override void ManagedUpdate()
         {
             if (Time.time < nextBoostTime) return;
             nextBoostTime = Time.time + 1f / boostFrequency;
@@ -30,9 +30,8 @@ namespace Giacomo
 
                 StatModifierEffect speedBoostEffect = new StatModifierEffect(tower.stats);
                 foreach(var buff in buffs)
-                {
                     speedBoostEffect.AddModifier(buff.stat, modifierName, buff.add, buff.multiply);
-                }
+                
 
                 tower.effects?.AddEffect("attackSpeedBoost", speedBoostEffect, boostDuration);
             }

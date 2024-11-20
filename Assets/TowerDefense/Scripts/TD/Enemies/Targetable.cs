@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Giacomo
 {
-    public class Targetable : MonoBehaviour
+    public class Targetable : ManagedBehaviour
     {
         [DisableInEditorMode]
         public float currentHealth = 0;
@@ -15,20 +15,13 @@ namespace Giacomo
         public bool isAlive = true;
 
         public event Action HealthChanged;
-
+        
+        [HideInInspector]
         public Stats stats;
 
-        public virtual void Start()
-        {
-            Initialize();
-        }
 
-        protected bool isInitialized;
-        public virtual void Initialize()
-        {
-            if(isInitialized) return;
-            isInitialized = true;
-
+        protected override void ManagedInitialize() 
+        { 
             stats = gameObject.AddComponent<Stats>();
             stats.AddStat("maxHealth", b_maxHealth);
             stats.AddStat("damageTakenMultiplier", 1);

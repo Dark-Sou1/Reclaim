@@ -47,25 +47,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc09c0ef993e4f44be2ac6b69fb6c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortOrder: 0
   stats: {fileID: 0}
   effects: {fileID: 0}
   cost: 75
   placingPreview: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
-  b_rotationSpeed: 180
-  b_maxRange: 4
+  scaleWithMaxRange: []
+  scaleWithMinRange: []
+  b_maxRange: 3.1
   b_minRange: 0
+  b_rotationSpeed: 180
   b_damage: 7
   b_attackSpeed: 2
   cannon: {fileID: 6944747023187206097}
-  maxRangeIndicator: {fileID: 0}
-  minRangeIndicator: {fileID: 0}
   attackAngleThreshold: 5
   rotateTowardsTarget: 1
   target: {fileID: 0}
   projectilePrefab: {fileID: 8598423996874606982, guid: e6194e598376ae141aa03420272ff9e2, type: 3}
   bulletSpawnpoint: {fileID: 8621983799480754852}
-  b_projectileSpeed: 5
+  destroyProjectileOnTargetDeath: 0
+  b_projectileSpeed: 3
   b_splashDamageArea: 0.75
   b_projectileLifetime: 10
 --- !u!61 &-8063346384651002629

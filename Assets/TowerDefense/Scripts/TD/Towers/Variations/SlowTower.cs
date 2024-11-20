@@ -9,10 +9,10 @@ namespace Giacomo
         [Header("Slow stats")]
         public float b_slowDuration = 2;
         public float b_slowAmount = .7f;
-        
-        protected override void Initialize()
+
+        protected override void ManagedInitialize()
         {
-            base.Initialize();
+            base.ManagedInitialize();
             stats.AddStat("slowDuration", b_slowDuration, 0);
             stats.AddStat("slowAmount", b_slowAmount, 0, 1);
         }
@@ -23,15 +23,14 @@ namespace Giacomo
             {
                 var dist = Vector2.Distance(transform.position, e.transform.position);
                 if (dist < stats["minRange"] || dist > stats["maxRange"]) continue;
-                if (!e.TryGetComponent(out EffectHandler eh)) continue;
 
-                e.Damage(stats["damage"] * Time.deltaTime);
+                e.Damage(stats["damage"] / stats["attackSpeed"].baseValue);
 
 
                 if (e.stats.HasModifier("burn", "moveSpeed")) continue;
                 StatModifierEffect slowEffect = new StatModifierEffect(e.stats);
                 slowEffect.AddModifier("moveSpeed", "freeze", multiply: stats["slowAmount"]);
-                eh.AddEffect("freeze", slowEffect, stats["slowDuration"]);
+                e.EffectHandler.AddEffect("freeze", slowEffect, stats["slowDuration"]);
             }
         }
     }

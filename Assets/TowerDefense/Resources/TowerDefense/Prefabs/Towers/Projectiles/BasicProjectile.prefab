@@ -105,3 +105,5 @@ MonoBehaviour:
   lifetime: 0
   splashArea: 0
   target: {fileID: 0}
+  destroyIfTargetDied: 0
+  impactEffect: {fileID: 8931608583448840551, guid: 3dea9e1c0789f3a4480c5195143552d4, type: 3}

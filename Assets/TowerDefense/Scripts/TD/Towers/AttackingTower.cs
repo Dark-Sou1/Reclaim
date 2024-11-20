@@ -2,13 +2,11 @@ using UnityEngine;
 
 namespace Giacomo
 {
-    public class AttackingTower : Tower
+    public abstract class AttackingTower : Tower
     {
         
         [Header("Tower Stats")]
         public float b_rotationSpeed = 180;
-        public float b_maxRange = 3;
-        public float b_minRange = 0;
 
         [Header("Attack")]
         public float b_damage = 5;
@@ -16,43 +14,23 @@ namespace Giacomo
 
         [Header("Advanced")]
         public Transform cannon;
-        public Transform maxRangeIndicator;
-        public Transform minRangeIndicator;
         public float attackAngleThreshold = 5;
         public bool rotateTowardsTarget = true;
 
         [Header("Runtime")]
         public Targetable target;
 
-
-        protected override void Initialize()
+        protected override void ManagedInitialize()
         {
+            base.ManagedInitialize();
             stats.AddStat("rotationSpeed", b_rotationSpeed, 0);
-            stats.AddStat("maxRange", b_maxRange, 0);
-            stats.AddStat("minRange", b_minRange, 0);
             stats.AddStat("damage", b_damage, 0);
             stats.AddStat("attackSpeed", b_attackSpeed, 0);
-            stats["maxRange"].OnValueChanged += UpdateRangeIndicators;
-            stats["minRange"].OnValueChanged += UpdateRangeIndicators;
-            UpdateRangeIndicators(null);
-        }
-
-        protected void UpdateRangeIndicators(Stat.StatValueChangedEventArgs args)
-        {
-            if (maxRangeIndicator)
-            {
-                float max = stats["maxRange"] * 2;
-                maxRangeIndicator.localScale = new Vector3(max, max);
-            }
-            if (minRangeIndicator)
-            {
-                float min = stats["minRange"] * 2;
-                minRangeIndicator.localScale = new Vector3(min, min);
-            }
         }
 
 
-        private void Update()
+
+        public override void ManagedUpdate()
         {
             UpdateAttack();
         }
@@ -86,10 +64,8 @@ namespace Giacomo
             Attack();
         }
 
-        protected virtual void Attack()
-        {
+        protected abstract void Attack();
 
-        }
 
         protected virtual bool IsValidTarget(Targetable t)
         {

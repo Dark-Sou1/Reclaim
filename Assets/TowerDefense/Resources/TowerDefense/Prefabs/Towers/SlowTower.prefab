@@ -79,19 +79,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc605cbf9c9d48049be0ba611ce09a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortOrder: 0
   stats: {fileID: 0}
   effects: {fileID: 0}
   cost: 100
   placingPreview: {fileID: -3924021315401183351, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: -3924021315401183351, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
-  b_rotationSpeed: 180
+  scaleWithMaxRange:
+  - {fileID: 7507854840275013784}
+  scaleWithMinRange: []
   b_maxRange: 3
   b_minRange: 0
+  b_rotationSpeed: 180
   b_damage: 1
-  b_attackSpeed: 5
+  b_attackSpeed: 4
   cannon: {fileID: 1999829596359873009}
-  maxRangeIndicator: {fileID: 7507854840275013784}
-  minRangeIndicator: {fileID: 0}
   attackAngleThreshold: 360
   rotateTowardsTarget: 0
   target: {fileID: 0}

@@ -50,15 +50,19 @@ public class CircularLineRenderer : ManagedBehaviour
         if (startDegree == -1) startDegree = this.startDegree;
         else this.startDegree = startDegree;
 
-        lineRenderer.loop = value == 1;
-        lineRenderer.useWorldSpace = false;
-        lineRenderer.startWidth = width;
-        lineRenderer.endWidth = width;
+        DrawCircle(lineRenderer, value, startDegree, width, radii, segments);
+    }
+    public static void DrawCircle(LineRenderer renderer, float value, int startDegree, float width, Vector2 radii, int segments)
+    {
+        renderer.loop = value == 1;
+        renderer.useWorldSpace = false;
+        renderer.startWidth = width;
+        renderer.endWidth = width;
 
         // add extra point to make startpoint and endpoint the same to close the circle
         int pointCount = (int)((segments + 1) * value); 
         var points = new Vector3[pointCount];
-        lineRenderer.positionCount = pointCount;
+        renderer.positionCount = pointCount;
 
         for (int i = 0; i < pointCount; i++)
         {
@@ -66,6 +70,6 @@ public class CircularLineRenderer : ManagedBehaviour
             points[i] = new Vector3(Mathf.Sin(rad) * radii.x, Mathf.Cos(rad) * radii.y, 0);
         }
 
-        lineRenderer.SetPositions(points);
+        renderer.SetPositions(points);
     }
 }

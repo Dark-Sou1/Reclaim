@@ -15,9 +15,15 @@ namespace Giacomo
         protected Action onPlace;
         protected Action cancelPlacing;
 
-
+        bool startedPlacingThisFrame;
         public void Update()
         {
+            if (startedPlacingThisFrame)
+            {
+                startedPlacingThisFrame = false;
+                return;
+            }
+
             if(placingTower == null)
                 return;
 
@@ -86,6 +92,7 @@ namespace Giacomo
             previewRenderer.sprite = placingTower.placingPreview;
             this.onPlace = onPlace;
             this.cancelPlacing = cancelPlacing;
+            startedPlacingThisFrame = true;
         }
     }
 }

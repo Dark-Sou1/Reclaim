@@ -11,13 +11,14 @@ namespace Giacomo
         [Header("Projectile")]
         public GameObject projectilePrefab;
         public Transform bulletSpawnpoint;
+        public bool destroyProjectileOnTargetDeath = true;
         public float b_projectileSpeed = 5;
         public float b_splashDamageArea = 0;
         public float b_projectileLifetime = 10;
 
-        protected override void Initialize()
+        protected override void ManagedInitialize()
         {
-            base.Initialize();
+            base.ManagedInitialize();
             stats.AddStat("projectileSpeed", b_projectileSpeed);
             stats.AddStat("splashDamageArea", b_splashDamageArea);
             stats.AddStat("projectileLifetime", b_projectileLifetime);
@@ -26,7 +27,7 @@ namespace Giacomo
         protected override void Attack()
         {
             GameObject go = Instantiate(projectilePrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-            go.GetComponent<Projectile>().Initialize(stats["damage"], stats["projectileSpeed"], stats["projectileLifetime"], stats["splashDamageArea"], target);
+            go.GetComponent<Projectile>().Initialize(stats["damage"], stats["projectileSpeed"], stats["projectileLifetime"], stats["splashDamageArea"], target, destroyProjectileOnTargetDeath);
         }
     }
 }

@@ -15,15 +15,7 @@ namespace Giacomo
             if(potion == null)
                 potion = GetComponentInParent<Potion>();
 
-            float range = 100;
-            if(potion is FireballPotion)
-            {
-                range = (potion as FireballPotion).range;
-            }                
-            else if (potion is PoisonPotion)
-            {
-                range = (potion as PoisonPotion).range;
-            }
+            float range = potion.range;
 
             transform.localScale = new Vector3(range, range);
         }

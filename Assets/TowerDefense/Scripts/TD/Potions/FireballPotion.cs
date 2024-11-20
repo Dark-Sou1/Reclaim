@@ -6,7 +6,6 @@ namespace Giacomo
 {
     public class FireballPotion : Potion 
     {
-        public float range = 2;
         public float damage = 80;
 
 

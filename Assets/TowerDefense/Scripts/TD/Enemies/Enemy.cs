@@ -10,12 +10,12 @@ namespace Giacomo
 
         public FollowPathMovement movement;
 
+        [HideInInspector]
         public EffectHandler EffectHandler;
 
-        public override void Initialize()
+        protected override void ManagedInitialize()
         {
-            if (isInitialized) return;
-            base.Initialize();
+            base.ManagedInitialize();
 
             if(!TryGetComponent(out EffectHandler))
                 EffectHandler = gameObject.AddComponent<EffectHandler>();
@@ -30,11 +30,9 @@ namespace Giacomo
             movement.OnArrive += ReachedHomeTile;
             if (movement.path?.Count <= 1)
                 Debug.LogError($"Path not found ({name})", gameObject);
-
-            isInitialized = true;
         }
 
-        private void Update()
+        public override void ManagedUpdate()
         {
             float moveAmount = stats["moveSpeed"] * Time.deltaTime;
             movement.Move(moveAmount);
@@ -59,7 +57,7 @@ namespace Giacomo
             Destroy(gameObject);
         }
 
-        private void LateUpdate()
+        public override void ManagedLateUpdate()
         {
             if (!isAlive)
             {

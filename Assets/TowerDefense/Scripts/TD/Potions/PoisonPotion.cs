@@ -6,7 +6,6 @@ namespace Giacomo
 {
     public class PoisonPotion : Potion
     {
-        public float range = 100;
         public float duration = 5;
         public float dps = 20;
 

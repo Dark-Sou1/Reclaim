@@ -8,8 +8,9 @@ namespace Giacomo
 {
     public abstract class Potion : MonoBehaviour
     {
-        public Sprite icon;
+        //public Sprite icon;
         public float cooldown;
+        public float range = 10;
 
         [SerializeField] GameObject previewCursor;
 
@@ -21,11 +22,10 @@ namespace Giacomo
 
         public void Use() 
         {
+            //CANCEL
             if(isSelected) 
             {
-                isSelected = false;
-                InputManager.Instance.SetPotionStatus(false);
-                previewCursor.SetActive(false);
+                CancelPlaying();
                 return;
             }
 
@@ -34,6 +34,7 @@ namespace Giacomo
             if (nextAvailableTime > Time.time)
                 return;
 
+            //SELECT
             isSelected = true;
             InputManager.Instance.SetPotionStatus(true);
             previewCursor.SetActive(true);
@@ -44,6 +45,13 @@ namespace Giacomo
             if (!isSelected)
                 return;
 
+            //CANCEL
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CancelPlaying();
+                return;
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (Helpers.IsOverUI)
@@ -52,6 +60,8 @@ namespace Giacomo
                     return;
                 }
 
+
+                //PLAY
                 var mousePos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
                 
                 PlayPotion(mousePos);
@@ -62,6 +72,13 @@ namespace Giacomo
                 nextAvailableTime = Time.time + cooldown;
                 OnUsed?.Invoke();
             }
+        }
+
+        protected void CancelPlaying()
+        {
+            isSelected = false;
+            previewCursor.SetActive(false);
+            InputManager.Instance.SetPotionStatus(false);
         }
 
 

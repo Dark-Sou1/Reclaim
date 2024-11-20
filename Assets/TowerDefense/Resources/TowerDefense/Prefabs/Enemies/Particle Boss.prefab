@@ -9790,6 +9790,7 @@ MonoBehaviour:
   stats: {fileID: 0}
   b_moveSpeed: 0.4
   b_damageToTower: 10
+  moneyReward: 10
   movement: {fileID: 0}
   EffectHandler: {fileID: 0}
 --- !u!114 &-2528387930600524228
@@ -9807,6 +9808,7 @@ MonoBehaviour:
   startTile: {fileID: 0}
   destinationTile: {fileID: 0}
   positionOffset: {x: 0, y: 0, z: 0}
+  path: []
 --- !u!58 &633048045297551352
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9851,7 +9853,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274225467547040574}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

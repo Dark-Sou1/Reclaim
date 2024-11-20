@@ -13,6 +13,9 @@ namespace Giacomo
         {
             foreach (Enemy e in GameManager.Enemies)
             {
+                if (Vector2.Distance(e.transform.position, position) > range)
+                    continue;
+
                 StatModifierEffect effect = new StatModifierEffect(e.stats);
                 effect.AddModifier("damageTakenMultiplier", "weakness", multiply: damageMultiplier);
 
