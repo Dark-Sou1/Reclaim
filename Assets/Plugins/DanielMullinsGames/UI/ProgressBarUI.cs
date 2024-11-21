@@ -38,7 +38,7 @@ public class ProgressBarUI : ManagedBehaviour
         else
         {
             bar.transform.localScale = GetBarScaleForProgress(CurrentProgressNormalized);
-            float fillDuration = (progressNormalized - CurrentProgressNormalized) / barFillSpeed;
+            float fillDuration = Mathf.Abs((progressNormalized - CurrentProgressNormalized) / barFillSpeed);
             OnFillStart();
             Tween.LocalScale(bar.transform, GetBarScaleForProgress(progressNormalized), fillDuration, 0f, fillAnimationCurve, completeCallback: () =>
             {
@@ -55,6 +55,6 @@ public class ProgressBarUI : ManagedBehaviour
 
     private Vector2 GetBarScaleForProgress(float progressNormalized)
     {
-        return new Vector2(bar.transform.localScale.x, Mathf.Clamp(progressNormalized, 0f, 1f) * fullBarScale);
+        return new Vector2(Mathf.Clamp(progressNormalized, 0f, 1f) * fullBarScale, bar.transform.localScale.y);
     }
 }

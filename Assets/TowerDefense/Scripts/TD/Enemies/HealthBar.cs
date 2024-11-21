@@ -5,20 +5,24 @@ using UnityEngine.UI;
 
 namespace Giacomo
 {
+    [RequireComponent(typeof(ProgressBarUI))]
     public class HealthBar : MonoBehaviour
     {
-        public Targetable targetable;
-        [SerializeField] protected Slider slider;
+        protected Targetable targetable;
+        protected ProgressBarUI healthProgressBar;
 
         private void Awake()
         {
             targetable = GetComponentInParent<Targetable>();
+            healthProgressBar = GetComponent<ProgressBarUI>();
             targetable.HealthChanged += UpdateHealthBar;
+            healthProgressBar.ShowProgress(1, true);
         }
 
         protected void UpdateHealthBar()
         {
-            slider.value = targetable.currentHealth / targetable.stats["maxHealth"];
+            float progress = targetable.currentHealth / targetable.stats["maxHealth"];
+            healthProgressBar.ShowProgress(progress);
         }
     }
 }
