@@ -7,24 +7,26 @@ namespace Giacomo
     public class StatModifierEffect : Effect
     {
         public Stats target;
-        protected Dictionary<string, StatModifier> modifiers;
+        protected List<StatModifier> modifiers;
+        protected string modifierName;
 
-        public StatModifierEffect(Stats target)
+        public StatModifierEffect(string modifierName, Stats target)
         {
-            modifiers = new Dictionary<string, StatModifier>();
+            modifiers = new();
             this.target = target;
+            this.modifierName = modifierName;
         }
 
-        public void AddModifier(string statName, string modifierName, float add = 0, float multiply = 1)
+        public void AddModifier(string statName, float add = 0, float multiply = 1)
         {
-            modifiers.Add(modifierName, new StatModifier(statName, add, multiply));
+            modifiers.Add(new StatModifier(statName, add, multiply));
         }
 
         public override void StartEffect()
         {
             foreach (var mod in modifiers)
             {
-                target.AddModifier(mod.Key, mod.Value.statName, mod.Value.add, mod.Value.multiply);
+                target.AddModifier(modifierName, mod.statName, mod.add, mod.multiply);
             }
         }
 
@@ -33,7 +35,7 @@ namespace Giacomo
         {
             foreach (var mod in modifiers)
             {
-                target.RemoveModifier(mod.Key, mod.Value.statName);
+                target.RemoveModifier(modifierName, mod.statName);
             }
         }
 

@@ -30,8 +30,8 @@ namespace Giacomo
 
                 if (Random.Range(0, 1f) > stats["stunChance"]) continue;
 
-                StatModifierEffect stunEffect = new StatModifierEffect(e.stats);
-                stunEffect.AddModifier("moveSpeed", "stun", multiply: 0);
+                StatModifierEffect stunEffect = new StatModifierEffect("stun", e.stats);
+                stunEffect.AddModifier("moveSpeed", multiply: 0);
                 e.EffectHandler.AddEffect("stun", stunEffect, stats["stunDuration"]);
             }
             StartCoroutine(AttackEffect());

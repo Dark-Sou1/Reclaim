@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 
 namespace Giacomo
@@ -15,18 +16,24 @@ namespace Giacomo
         protected Action onPlace;
         protected Action cancelPlacing;
 
+        [SerializeField]
+        protected LineRenderer rangePreview;
+
+
         bool startedPlacingThisFrame;
         public void Update()
         {
+            if(placingTower == null)
+                return;
+
+            //prevent placing the tower in the same frame it's being selected
             if (startedPlacingThisFrame)
             {
                 startedPlacingThisFrame = false;
                 return;
             }
 
-            if(placingTower == null)
-                return;
-
+            //cancel placing
             if (Input.GetKey(KeyCode.Escape))
             { 
                 cancelPlacing?.Invoke();
@@ -34,15 +41,13 @@ namespace Giacomo
                 return;
             }
 
+
+            //get current tile
             var mousePos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
-            Tile hoveringTile = GridManager.Instance.Get(mousePos);
+            var intCoords = GridManager.FixCoordinates(mousePos);
+            Tile hoveringTile = GridManager.Instance.Get(intCoords);
 
-            if (hoveringTile == null)
-            {
-                previewRenderer.enabled = false;
-                return;
-            }
-
+            //place tower
             if (Input.GetMouseButtonDown(0))
             {
                 if (hoveringTile != null && hoveringTile.CanPlace())
@@ -58,15 +63,19 @@ namespace Giacomo
                 }
             }
 
-            if (hoveringTile)
-            {
-                previewRenderer.transform.position = hoveringTile.transform.position;
-                previewRenderer.enabled = true;
 
-                if (hoveringTile.CanPlace())
-                    previewRenderer.color = Color.white;
-                else
-                    previewRenderer.color = Color.red;
+            //draw preview
+            Vector3 coords = new Vector3(intCoords.x, intCoords.y);
+            previewRenderer.transform.position = coords;
+            if (hoveringTile && hoveringTile.CanPlace())
+            {
+                previewRenderer.color = Color.white;
+
+            }
+            else
+            {
+                previewRenderer.color = Color.red;
+
             }
         }
 
@@ -75,7 +84,8 @@ namespace Giacomo
             placingTower = null;
             onPlace = null;
             cancelPlacing = null;
-            previewRenderer.enabled = false;
+            previewRenderer.sprite = null;
+            rangePreview.gameObject.SetActive(false);
             InputManager.Instance.SetPlacingStatus(false);
         }
 
@@ -86,6 +96,12 @@ namespace Giacomo
                 StopPlacing();
                 return;
             }
+
+            float range = tower.b_maxRange*2;
+            if (tower.stats)
+                range = tower.stats["maxRange"] * 2;
+            rangePreview.transform.localScale = Vector3.one * range;
+            rangePreview.gameObject.SetActive(true);
 
             InputManager.Instance.SetPlacingStatus(true);
             placingTower = tower;

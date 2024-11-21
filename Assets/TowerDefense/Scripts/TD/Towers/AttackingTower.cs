@@ -81,6 +81,8 @@ namespace Giacomo
 
         protected bool FacingTarget()
         {
+            if (attackAngleThreshold >= 360) 
+                return true;
             Vector3 directionToTarget = target.transform.position - cannon.position;
             float angleToTarget = Vector3.Angle(cannon.transform.up, directionToTarget);
             return angleToTarget < attackAngleThreshold;

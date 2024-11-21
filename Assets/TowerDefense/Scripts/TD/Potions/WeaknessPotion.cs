@@ -16,8 +16,8 @@ namespace Giacomo
                 if (Vector2.Distance(e.transform.position, position) > range)
                     continue;
 
-                StatModifierEffect effect = new StatModifierEffect(e.stats);
-                effect.AddModifier("damageTakenMultiplier", "weakness", multiply: damageMultiplier);
+                StatModifierEffect effect = new StatModifierEffect("weakness", e.stats);
+                effect.AddModifier("damageTakenMultiplier", multiply: damageMultiplier);
 
                 e.EffectHandler.AddEffect("weakness", effect, duration);
             }     

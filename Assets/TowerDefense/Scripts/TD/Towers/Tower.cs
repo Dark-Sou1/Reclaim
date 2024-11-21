@@ -25,7 +25,7 @@ namespace Giacomo
         [SerializeField, HideInInspector] Transform minRangeIndicator;
         [SerializeField, HideInInspector] Transform maxRangeIndicator;
 
-
+        protected bool placedThisFrame = true;
 
         protected override void ManagedInitialize()
         {
@@ -37,6 +37,12 @@ namespace Giacomo
             stats["maxRange"].OnValueChanged += UpdateRangeIndicators;
             stats["minRange"].OnValueChanged += UpdateRangeIndicators;
             SetupRangeIndicators();
+        }
+
+        public override void ManagedLateUpdate()
+        {
+            if (placedThisFrame)
+                placedThisFrame = false;
         }
 
         protected void SetupRangeIndicators()
@@ -96,7 +102,7 @@ namespace Giacomo
 
         protected override void OnCursorSelectStart()
         {
-            if (!InputManager.Instance.acceptInput)
+            if (!InputManager.Instance.acceptInput || placedThisFrame)
                 return;
 
             InputManager.Instance.SetMovingStatus(true);

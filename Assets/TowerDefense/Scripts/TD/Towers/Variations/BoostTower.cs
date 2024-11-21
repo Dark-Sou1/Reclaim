@@ -28,9 +28,9 @@ namespace Giacomo
                 if (!tower) continue;
 
 
-                StatModifierEffect speedBoostEffect = new StatModifierEffect(tower.stats);
+                StatModifierEffect speedBoostEffect = new StatModifierEffect(modifierName, tower.stats);
                 foreach(var buff in buffs)
-                    speedBoostEffect.AddModifier(buff.stat, modifierName, buff.add, buff.multiply);
+                    speedBoostEffect.AddModifier(buff.stat, buff.add, buff.multiply);
                 
 
                 tower.effects?.AddEffect("attackSpeedBoost", speedBoostEffect, boostDuration);

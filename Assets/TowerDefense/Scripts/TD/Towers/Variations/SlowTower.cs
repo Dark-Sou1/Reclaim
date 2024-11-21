@@ -28,8 +28,8 @@ namespace Giacomo
 
 
                 if (e.stats.HasModifier("burn", "moveSpeed")) continue;
-                StatModifierEffect slowEffect = new StatModifierEffect(e.stats);
-                slowEffect.AddModifier("moveSpeed", "freeze", multiply: stats["slowAmount"]);
+                StatModifierEffect slowEffect = new StatModifierEffect("freeze", e.stats);
+                slowEffect.AddModifier("moveSpeed", multiply: stats["slowAmount"]);
                 e.EffectHandler.AddEffect("freeze", slowEffect, stats["slowDuration"]);
             }
         }

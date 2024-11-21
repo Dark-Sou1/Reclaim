@@ -53,13 +53,21 @@ MonoBehaviour:
   cost: 100
   placingPreview: {fileID: 5045188630873096290, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 5045188630873096290, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
+  b_maxRange: 0
+  b_minRange: 0
   scaleWithMaxRange: []
   scaleWithMinRange: []
-  b_maxRange: 1
-  b_minRange: 0
+  minRangeIndicator: {fileID: 0}
+  maxRangeIndicator: {fileID: 0}
   modifierName: attackSpeedBoostTower
   buffs:
   - stat: attackSpeed
+    add: 0
+    multiply: 1.5
+  - stat: maxRange
+    add: 0
+    multiply: 1.5
+  - stat: minRange
     add: 0
     multiply: 1.5
 --- !u!61 &-3641711824607459403
