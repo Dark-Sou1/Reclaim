@@ -9,12 +9,7 @@ namespace Giacomo
         public static int gameTickFrequency = 20;
 
         public static List<Enemy> Enemies => Instance.enemies;
-        public List<Enemy> enemies;
-
-        private void Awake()
-        {
-            enemies = new List<Enemy>();
-        }
+        public List<Enemy> enemies = new List<Enemy>();
 
         public static void AddEnemy(Enemy enemy)
         {

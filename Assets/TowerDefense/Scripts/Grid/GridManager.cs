@@ -12,6 +12,7 @@ namespace Giacomo
         public bool isSetup;
         protected void Awake()
         {
+            if (isSetup) return;
             tiles = new Dictionary<Vector2Int, Tile>();
             BroadcastMessage("SetupTile");
             isSetup = true;
@@ -50,6 +51,8 @@ namespace Giacomo
 
         public Tile GetHome()
         {
+            if (!isSetup)
+                Awake();
             return tiles.FirstOrDefault(x => x.Value.isHome).Value;
         }
 
