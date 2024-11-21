@@ -5,6 +5,7 @@ namespace Giacomo
     public class Enemy : Targetable
     {
         public float b_moveSpeed = 1;
+        public float maxPositionOffset = 0.25f;
         public int b_damageToTower = 1;
         public int moneyReward = 10;
 
@@ -23,13 +24,17 @@ namespace Giacomo
             stats.AddStat("moveSpeed", b_moveSpeed, 0);
             stats.AddStat("damageToTower", b_damageToTower, 0);
 
-            GameManager.AddEnemy(this);
-
             movement = GetComponent<FollowPathMovement>();
+            Vector2 positionOffset = new Vector2(
+                Random.Range(-maxPositionOffset, maxPositionOffset),
+                Random.Range(-maxPositionOffset, maxPositionOffset));
+            movement.SetPositionOffset(positionOffset);
             movement.SetDestination(GridManager.Instance.GetHome());
             movement.OnArrive += ReachedHomeTile;
             if (movement.path?.Count <= 1)
                 Debug.LogError($"Path not found ({name})", gameObject);
+
+            GameManager.AddEnemy(this);
         }
 
         public override void ManagedUpdate()

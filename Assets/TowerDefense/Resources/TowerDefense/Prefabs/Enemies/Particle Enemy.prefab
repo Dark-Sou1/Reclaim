@@ -4873,6 +4873,7 @@ MonoBehaviour:
   isAlive: 1
   stats: {fileID: 0}
   b_moveSpeed: 0.8
+  maxPositionOffset: 0.1
   b_damageToTower: 3
   moneyReward: 10
   movement: {fileID: 0}

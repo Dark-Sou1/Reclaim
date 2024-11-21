@@ -20,6 +20,11 @@ namespace Giacomo
         Tile CurrentTile => GridManager.Instance.Get(transform.position);
 
 
+        public void SetPositionOffset(Vector2 positionOffset)
+        {
+            this.positionOffset = positionOffset;
+        }
+
         public void SetDestination(Tile destination)
         {
             destinationTile = destination;
