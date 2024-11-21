@@ -112,10 +112,11 @@ namespace Giacomo
             float res = baseValue * multiply + add;
             float newVal = Mathf.Clamp(res, minValue, maxValue);
 
-            if (newVal != value)
-                OnValueChanged?.Invoke(new StatValueChangedEventArgs(value, newVal));
-
+            float previousValue = value;
             value = newVal;
+
+            if (previousValue != newVal)
+                OnValueChanged?.Invoke(new StatValueChangedEventArgs(previousValue, newVal));
         }
 
         public class StatValueChangedEventArgs
