@@ -9,20 +9,23 @@ namespace Giacomo
     public class HealthBar : MonoBehaviour
     {
         protected Targetable targetable;
-        protected ProgressBarUI healthProgressBar;
+        [SerializeField] protected ProgressBarUI healthProgressBar;
+        [SerializeField] protected ProgressBarUI damageProgressBar;
 
         private void Awake()
         {
             targetable = GetComponentInParent<Targetable>();
-            healthProgressBar = GetComponent<ProgressBarUI>();
+            //healthProgressBar = GetComponent<ProgressBarUI>();
             targetable.HealthChanged += UpdateHealthBar;
             healthProgressBar.ShowProgress(1, true);
+            damageProgressBar.ShowProgress(1, true);
         }
 
         protected void UpdateHealthBar()
         {
             float progress = targetable.currentHealth / targetable.stats["maxHealth"];
-            healthProgressBar.ShowProgress(progress);
+            healthProgressBar.ShowProgress(progress, true);
+            damageProgressBar.ShowProgress(progress);
         }
     }
 }

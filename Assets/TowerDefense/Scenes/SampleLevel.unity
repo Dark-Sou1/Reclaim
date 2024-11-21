@@ -10620,7 +10620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -136}
+  m_AnchoredPosition: {x: 0, y: -174}
   m_SizeDelta: {x: 277.04, y: 84.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1054098130
@@ -15192,18 +15192,21 @@ MonoBehaviour:
     - {fileID: 1054098128}
     unlockAtWave: 0
     pauseGame: 0
+    resetCameraPosition: 0
   - objects:
     - {fileID: 102907771}
     disableObjectsAfterWave: []
     disableObjectsBeforeWave: []
     unlockAtWave: 1
     pauseGame: 1
+    resetCameraPosition: 0
   - objects: []
     disableObjectsAfterWave: []
     disableObjectsBeforeWave:
     - {fileID: 102907771}
     unlockAtWave: 2
     pauseGame: 0
+    resetCameraPosition: 0
   - objects:
     - {fileID: 90341770}
     - {fileID: 237230283}
@@ -15211,12 +15214,14 @@ MonoBehaviour:
     disableObjectsBeforeWave: []
     unlockAtWave: 3
     pauseGame: 1
+    resetCameraPosition: 0
   - objects: []
     disableObjectsAfterWave: []
     disableObjectsBeforeWave:
     - {fileID: 237230283}
     unlockAtWave: 4
     pauseGame: 0
+    resetCameraPosition: 0
   - objects:
     - {fileID: 1206217359}
     - {fileID: 1658495297}
@@ -15225,6 +15230,7 @@ MonoBehaviour:
     disableObjectsBeforeWave: []
     unlockAtWave: 5
     pauseGame: 1
+    resetCameraPosition: 1
   - objects:
     - {fileID: 769796631}
     - {fileID: 1294713236}
@@ -15233,6 +15239,7 @@ MonoBehaviour:
     disableObjectsBeforeWave: []
     unlockAtWave: 10
     pauseGame: 1
+    resetCameraPosition: 1
   - objects:
     - {fileID: 2027498675}
     - {fileID: 1845205031}
@@ -15240,6 +15247,7 @@ MonoBehaviour:
     disableObjectsBeforeWave: []
     unlockAtWave: 15
     pauseGame: 1
+    resetCameraPosition: 1
   - objects:
     - {fileID: 827665650}
     - {fileID: 1512820508}
@@ -15247,6 +15255,7 @@ MonoBehaviour:
     disableObjectsBeforeWave: []
     unlockAtWave: 20
     pauseGame: 1
+    resetCameraPosition: 1
   - objects:
     - {fileID: 1903143053}
     - {fileID: 2119068991}
@@ -15256,6 +15265,7 @@ MonoBehaviour:
     disableObjectsBeforeWave: []
     unlockAtWave: 25
     pauseGame: 1
+    resetCameraPosition: 1
   - objects:
     - {fileID: 1733868346}
     - {fileID: 1591177469}
@@ -15266,6 +15276,7 @@ MonoBehaviour:
     disableObjectsBeforeWave: []
     unlockAtWave: 30
     pauseGame: 1
+    resetCameraPosition: 1
 --- !u!4 &1617164282
 Transform:
   m_ObjectHideFlags: 0
@@ -16678,6 +16689,7 @@ GameObject:
   - component: {fileID: 1773081145}
   - component: {fileID: 1773081147}
   - component: {fileID: 1773081146}
+  - component: {fileID: 1773081149}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16720,7 +16732,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 5.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16797,13 +16809,34 @@ Transform:
   m_GameObject: {fileID: 1773081144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2101862583}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1773081149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773081144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940504ad18059f34c91f78a415c9859f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -8
+  maxX: 8
+  minY: -6
+  maxY: 6
+  minZoom: 3.75
+  maxZoom: 9
+  zoomSpeed: 1
+  WASDSpeed: 1
+  lerpAmount: 0
 --- !u!1 &1776978166
 GameObject:
   m_ObjectHideFlags: 0

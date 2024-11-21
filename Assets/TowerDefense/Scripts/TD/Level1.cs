@@ -37,6 +37,12 @@ namespace Giacomo
             yield return new WaitUntil(() => GameManager.Enemies.Count == 0 && !WaveManager.Instance.isSpawningEnemies);
             yield return Helpers.GetWait(1);
 
+            if (expansion.resetCameraPosition && CameraMovement.Instance)
+            {
+                CameraMovement.Instance.SetPosition(Vector3.zero, 8.4375f);
+                yield return Helpers.GetWait(0.25f);
+            }
+
             foreach (GameObject obj in expansion.objects)
                 obj.SetActive(true);
             foreach (GameObject obj in expansion.disableObjectsAfterWave)
@@ -54,6 +60,7 @@ namespace Giacomo
             public List<GameObject> disableObjectsBeforeWave;
             public int unlockAtWave;
             public bool pauseGame = true;
+            public bool resetCameraPosition = false;
         }
     }
 }
