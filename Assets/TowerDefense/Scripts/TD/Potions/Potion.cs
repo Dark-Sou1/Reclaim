@@ -42,6 +42,11 @@ namespace Giacomo
 
         private void Update()
         {
+            //pause cooldown when spawning is paused
+            if (!WaveManager.Instance.SpawningPaused 
+                && GameManager.Instance.enemies.Count == 0)
+                nextAvailableTime += Time.deltaTime;
+
             if (!isSelected)
                 return;
 

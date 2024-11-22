@@ -23,6 +23,7 @@ namespace Giacomo
         public event Action FinishedSpawningWave;
 
         protected Spawner[] spawners;
+        protected bool gameStarted;
 
         private void Start()
         {
@@ -30,7 +31,7 @@ namespace Giacomo
             StartGame();
         }
 
-        protected bool gameStarted;
+
         public void StartGame()
         {
             if (gameStarted) return;
@@ -42,8 +43,8 @@ namespace Giacomo
         public void PauseSpawning(bool showResumeButton)
         {
             spawningPaused = true;
-            if(showResumeButton)
-                resumeSpawningButton?.SetActive(true);
+            if (showResumeButton)
+                ShowResumeButton();
         }
 
         public void ShowResumeButton()
@@ -51,10 +52,14 @@ namespace Giacomo
             resumeSpawningButton?.SetActive(true);
         }
 
+        protected void HideResumeBUtton()
+        {
+            resumeSpawningButton?.SetActive(false);
+        }
+
         public void ResumeSpawning()
         {
             spawningPaused = false;
-            resumeSpawningButton?.SetActive(false);
             nextWaveTime = Time.time;
             
         }
@@ -65,6 +70,8 @@ namespace Giacomo
             {
                 if (spawningPaused)
                     yield return new WaitUntil(() => !spawningPaused);
+
+                HideResumeBUtton();
 
                 isSpawningEnemies = true;
                 SpawningNewWave?.Invoke(currentWave);
