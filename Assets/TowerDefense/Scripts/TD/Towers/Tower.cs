@@ -29,8 +29,10 @@ namespace Giacomo
 
         protected override void ManagedInitialize()
         {
-            stats = gameObject.AddComponent<Stats>();
-            effects = gameObject.AddComponent<EffectHandler>();
+            if(!stats)
+                stats = gameObject.AddComponent<Stats>();
+            if(!effects)
+                effects = gameObject.AddComponent<EffectHandler>();
 
             stats.AddStat("maxRange", b_maxRange, 0);
             stats.AddStat("minRange", b_minRange, 0);
