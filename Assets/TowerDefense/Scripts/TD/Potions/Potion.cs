@@ -13,6 +13,7 @@ namespace Giacomo
         public float range = 10;
 
         [SerializeField] GameObject previewCursor;
+        [SerializeField] GameObject potionVFX;
 
         public float NextAvailableTime => nextAvailableTime;
         protected float nextAvailableTime;
@@ -43,8 +44,9 @@ namespace Giacomo
         private void Update()
         {
             //pause cooldown when spawning is paused
-            if (!WaveManager.Instance.SpawningPaused 
-                && GameManager.Instance.enemies.Count == 0)
+            if (!WaveManager.Instance.isSpawningEnemies 
+                && GameManager.Instance.enemies.Count == 0
+                && WaveManager.Instance.SpawningPaused)
                 nextAvailableTime += Time.deltaTime;
 
             if (!isSelected)
@@ -70,7 +72,12 @@ namespace Giacomo
                 var mousePos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
                 
                 PlayPotion(mousePos);
-                
+                if (potionVFX)
+                {
+                    potionVFX.transform.position = mousePos;
+                    potionVFX.SetActive(true);
+                }
+
                 isSelected = false;
                 previewCursor.SetActive(false);
                 InputManager.Instance.SetPotionStatus(false);
