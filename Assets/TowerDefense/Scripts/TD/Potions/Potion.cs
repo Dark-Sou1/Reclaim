@@ -76,6 +76,7 @@ namespace Giacomo
                 {
                     potionVFX.transform.position = mousePos;
                     potionVFX.SetActive(true);
+                    potionVFX.transform.localScale = Vector3.one * range / 2;
                 }
 
                 isSelected = false;

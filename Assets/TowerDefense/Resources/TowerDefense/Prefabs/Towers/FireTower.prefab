@@ -53,11 +53,13 @@ MonoBehaviour:
   cost: 150
   placingPreview: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
+  b_maxRange: 2.2
+  b_minRange: 0
   scaleWithMaxRange:
   - {fileID: 2759899366994034821}
   scaleWithMinRange: []
-  b_maxRange: 2.2
-  b_minRange: 0
+  minRangeIndicator: {fileID: 0}
+  maxRangeIndicator: {fileID: 0}
   b_rotationSpeed: 180
   b_damage: 4
   b_attackSpeed: 8
@@ -420,7 +422,7 @@ GameObject:
   - component: {fileID: 2819661909674140352}
   - component: {fileID: 6495412366714355513}
   - component: {fileID: 1090290185925106595}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
