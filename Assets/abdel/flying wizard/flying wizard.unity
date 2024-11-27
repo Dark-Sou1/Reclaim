@@ -317,8 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17269134a510a044ea3db53203e62eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 1.3
-  HightRange: 2.5
+  MaxTime: 1
+  HightRange: 2
   timer: 0
   obstical: {fileID: 624262110726589330, guid: 0f49b44a1131e054b9b805f65c78f83c, type: 3}
 --- !u!1 &391603924
