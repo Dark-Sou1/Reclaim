@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - fire
+  - debris
   layers:
   - Default
   - TransparentFX
