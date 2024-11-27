@@ -19,7 +19,6 @@ public class shildmanager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        Time.timeScale = 0f;
     }
     void Start()
     {
@@ -27,6 +26,7 @@ public class shildmanager : MonoBehaviour
         deathtext.SetActive(false);
         wintext.SetActive(false);
         debrisObjects = GameObject.FindGameObjectsWithTag("debris");
+        Time.timeScale = 0f;
     }
 
     void Update()
