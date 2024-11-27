@@ -9,11 +9,12 @@ public class TowerDefenseUnlocks : MonoBehaviour
     
     public List<Unlockable> debugUnlock;
 
-    public GameObject explodingTower;
     public GameObject fireTower;
-    public GameObject freezeTower;
     public GameObject stunTower;
     public GameObject boostTower;
+    public GameObject freezeTower;
+    public GameObject explodingTower;
+
     public GameObject poisonPotion;
     public GameObject fireballPotion;
     public GameObject weaknessPotion;
@@ -30,13 +31,14 @@ public class TowerDefenseUnlocks : MonoBehaviour
         foreach (Unlockable u in debugUnlock)
             unlocked.Add(u);
 
-        explodingTower.SetActive(unlocked.Contains(Unlockable.ExplodingTower));
         fireTower.SetActive(unlocked.Contains(Unlockable.FireTower));
-        freezeTower.SetActive(unlocked.Contains(Unlockable.FreezeTower));
         stunTower.SetActive(unlocked.Contains(Unlockable.StunTower));
         boostTower.SetActive(unlocked.Contains(Unlockable.BoostTower));
+        freezeTower.SetActive(unlocked.Contains(Unlockable.FreezeTower)); 
+        explodingTower.SetActive(unlocked.Contains(Unlockable.ExplodingTower));
+
         poisonPotion.SetActive(unlocked.Contains(Unlockable.PoisonPotion));
-        fireballPotion.SetActive(unlocked.Contains(Unlockable.FireTower));
+        fireballPotion.SetActive(unlocked.Contains(Unlockable.FireballPotion));
         weaknessPotion.SetActive(unlocked.Contains(Unlockable.WeaknessPotion));
     }
 }

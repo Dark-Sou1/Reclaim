@@ -27,7 +27,8 @@ namespace Giacomo
         protected override void Attack()
         {
             GameObject go = Instantiate(projectilePrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
-            go.GetComponent<Projectile>().Initialize(stats["damage"], stats["projectileSpeed"], stats["projectileLifetime"], stats["splashDamageArea"], target, destroyProjectileOnTargetDeath);
+            string hitSFX = $"tower_{towerName}_hit";
+            go.GetComponent<Projectile>().Initialize(stats["damage"], stats["projectileSpeed"], stats["projectileLifetime"], stats["splashDamageArea"], target, destroyProjectileOnTargetDeath, hitSFX);
         }
     }
 }

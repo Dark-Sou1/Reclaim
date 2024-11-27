@@ -50,6 +50,7 @@ MonoBehaviour:
   sortOrder: 0
   stats: {fileID: 0}
   effects: {fileID: 0}
+  towerName: fire
   cost: 150
   placingPreview: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}

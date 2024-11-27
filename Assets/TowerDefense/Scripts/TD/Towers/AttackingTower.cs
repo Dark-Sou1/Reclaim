@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Giacomo
@@ -19,6 +20,9 @@ namespace Giacomo
 
         [Header("Runtime")]
         public Targetable target;
+
+        [BoxGroup("Sound")]
+        public string attackSound;
 
         protected override void ManagedInitialize()
         {
@@ -62,6 +66,7 @@ namespace Giacomo
             nextShotTime = Time.time + 1 / stats["attackSpeed"];
 
             Attack();
+            AudioController.Instance.PlaySound2D($"tower_{towerName}_shoot");
         }
 
         protected abstract void Attack();
