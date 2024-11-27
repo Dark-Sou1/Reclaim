@@ -9,7 +9,9 @@ public class shildmanager : MonoBehaviour
     public GameObject deathscreen;
     public GameObject deathtext;
     public GameObject wintext;
-   
+    public GameObject[] debrisObjects;
+    public UnityEngine.Events.UnityEvent onAllDebrisDestroyed;
+
 
     void Awake()
     {
@@ -22,6 +24,7 @@ public class shildmanager : MonoBehaviour
         deathscreen.SetActive(false);
         deathtext.SetActive(false);
         wintext.SetActive(false);
+        debrisObjects = GameObject.FindGameObjectsWithTag("debris");
     }
 
     void Update()
@@ -32,12 +35,23 @@ public class shildmanager : MonoBehaviour
             explain.text = "";
 
         }
-        if (gameObject.tag == "debris" == null)
+        if (AreAllDebrisDestroyed())
         {
-          win();
+            Debug.Log("All debris have been destroyed!");
+            win();
+            onAllDebrisDestroyed.Invoke();
+            enabled = false;
         }
     }
-    // Update is called once per frame
+    private bool AreAllDebrisDestroyed()
+    {
+        foreach (GameObject debris in debrisObjects)
+        {
+            if (debris != null) 
+                return false;
+        }
+        return true; 
+    }
     public void gameover()
     {
         deathscreen.SetActive(true);
