@@ -8,6 +8,8 @@ public class shildmanager : MonoBehaviour
     public TextMeshProUGUI explain;
     public GameObject deathscreen;
     public GameObject deathtext;
+    public GameObject wintext;
+   
 
     void Awake()
     {
@@ -19,6 +21,7 @@ public class shildmanager : MonoBehaviour
     {
         deathscreen.SetActive(false);
         deathtext.SetActive(false);
+        wintext.SetActive(false);
     }
 
     void Update()
@@ -29,6 +32,10 @@ public class shildmanager : MonoBehaviour
             explain.text = "";
 
         }
+        if (gameObject.tag == "debris" == null)
+        {
+          win();
+        }
     }
     // Update is called once per frame
     public void gameover()
@@ -36,5 +43,10 @@ public class shildmanager : MonoBehaviour
         deathscreen.SetActive(true);
         deathtext.SetActive(true);
         Time.timeScale = 0f;
+    }
+    public void win()
+    {
+        deathscreen.SetActive(true);
+        wintext.SetActive(true);
     }
 }

@@ -305,7 +305,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (19)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -502,7 +502,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (1)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1171,7 +1171,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (9)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1228,7 +1228,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (12)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1722,7 +1722,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (18)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1841,7 +1841,7 @@ Transform:
   m_GameObject: {fileID: 975202507}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.9690285, y: 3.246055, z: -0.046588182}
+  m_LocalPosition: {x: -8.21, y: 3.246055, z: -0.046588182}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1857,7 +1857,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (8)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1919,7 +1919,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (10)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2060,6 +2060,7 @@ GameObject:
   - component: {fileID: 1173493906}
   - component: {fileID: 1173493905}
   - component: {fileID: 1173493908}
+  - component: {fileID: 1173493909}
   m_Layer: 0
   m_Name: fire ball
   m_TagString: fire
@@ -2207,9 +2208,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173493903}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42115d7827dc8aa4fa617c1589098a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 500
+--- !u!114 &1173493909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173493903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02eaa2b643f6f084190cf017e24db321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
@@ -2223,7 +2237,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (7)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2825,7 +2839,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (11)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3101,7 +3115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (20)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3158,7 +3172,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (13)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3277,7 +3291,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055634225140456155, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_Name
-      value: debris (2)
+      value: debris
       objectReference: {fileID: 0}
     - target: {fileID: 6896658359140441339, guid: 8e78849bbc92bea46b2144260db18a13, type: 3}
       propertyPath: m_LocalPosition.x
