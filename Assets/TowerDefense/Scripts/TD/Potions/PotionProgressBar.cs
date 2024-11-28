@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
 namespace Giacomo
 {
-    [RequireComponent(typeof(CircularLineRenderer))]
+    [RequireComponent(typeof(Image))]
     public class PotionProgressBar : MonoBehaviour
     {
         public float widthWhenCooldown = .1f;
@@ -9,13 +10,13 @@ namespace Giacomo
 
         [SerializeField]
         protected Potion potion;
-        
-        protected CircularLineRenderer lineRenderer;
+
+        protected Image outlineImage;
         protected bool cooldownOver = true;
 
         private void Awake()
         {
-            lineRenderer = GetComponent<CircularLineRenderer>();
+            outlineImage = GetComponent<Image>();
             if (potion == null) 
                 potion = GetComponentInParent<Potion>();
             potion.OnUsed += OnPotionUsed;
@@ -34,20 +35,19 @@ namespace Giacomo
         protected void OnPotionUsed()
         {
             cooldownOver = false;
-            lineRenderer.DrawCircle(1, width: widthWhenCooldown);
         }
 
         protected void UpdateProgress()
         {
             var progress = 1 - (potion.NextAvailableTime - Time.time) / potion.cooldown;
+            
             if(progress < 1)
             {
-                if(progress > 0)
-                    lineRenderer.DrawCircle(progress);
+                outlineImage.fillAmount = progress;
             }
             else
             {
-                lineRenderer.DrawCircle(1, width: widthWhenReady);
+                outlineImage.fillAmount = 1;
                 cooldownOver = true;
             }
         }
