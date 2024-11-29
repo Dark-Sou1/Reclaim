@@ -317,10 +317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17269134a510a044ea3db53203e62eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 1
+  MaxTime: 1.2
   HightRange: 2
   timer: 0
-  obstical: {fileID: 624262110726589330, guid: 0f49b44a1131e054b9b805f65c78f83c, type: 3}
+  obstical: {fileID: 2893022943118175256, guid: 9f4447a6665558a458a8d1a736a990bd, type: 3}
 --- !u!1 &391603924
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 1049624249}
   - component: {fileID: 1049624248}
   m_Layer: 5
-  m_Name: Image
+  m_Name: loose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,9 +990,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00055843004, y: 0.0000000060270353}
-  m_Size: {x: 0.17771558, y: 0.12659879}
-  m_Direction: 1
+  m_Offset: {x: -0.025000002, y: 0.31}
+  m_Size: {x: 0.27, y: 0.22000001}
+  m_Direction: 0
 --- !u!212 &1273502479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1037,7 +1037,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1933258764018161309, guid: 5311f03999757b54ba42752292ff0389, type: 3}
+  m_Sprite: {fileID: -8358203660894837728, guid: 011e5795b0df18246891a7e31735b316, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1057,7 +1057,7 @@ Transform:
   m_GameObject: {fileID: 1273502475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.02, y: 1.5, z: 0}
+  m_LocalPosition: {x: -6.72, y: 0.3, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
