@@ -6,6 +6,5 @@ public class looser : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("fire")) return;
         shildmanager.instance.gameover();
-        Time.timeScale = 0f;
     }
 }
