@@ -75,8 +75,8 @@ Transform:
   m_GameObject: {fileID: 5059920163730341243}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: -0.06409979, y: 7.0114, z: 0.06832515}
-  m_LocalScale: {x: 3.9514132, y: 4.986995, z: 1}
+  m_LocalPosition: {x: 0.1782, y: 50.8, z: 0.06832515}
+  m_LocalScale: {x: 4.23631, y: 5.0129275, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3395946506495829067}
@@ -125,7 +125,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3869963733588150954, guid: 5311f03999757b54ba42752292ff0389, type: 3}
+  m_Sprite: {fileID: 1340798776455838260, guid: 1905c069e1b22714ca354430df8f747a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,17 +170,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.08464742, y: 2.501031}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 1.62}
+    pivot: {x: 0.15637861, y: 0}
+    oldSize: {x: 2.43, y: 5}
     newSize: {x: 0.28, y: 1.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 1.62}
+  m_Size: {x: 0.77567196, y: 5.002062}
   m_EdgeRadius: 0
 --- !u!1 &5189567932164223550
 GameObject:
@@ -259,7 +259,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3869963733588150954, guid: 5311f03999757b54ba42752292ff0389, type: 3}
+  m_Sprite: {fileID: 1340798776455838260, guid: 1905c069e1b22714ca354430df8f747a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -304,17 +304,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.10953081, y: 2.5112004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 1.62}
+    pivot: {x: 0.15637861, y: 0}
+    oldSize: {x: 2.43, y: 5}
     newSize: {x: 0.28, y: 1.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 1.62}
+  m_Size: {x: 0.7507837, y: 5.022401}
   m_EdgeRadius: 0
 --- !u!1 &8406434396974837373
 GameObject:
