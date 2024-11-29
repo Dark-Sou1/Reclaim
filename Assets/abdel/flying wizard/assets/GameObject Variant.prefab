@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16562079736327396, guid: 0f49b44a1131e054b9b805f65c78f83c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 624262110726589330, guid: 0f49b44a1131e054b9b805f65c78f83c, type: 3}
       propertyPath: m_Name
       value: GameObject Variant
@@ -19,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 1244179068014060938, guid: 0f49b44a1131e054b9b805f65c78f83c, type: 3}
       propertyPath: m_Offset.y
       value: 2.115842
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339852838529376979, guid: 0f49b44a1131e054b9b805f65c78f83c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3395243294260514217, guid: 0f49b44a1131e054b9b805f65c78f83c, type: 3}
       propertyPath: m_Size.y
