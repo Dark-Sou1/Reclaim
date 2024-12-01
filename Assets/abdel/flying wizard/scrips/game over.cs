@@ -40,7 +40,7 @@ public class gameover : MonoBehaviour
 
         point.text = add + "";
 
-        if (point)
+        if (add > 9)
         {
             win();
         }
