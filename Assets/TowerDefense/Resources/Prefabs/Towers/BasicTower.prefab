@@ -50,7 +50,8 @@ MonoBehaviour:
   sortOrder: 0
   stats: {fileID: 0}
   effects: {fileID: 0}
-  towerName: basic
+  towerName: Basic
+  towerDescription: Shoots at a single target. Has average stats.
   cost: 50
   placingPreview: {fileID: -5614276131654334275, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: -5614276131654334275, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
@@ -67,6 +68,7 @@ MonoBehaviour:
   attackAngleThreshold: 5
   rotateTowardsTarget: 1
   target: {fileID: 0}
+  attackSound: 
   projectilePrefab: {fileID: 8598423996874606982, guid: 87ca5140c912f71448bc74b68ca0074a, type: 3}
   bulletSpawnpoint: {fileID: 2646325776021732203}
   destroyProjectileOnTargetDeath: 1

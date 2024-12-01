@@ -84,7 +84,9 @@ MonoBehaviour:
   sortOrder: 0
   stats: {fileID: 0}
   effects: {fileID: 0}
-  towerName: stun
+  towerName: Stun
+  towerDescription: Damages nearby enemies, and has a chance to stun them for a short
+    time.
   cost: 75
   placingPreview: {fileID: 8369671016727015521, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 8369671016727015521, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
@@ -102,6 +104,7 @@ MonoBehaviour:
   attackAngleThreshold: 360
   rotateTowardsTarget: 0
   target: {fileID: 0}
+  attackSound: 
   b_stunDuration: 0.7
   b_stunChance: 0.35
   impactEffect: {fileID: 6860416667821647265}

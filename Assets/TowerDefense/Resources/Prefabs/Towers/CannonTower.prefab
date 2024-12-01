@@ -50,7 +50,8 @@ MonoBehaviour:
   sortOrder: 0
   stats: {fileID: 0}
   effects: {fileID: 0}
-  towerName: cannon
+  towerName: Cannon
+  towerDescription: Shoots at a single target dealing splash damage.
   cost: 75
   placingPreview: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 5037146064488079593, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
@@ -67,6 +68,7 @@ MonoBehaviour:
   attackAngleThreshold: 5
   rotateTowardsTarget: 1
   target: {fileID: 0}
+  attackSound: 
   projectilePrefab: {fileID: 8598423996874606982, guid: e6194e598376ae141aa03420272ff9e2, type: 3}
   bulletSpawnpoint: {fileID: 8621983799480754852}
   destroyProjectileOnTargetDeath: 0

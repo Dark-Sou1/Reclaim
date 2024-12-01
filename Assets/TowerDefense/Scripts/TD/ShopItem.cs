@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +37,15 @@ namespace Giacomo
                 return;
 
             TowerPlacementManager.Instance.StartPlacing(tower, OnTowerPlaced);
+        }
+
+        public void OnCursorHover()
+        {
+            DisplayInfoUI.Instance.Show(this, tower.shopIcon, tower.towerName, tower.towerDescription);
+        }
+        public void OnCursorExit()
+        {
+            DisplayInfoUI.Instance.Hide(this);
         }
 
         protected void OnTowerPlaced()

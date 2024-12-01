@@ -82,7 +82,8 @@ MonoBehaviour:
   sortOrder: 0
   stats: {fileID: 0}
   effects: {fileID: 0}
-  towerName: slow
+  towerName: Frost
+  towerDescription: Slows enemies in an area.
   cost: 100
   placingPreview: {fileID: -3924021315401183351, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: -3924021315401183351, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
@@ -100,6 +101,7 @@ MonoBehaviour:
   attackAngleThreshold: 360
   rotateTowardsTarget: 0
   target: {fileID: 0}
+  attackSound: 
   b_slowDuration: 1.5
   b_slowAmount: 0.7
 --- !u!61 &-1293504078115593503

@@ -2,55 +2,43 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Giacomo
 {
-    public class DisplayInfoUI : MonoBehaviour
+    public class DisplayInfoUI : Singleton<DisplayInfoUI>
     {
-        [SerializeField] TMP_Text title;
-        [SerializeField] TMP_Text description;
+        [SerializeField] GameObject parent;
 
-        [SerializeField] GameObject statParent;
-        [SerializeField] GameObject statInfoPrefab;
+        [SerializeField] Image iconImage;
+        [SerializeField] TMP_Text titleText;
+        [SerializeField] TMP_Text descriptionText;
 
-        [SerializeField] DisplayStatsSettings statsSettings;
-
-        public void Show(DisplayInfo info)
+        private void Awake()
         {
-            title.text = info.title;
-            description.text = info.description;
-
-            statParent.transform.DestroyChildren();
-        
-            foreach (var stat in info.showStats.stats)
-            {
-                var statInfo = statsSettings.GetStatInfo(stat.Key);
-                if (statInfo == null)
-                    continue;
-
-                var go = Instantiate(statInfoPrefab, statParent.transform);
-                var statUI = go.GetComponent<DisplayStatUI>();
-                
-                statUI.Show(statInfo.name, stat.Value);
-            }
-
-
+            Hide(null);
         }
 
-
-        [Serializable]
-        public class StatInfo
+        object shownBy;
+        public void Show(object shownBy, Sprite icon, string title, string description)
         {
-            public string showName;
+            parent.SetActive(true);
+            iconImage.sprite = icon;
+            titleText.text = title;
+            descriptionText.text = description;
+            this.shownBy = shownBy;
         }
-    }
 
+        public void Hide(object hideInfoShownBy)
+        {
+            if (shownBy != hideInfoShownBy)
+                return;
 
-
-    public class DisplayInfo
-    {
-        public string title;
-        public string description;
-        public Stats showStats;
+            ForceHide();
+        }
+        public void ForceHide()
+        {
+            parent.SetActive(false);
+        }
     }
 }

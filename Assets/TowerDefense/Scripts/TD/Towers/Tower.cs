@@ -15,6 +15,8 @@ namespace Giacomo
 
         [Header("General")]
         public string towerName;
+        [TextArea]
+        public string towerDescription;
         public int cost;
         public Sprite placingPreview;
         public Sprite shopIcon;

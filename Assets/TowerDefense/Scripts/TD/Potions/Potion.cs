@@ -8,7 +8,11 @@ namespace Giacomo
 {
     public abstract class Potion : MonoBehaviour
     {
-        //public Sprite icon;
+        public Sprite icon;
+        public string potionName;
+        [TextArea]
+        public string potionDescription;
+
         public float cooldown;
         public float range = 10;
 
@@ -85,6 +89,15 @@ namespace Giacomo
                 nextAvailableTime = Time.time + cooldown;
                 OnUsed?.Invoke();
             }
+        }
+
+        public void OnCursorHover()
+        {
+            DisplayInfoUI.Instance.Show(this, icon, potionName, potionDescription);
+        }
+        public void OnCursorExit()
+        {
+            DisplayInfoUI.Instance.Hide(this);
         }
 
         protected void CancelPlaying()

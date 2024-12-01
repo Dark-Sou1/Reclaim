@@ -50,7 +50,9 @@ MonoBehaviour:
   sortOrder: 0
   stats: {fileID: 0}
   effects: {fileID: 0}
-  towerName: fire
+  towerName: Flamethrower
+  towerDescription: Fires in the direction of an enemy, damaging and burning enemies
+    over time after they're hit.
   cost: 150
   placingPreview: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   shopIcon: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
@@ -68,6 +70,7 @@ MonoBehaviour:
   attackAngleThreshold: 360
   rotateTowardsTarget: 1
   target: {fileID: 0}
+  attackSound: 
   b_burnDuration: 3
   b_burnDPS: 5
   fireParticles: {fileID: 4868819765368545494}
