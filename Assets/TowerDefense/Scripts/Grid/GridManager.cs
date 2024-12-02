@@ -9,7 +9,7 @@ namespace Giacomo
     {
         [ShowInInspector] Dictionary<Vector2Int, Tile> tiles;
 
-        public bool isSetup;
+        public bool isSetup {  get; protected set; }
         protected void Awake()
         {
             if (isSetup) return;

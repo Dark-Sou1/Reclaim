@@ -19,7 +19,7 @@ namespace Giacomo
         {
             foreach(MapExpansion expansion in expansions)
             {
-                if (expansion.unlockAtWave == wave)
+                if (expansion.unlockAtWave == wave - 1)
                 {
                     StartCoroutine(UnlockMapExpansion(expansion));
                 }

@@ -8,11 +8,15 @@ namespace Giacomo
 {
     public class Tower : Interactable2D
     {
+
         public Tile Tile { get; set; }
         [HideInInspector] public Stats stats;
         [HideInInspector] public EffectHandler effects;
 
         [Header("General")]
+        public string towerName;
+        [TextArea]
+        public string towerDescription;
         public int cost;
         public Sprite placingPreview;
         public Sprite shopIcon;
@@ -29,8 +33,10 @@ namespace Giacomo
 
         protected override void ManagedInitialize()
         {
-            stats = gameObject.AddComponent<Stats>();
-            effects = gameObject.AddComponent<EffectHandler>();
+            if(!stats)
+                stats = gameObject.AddComponent<Stats>();
+            if(!effects)
+                effects = gameObject.AddComponent<EffectHandler>();
 
             stats.AddStat("maxRange", b_maxRange, 0);
             stats.AddStat("minRange", b_minRange, 0);
