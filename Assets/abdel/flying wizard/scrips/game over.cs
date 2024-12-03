@@ -14,6 +14,8 @@ public class gameover : MonoBehaviour
     public GameObject deathtext;
     public GameObject wintext;
 
+    bool End = false;
+
     public int add;
 
     void Awake()
@@ -31,6 +33,8 @@ public class gameover : MonoBehaviour
 
     void Update()
     {
+        if (End)
+            return;
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             Time.timeScale = 1f;
@@ -39,17 +43,18 @@ public class gameover : MonoBehaviour
         }
 
         point.text = add + "";
-
-        if (point)
+    
+        if (add > 9)
         {
             win();
         }
     }
-    // Update is called once per frame
+
     public void Gameover()
     {
         deathscreen.SetActive(true);
         deathtext.SetActive(true);
+        End = true;
         Time.timeScale = 0f;
     }
     public void Point()
@@ -59,5 +64,8 @@ public class gameover : MonoBehaviour
     public void win()
     {
         wintext.SetActive(true);
+        deathscreen.SetActive(false);
+        End = true;
+        Time.timeScale = 0f;
     }
 }
