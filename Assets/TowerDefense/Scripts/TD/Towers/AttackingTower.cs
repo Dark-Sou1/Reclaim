@@ -66,7 +66,7 @@ namespace Giacomo
             nextShotTime = Time.time + 1 / stats["attackSpeed"];
 
             Attack();
-            AudioController.Instance.PlaySound2D($"tower_{towerName}_shoot");
+            AudioController.Instance.PlaySound2D($"tower_{towerName}_shoot", .6f);
         }
 
         protected abstract void Attack();

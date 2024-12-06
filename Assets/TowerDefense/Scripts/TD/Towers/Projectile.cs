@@ -93,7 +93,7 @@ namespace Giacomo
                 impactGO = Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(impactGO, .2f);
 
-            AudioController.Instance.PlaySound2D(hitSoundEffect);
+            AudioController.Instance.PlaySound2D(hitSoundEffect, .6f);
 
             if (splashArea <= 0)
             {

@@ -10,6 +10,7 @@ namespace Giacomo
         public ParticleSystem fireParticles;
         public Collider2D attackCollider;
 
+        AudioSource fireSound;
         RaycastHit2D[] hit = new RaycastHit2D[50];
         ContactFilter2D contactFilter = new ContactFilter2D();
 
@@ -42,11 +43,20 @@ namespace Giacomo
         protected override void OnTargetFound()
         {
             fireParticles.Play();
+            if (fireSound)
+                Destroy(fireSound.gameObject);
+            fireSound = AudioController.Instance.PlaySound2D("tower_" + towerName + "_loop", .4f, looping: true);
         }
 
         protected override void OnTargetLost()
         {
             fireParticles.Stop();
+            Destroy(fireSound.gameObject);
+        }
+        private void OnDisable()
+        {
+            if(fireSound)
+                Destroy(fireSound.gameObject);
         }
     }
 }

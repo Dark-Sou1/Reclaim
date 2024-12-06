@@ -10,6 +10,8 @@ namespace Giacomo
         public float b_slowDuration = 2;
         public float b_slowAmount = .7f;
 
+        AudioSource freezeSound;
+
         protected override void ManagedInitialize()
         {
             base.ManagedInitialize();
@@ -32,6 +34,25 @@ namespace Giacomo
                 slowEffect.AddModifier("moveSpeed", multiply: stats["slowAmount"]);
                 e.EffectHandler.AddEffect("freeze", slowEffect, stats["slowDuration"]);
             }
+        }
+
+        protected override void OnTargetFound()
+        {
+            if (freezeSound)
+                Destroy(freezeSound.gameObject); 
+            freezeSound = AudioController.Instance.PlaySound2D("tower_" + towerName + "_loop", .3f, looping: true);
+
+        }
+
+        protected override void OnTargetLost()
+        {
+            freezeSound.Stop();
+            Destroy(freezeSound.gameObject);
+        }
+        private void OnDisable()
+        {
+            if (freezeSound)
+                Destroy(freezeSound.gameObject);
         }
     }
 
