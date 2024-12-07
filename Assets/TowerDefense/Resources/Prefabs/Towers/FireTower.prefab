@@ -58,6 +58,7 @@ MonoBehaviour:
   shopIcon: {fileID: 650764636268222099, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   b_maxRange: 2.2
   b_minRange: 0
+  placeSoundVolume: 0.5
   scaleWithMaxRange:
   - {fileID: 2759899366994034821}
   scaleWithMinRange: []
@@ -70,7 +71,7 @@ MonoBehaviour:
   attackAngleThreshold: 360
   rotateTowardsTarget: 1
   target: {fileID: 0}
-  attackSound: 
+  attackSoundVolume: 0.102
   b_burnDuration: 3
   b_burnDPS: 5
   fireParticles: {fileID: 4868819765368545494}

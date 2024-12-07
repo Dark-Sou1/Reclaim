@@ -4822,13 +4822,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 2797656424929919332, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
-  potionName: Weakness Potion
+  potionName: Weakness
   potionDescription: Hit enemies take double damage by any source for a short period
     of time.
   cooldown: 20
   range: 10
   previewCursor: {fileID: 1210250783}
   potionVFX: {fileID: 209779309}
+  useSoundVolume: 0.6
   damageMultiplier: 2
   duration: 5
 --- !u!114 &463718366
@@ -17198,12 +17199,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 3268819792195253000, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
-  potionName: Fireball Potion
+  potionName: Fireball
   potionDescription: Deals high damage in a small area.
   cooldown: 20
   range: 4
   previewCursor: {fileID: 1164348785}
   potionVFX: {fileID: 5766972075403409149}
+  useSoundVolume: 0.6
   damage: 160
 --- !u!114 &1335180273
 MonoBehaviour:
@@ -23657,13 +23659,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 2978471349187801894, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
-  potionName: Poison Potion
+  potionName: Poison
   potionDescription: Deals damage over time for a long period of time, but can't
     kill enemies.
   cooldown: 30
   range: 8
   previewCursor: {fileID: 1949684005}
   potionVFX: {fileID: 4308827235622683111}
+  useSoundVolume: 0.6
   duration: 10
   dps: 15
 --- !u!114 &2063595348

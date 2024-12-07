@@ -101,7 +101,7 @@ MonoBehaviour:
   attackAngleThreshold: 360
   rotateTowardsTarget: 0
   target: {fileID: 0}
-  attackSound: 
+  attackSoundVolume: 0.5
   b_slowDuration: 1.5
   b_slowAmount: 0.7
 --- !u!61 &-1293504078115593503

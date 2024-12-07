@@ -57,6 +57,7 @@ MonoBehaviour:
   shopIcon: {fileID: -5614276131654334275, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   b_maxRange: 3.4
   b_minRange: 0
+  placeSoundVolume: 0.5
   scaleWithMaxRange: []
   scaleWithMinRange: []
   minRangeIndicator: {fileID: 0}
@@ -68,13 +69,14 @@ MonoBehaviour:
   attackAngleThreshold: 5
   rotateTowardsTarget: 1
   target: {fileID: 0}
-  attackSound: 
+  attackSoundVolume: 0.465
   projectilePrefab: {fileID: 8598423996874606982, guid: 87ca5140c912f71448bc74b68ca0074a, type: 3}
   bulletSpawnpoint: {fileID: 2646325776021732203}
   destroyProjectileOnTargetDeath: 1
   b_projectileSpeed: 5
   b_splashDamageArea: 0
   b_projectileLifetime: 10
+  projectileHitSoundVolume: 0.5
 --- !u!61 &5237592369338892758
 BoxCollider2D:
   m_ObjectHideFlags: 0

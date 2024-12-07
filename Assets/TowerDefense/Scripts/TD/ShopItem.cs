@@ -36,7 +36,13 @@ namespace Giacomo
             if (GameStats.Instance && GameStats.Instance.coins < tower.cost)
                 return;
 
+            //TOGGLE SELECT
             TowerPlacementManager.Instance.StartPlacing(tower, OnTowerPlaced);
+
+            if (TowerPlacementManager.Instance.placingTower) 
+                AudioController.Instance.PlaySound2D("ui_confirm");
+            else
+                AudioController.Instance.PlaySound2D("ui_cancel");
         }
 
         public void OnCursorHover()

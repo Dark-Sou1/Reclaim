@@ -58,6 +58,10 @@ namespace Giacomo
         {
             GameStats.Instance.ModifyCoins(moneyReward);
 
+            var pitch = new AudioParams.Pitch(AudioParams.Pitch.Variation.Small);
+            var repetition = new AudioParams.Repetition(.05f);
+            AudioController.Instance.PlaySound2D("enemy_death", .2f, pitch: pitch, repetition: repetition);
+
             GameManager.RemoveEnemy(this);
             Destroy(gameObject);
         }

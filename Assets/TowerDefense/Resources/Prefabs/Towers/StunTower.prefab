@@ -104,7 +104,7 @@ MonoBehaviour:
   attackAngleThreshold: 360
   rotateTowardsTarget: 0
   target: {fileID: 0}
-  attackSound: 
+  attackSoundVolume: 0.07
   b_stunDuration: 0.7
   b_stunChance: 0.35
   impactEffect: {fileID: 6860416667821647265}

@@ -40,7 +40,7 @@ namespace Giacomo
         {
             if (freezeSound)
                 Destroy(freezeSound.gameObject); 
-            freezeSound = AudioController.Instance.PlaySound2D("tower_" + towerName + "_loop", .3f, looping: true);
+            freezeSound = AudioController.Instance.PlaySound2D("tower_" + towerName + "_loop", attackSoundVolume, looping: true);
 
         }
 

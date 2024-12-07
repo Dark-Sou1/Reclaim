@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +19,10 @@ namespace Giacomo
 
         [SerializeField] GameObject previewCursor;
         [SerializeField] GameObject potionVFX;
+
+        [BoxGroup("Sound")]
+        [Range(0f, 1f)]
+        public float useSoundVolume = .6f;
 
         public float NextAvailableTime => nextAvailableTime;
         protected float nextAvailableTime;
@@ -43,6 +48,7 @@ namespace Giacomo
             isSelected = true;
             InputManager.Instance.SetPotionStatus(true);
             previewCursor.SetActive(true);
+            AudioController.Instance.PlaySound2D("ui_confirm");
         }
 
         private void Update()
@@ -82,6 +88,7 @@ namespace Giacomo
                     potionVFX.SetActive(true);
                     potionVFX.transform.localScale = Vector3.one * range / 2;
                 }
+                AudioController.Instance.PlaySound2D("potion_" + potionName + "_use");
 
                 isSelected = false;
                 previewCursor.SetActive(false);
@@ -105,6 +112,7 @@ namespace Giacomo
             isSelected = false;
             previewCursor.SetActive(false);
             InputManager.Instance.SetPotionStatus(false);
+            AudioController.Instance.PlaySound2D("ui_cancel");
         }
 
 

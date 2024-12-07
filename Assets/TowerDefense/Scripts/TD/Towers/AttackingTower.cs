@@ -22,7 +22,8 @@ namespace Giacomo
         public Targetable target;
 
         [BoxGroup("Sound")]
-        public string attackSound;
+        [Range(0f, 1f)]
+        public float attackSoundVolume = 0.6f;
 
         protected override void ManagedInitialize()
         {
@@ -66,7 +67,9 @@ namespace Giacomo
             nextShotTime = Time.time + 1 / stats["attackSpeed"];
 
             Attack();
-            AudioController.Instance.PlaySound2D($"tower_{towerName}_shoot", .6f);
+            var pitch = new AudioParams.Pitch(AudioParams.Pitch.Variation.Medium);
+            var repetition = new AudioParams.Repetition(.05f);
+            AudioController.Instance.PlaySound2D($"tower_{towerName}_shoot", attackSoundVolume, pitch: pitch, repetition: repetition);
         }
 
         protected abstract void Attack();

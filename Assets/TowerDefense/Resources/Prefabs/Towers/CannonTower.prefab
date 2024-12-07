@@ -68,13 +68,14 @@ MonoBehaviour:
   attackAngleThreshold: 5
   rotateTowardsTarget: 1
   target: {fileID: 0}
-  attackSound: 
+  attackSoundVolume: 0.6
   projectilePrefab: {fileID: 8598423996874606982, guid: e6194e598376ae141aa03420272ff9e2, type: 3}
   bulletSpawnpoint: {fileID: 8621983799480754852}
   destroyProjectileOnTargetDeath: 0
   b_projectileSpeed: 3
   b_splashDamageArea: 0.75
   b_projectileLifetime: 10
+  projectileHitSoundVolume: 0.804
 --- !u!61 &-8063346384651002629
 BoxCollider2D:
   m_ObjectHideFlags: 0

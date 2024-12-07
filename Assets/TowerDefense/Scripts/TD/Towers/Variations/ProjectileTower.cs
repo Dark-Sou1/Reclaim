@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,6 +17,10 @@ namespace Giacomo
         public float b_splashDamageArea = 0;
         public float b_projectileLifetime = 10;
 
+        [BoxGroup("Sound")]
+        [Range(0f, 1f)]
+        public float projectileHitSoundVolume = .5f;
+
         protected override void ManagedInitialize()
         {
             base.ManagedInitialize();
@@ -28,7 +33,7 @@ namespace Giacomo
         {
             GameObject go = Instantiate(projectilePrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
             string hitSFX = $"tower_{towerName}_hit";
-            go.GetComponent<Projectile>().Initialize(stats["damage"], stats["projectileSpeed"], stats["projectileLifetime"], stats["splashDamageArea"], target, destroyProjectileOnTargetDeath, hitSFX);
+            go.GetComponent<Projectile>().Initialize(stats["damage"], stats["projectileSpeed"], stats["projectileLifetime"], stats["splashDamageArea"], target, destroyProjectileOnTargetDeath, hitSFX, projectileHitSoundVolume);
         }
     }
 }

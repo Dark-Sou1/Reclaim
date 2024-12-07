@@ -15,12 +15,13 @@ namespace Giacomo
         [DisableInEditorMode] public bool destroyIfTargetDied;
 
         public string hitSoundEffect = "";
+        public float hitSoundVolume;
 
         public GameObject impactEffect;
 
         protected Vector3 lastTargetPosition;
         private bool isInitialized;
-        public void Initialize(float damage, float speed, float lifetime, float splashArea, Targetable target, bool destroyIfTargetDied, string hitSoundEffect = null)
+        public void Initialize(float damage, float speed, float lifetime, float splashArea, Targetable target, bool destroyIfTargetDied, string hitSoundEffect = null, float hitSoundVolume = 0.5f)
         {
             isInitialized = true;
             this.damage = damage;
@@ -32,6 +33,7 @@ namespace Giacomo
 
             if(!string.IsNullOrEmpty(hitSoundEffect))
                 this.hitSoundEffect = hitSoundEffect;
+            this.hitSoundVolume = hitSoundVolume;
         }
 
         private float despawnTime;
@@ -93,7 +95,9 @@ namespace Giacomo
                 impactGO = Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(impactGO, .2f);
 
-            AudioController.Instance.PlaySound2D(hitSoundEffect, .6f);
+            var pitch = new AudioParams.Pitch(AudioParams.Pitch.Variation.Medium);
+            var repetition = new AudioParams.Repetition(.05f);
+            AudioController.Instance.PlaySound2D(hitSoundEffect, hitSoundVolume, pitch: pitch, repetition: repetition);
 
             if (splashArea <= 0)
             {

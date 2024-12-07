@@ -45,7 +45,7 @@ namespace Giacomo
             fireParticles.Play();
             if (fireSound)
                 Destroy(fireSound.gameObject);
-            fireSound = AudioController.Instance.PlaySound2D("tower_" + towerName + "_loop", .4f, looping: true);
+            fireSound = AudioController.Instance.PlaySound2D("tower_" + towerName + "_loop", attackSoundVolume, looping: true);
         }
 
         protected override void OnTargetLost()

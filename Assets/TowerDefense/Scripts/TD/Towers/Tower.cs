@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
+using Sirenix.OdinInspector;
 
 namespace Giacomo
 {
@@ -22,6 +23,10 @@ namespace Giacomo
         public Sprite shopIcon;
         public float b_maxRange = 3;
         public float b_minRange = 0;
+
+        [BoxGroup("Sound")]
+        [Range(0f, 1f)]
+        public float placeSoundVolume = .5f;
 
         public List<Transform> scaleWithMaxRange = new List<Transform>();
         public List<Transform> scaleWithMinRange = new List<Transform>();
@@ -43,6 +48,8 @@ namespace Giacomo
             stats["maxRange"].OnValueChanged += UpdateRangeIndicators;
             stats["minRange"].OnValueChanged += UpdateRangeIndicators;
             SetupRangeIndicators();
+
+            AudioController.Instance.PlaySound2D("tower_" + towerName + "_place", placeSoundVolume);
         }
 
         public override void ManagedLateUpdate()
