@@ -2,7 +2,7 @@ using Giacomo;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Unlockable { ExplodingTower, FireTower, FreezeTower, StunTower, BoostTower, PoisonPotion, FireballPotion, WeaknessPotion }
+public enum Unlockable { ExplodingTower, FireTower, FreezeTower, StunTower, BoostTower, Potions, None }
 public class TowerDefenseUnlocks : MonoBehaviour
 {
     protected static List<Unlockable> unlocked = new List<Unlockable>();
@@ -15,9 +15,7 @@ public class TowerDefenseUnlocks : MonoBehaviour
     public GameObject freezeTower;
     public GameObject explodingTower;
 
-    public GameObject poisonPotion;
-    public GameObject fireballPotion;
-    public GameObject weaknessPotion;
+    public GameObject potions;
     
     public static void UnlockTower(Unlockable unlock)
     {
@@ -37,8 +35,6 @@ public class TowerDefenseUnlocks : MonoBehaviour
         freezeTower.SetActive(unlocked.Contains(Unlockable.FreezeTower)); 
         explodingTower.SetActive(unlocked.Contains(Unlockable.ExplodingTower));
 
-        poisonPotion.SetActive(unlocked.Contains(Unlockable.PoisonPotion));
-        fireballPotion.SetActive(unlocked.Contains(Unlockable.FireballPotion));
-        weaknessPotion.SetActive(unlocked.Contains(Unlockable.WeaknessPotion));
+        potions.SetActive(unlocked.Contains(Unlockable.Potions));
     }
 }
