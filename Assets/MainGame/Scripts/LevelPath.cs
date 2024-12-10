@@ -13,15 +13,6 @@ public class LevelPath : Singleton<LevelPath>
 
     private void Start()
     {
-        /*for (int i = 0; i < currentLevel; i++)
-        {
-            //look away, this is terrible but I don't have time to make it decent
-            if(i == 0)
-                chosenNodes[i].previousPaths[0].SetActive(true);
-            else
-                chosenNodes[i].previousPaths[rows[i - 1].Nodes.IndexOf(chosenNodes[i - 1])].SetActive(true);
-        }*/
-
         foreach (var node in rows[currentLevel].Nodes)
         {
             node.Enable();

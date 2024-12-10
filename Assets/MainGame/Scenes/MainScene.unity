@@ -624,12 +624,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene:
-    sceneAsset: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
-    scenePath: Assets/TowerDefense/Scenes/TowerDefenseLevel.unity
-  minigameInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
+  minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
+  minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
   rewardInfo: {fileID: 11400000, guid: 42a355a3a35cb3d4cb02d68527bc489a, type: 2}
-  unlocks: 0
+  unlocks: 2
 --- !u!114 &262497534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1317,12 +1315,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene:
-    sceneAsset: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
-    scenePath: Assets/TowerDefense/Scenes/TowerDefenseLevel.unity
-  minigameInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
+  minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
+  minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
   rewardInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
-  unlocks: 0
+  unlocks: 4
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,12 +1451,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene:
-    sceneAsset: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
-    scenePath: Assets/TowerDefense/Scenes/TowerDefenseLevel.unity
-  minigameInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
+  minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
+  minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
   rewardInfo: {fileID: 11400000, guid: 3cf3bfc59a39aa942b32b3a4fbd65bdc, type: 2}
-  unlocks: 0
+  unlocks: 6
 --- !u!114 &738801777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2847,10 +2841,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene:
-    sceneAsset: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
-    scenePath: Assets/TowerDefense/Scenes/TowerDefenseLevel.unity
-  minigameInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
+  minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
+  minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
   rewardInfo: {fileID: 11400000, guid: 0a0284bad845f9a499ba02fb6468501c, type: 2}
   unlocks: 0
 --- !u!114 &1746049828
@@ -3017,12 +3009,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene:
-    sceneAsset: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
-    scenePath: Assets/TowerDefense/Scenes/TowerDefenseLevel.unity
-  minigameInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
+  minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
+  minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
   rewardInfo: {fileID: 11400000, guid: df2c2dabf7469ca4aaca1dc3e5ebd4f6, type: 2}
-  unlocks: 0
+  unlocks: 3
 --- !u!114 &1748355598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3187,12 +3177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene:
-    sceneAsset: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
-    scenePath: Assets/TowerDefense/Scenes/TowerDefenseLevel.unity
-  minigameInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
+  minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
+  minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
   rewardInfo: {fileID: 11400000, guid: 3cf3bfc59a39aa942b32b3a4fbd65bdc, type: 2}
-  unlocks: 0
+  unlocks: 1
 --- !u!114 &1769856859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3305,12 +3293,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene:
-    sceneAsset: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
-    scenePath: Assets/TowerDefense/Scenes/TowerDefenseLevel.unity
-  minigameInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
+  minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
+  minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
   rewardInfo: {fileID: 11400000, guid: e7345e73a427ceb41ba815abf1d59b78, type: 2}
-  unlocks: 0
+  unlocks: 5
 --- !u!114 &1934513914
 MonoBehaviour:
   m_ObjectHideFlags: 0

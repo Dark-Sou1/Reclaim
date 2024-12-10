@@ -14,7 +14,11 @@ public class LevelPathNode : Interactable2D
     public DisplayableInfo rewardInfo;
     public Unlockable unlocks;
 
-
+    private void Start()
+    {
+        var r = GetComponent<SpriteRenderer>();
+        r.sprite = minigameInfo.icon;
+    }
 
     //public List<GameObject> previousPaths;
     bool isEnabled;
