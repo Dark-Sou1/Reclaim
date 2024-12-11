@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ab8a30ca197f1e4e983171c11efb686, type: 3}
-  m_Name: TowerDefense
+  m_Name: SpellCaster
   m_EditorClassIdentifier: 
-  icon: {fileID: -5037386940396676008, guid: c96488b36c97ace42b8eec33364fba1e, type: 3}
-  title: Reclaim
-  description: 'Reclaim your village by defeating incoming waves. Place towers to
-    stop incoming enemies from reaching your tower and the rest of the village. '
+  icon: {fileID: -9101909448324188865, guid: c96488b36c97ace42b8eec33364fba1e, type: 3}
+  title: Spell Caster
+  description: An enemy is attacking you! Defeat him using a magic spell.
