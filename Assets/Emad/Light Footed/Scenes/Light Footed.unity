@@ -1029,6 +1029,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &285815909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 285815910}
+  m_Layer: 6
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &285815910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285815909}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7955048889566938335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333990799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +3867,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8018953994931663634, guid: bf298f9a437a661489d6e884f8c63037, type: 3}
   m_PrefabInstance: {fileID: 4166463826328391576}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1597416617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8105683968053127346, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
+  m_PrefabInstance: {fileID: 1225067122979583130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1597416620
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597416617}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.6, y: 2.58}
+  m_Direction: 0
 --- !u!1 &1608309226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,6 +5061,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 324705622067009269, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 889355392499322078, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
       propertyPath: text
       value: 
@@ -5053,6 +5130,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2739403779519047503, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 94f733d3ad7990040a8dd8db840a5eec, type: 2}
+    - target: {fileID: 2739403779519047503, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739403779519047503, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
       propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
@@ -5067,6 +5152,14 @@ PrefabInstance:
     - target: {fileID: 2924694240605022379, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088890724383368639, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088890724383368639, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
+      propertyPath: jumpSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3088890724383368639, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
       propertyPath: groundMask.m_Bits
@@ -5086,7 +5179,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2127837329278959112, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 191713526}
-    m_AddedComponents: []
+    - targetCorrespondingSourceObject: {fileID: 2127837329278959112, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 285815910}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8105683968053127346, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1597416620}
   m_SourcePrefab: {fileID: 100100000, guid: de4ac8ce7afd1e24793f54a78ef9f60a, type: 3}
 --- !u!1001 &4166463826328391576
 PrefabInstance:

@@ -3,7 +3,7 @@ using UnityEngine.XR;
 
 public class PlayerMov : MonoBehaviour
 {
-
+    public int jumpSpeed = 10;
     public Rigidbody2D rb;
     public float speed;
     public bool grounded;
@@ -22,7 +22,7 @@ public class PlayerMov : MonoBehaviour
     }
     void Update()
     {
-
+         grounded = Checkground();
         float xInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
 
@@ -31,9 +31,9 @@ public class PlayerMov : MonoBehaviour
             rb.linearVelocity = new Vector2(xInput * speed, rb.linearVelocity.y);
         }
 
-        if (Mathf.Abs(yInput) > 0)
+        if (Mathf.Abs(yInput) > 0 && grounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, yInput * 10);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x , jumpSpeed);
         }
         // Vector2 direction = new Vector2(xInput, yInput).normalized;
         // rb.linearVelocity = direction * speed;
@@ -41,9 +41,17 @@ public class PlayerMov : MonoBehaviour
         
     }
 
-    void Checkground()
+    bool Checkground()
     {
-        grounded = Physics2D.OverlapAreaAll(groundCheck.bounds.min, groundCheck.bounds.max, groundMask).Length > 0;
+        Debug.DrawLine(transform.position + new Vector3(0, -1.6f, 0), transform.position + new Vector3(0, -4f, 0));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -1.6f, 0), Vector2.down, .1f);
+        if (hit)
+        {
+            Debug.Log(hit.collider.name);
+
+            return true;
+        }
+        return false;
 
     }
 } 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Background polishied_0: 5529204278285393849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
