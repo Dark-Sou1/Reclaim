@@ -11,6 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TowerDefense/Scenes/TowerDefenseLevel.unity
     guid: f22e864af2d6edd41bdcf219f3c165e2
+  - enabled: 1
+    path: Assets/abdel/flying wizard/flying wizard.unity
+    guid: cb46f1d53bb9ff842af90456838cb2f9
+  - enabled: 1
+    path: Assets/abdel/force field/force field.unity
+    guid: 0f606292be2e4a54e8b0bd71bc199493
+  - enabled: 1
+    path: Assets/Emad/Light Footed/Scenes/Light Footed.unity
+    guid: 59544a642c37ba14c8f7f86fd5097fee
+  - enabled: 1
+    path: Assets/Emad/Spell Caster/SpellCaster.unity
+    guid: 3806126050c47d24eacb4b0e4c378494
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
