@@ -27,6 +27,6 @@ public class spawner : MonoBehaviour
     {
         Vector3 spawnPos = transform.position + new Vector3(0, Random.Range(-HightRange, HightRange));
         GameObject pipe = Instantiate(obstical, spawnPos, Quaternion.identity);
-        Destroy(pipe, 5f);
+        Destroy(pipe, 9f);
     }
 }

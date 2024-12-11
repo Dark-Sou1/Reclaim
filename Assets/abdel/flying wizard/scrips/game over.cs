@@ -12,6 +12,9 @@ public class gameover : MonoBehaviour
 
     public GameObject deathscreen;
     public GameObject deathtext;
+    public GameObject wintext;
+
+    bool End = false;
 
     public int add;
 
@@ -25,26 +28,44 @@ public class gameover : MonoBehaviour
         deathscreen.SetActive(false);
         Time.timeScale = 0f;
         deathtext.SetActive(false);
+        wintext.SetActive(false);
     }
 
     void Update()
     {
+        if (End)
+            return;
         if (Mouse.current.leftButton.wasPressedThisFrame)
-        { Time.timeScale = 1f;
+        {
+            Time.timeScale = 1f;
             up.text = "";
-            down.text = "";    
+            down.text = "";
         }
-        point.text = add +"";
+
+        point.text = add + "";
+    
+        if (add > 9)
+        {
+            win();
+        }
     }
-    // Update is called once per frame
+
     public void Gameover()
     {
         deathscreen.SetActive(true);
         deathtext.SetActive(true);
+        End = true;
         Time.timeScale = 0f;
     }
     public void Point()
     {
         add += 1;  
+    }
+    public void win()
+    {
+        wintext.SetActive(true);
+        deathscreen.SetActive(false);
+        End = true;
+        Time.timeScale = 0f;
     }
 }
