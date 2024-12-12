@@ -928,7 +928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &90341771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4134,7 +4134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &406667784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14028,7 +14028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3049235f83035b44fb0f1b4cfb251721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugUnlock: 
+  useDebugUnlock: 0
+  debugUnlock: 000000000100000002000000030000000400000005000000
   fireTower: {fileID: 698866026}
   stunTower: {fileID: 1738869185}
   boostTower: {fileID: 2112222439}

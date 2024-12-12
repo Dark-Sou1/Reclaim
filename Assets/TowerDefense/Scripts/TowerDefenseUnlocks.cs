@@ -6,7 +6,8 @@ public enum Unlockable { ExplodingTower, FireTower, FreezeTower, StunTower, Boos
 public class TowerDefenseUnlocks : MonoBehaviour
 {
     protected static List<Unlockable> unlocked = new List<Unlockable>();
-    
+
+    public bool useDebugUnlock;
     public List<Unlockable> debugUnlock;
 
     public GameObject fireTower;
@@ -26,8 +27,9 @@ public class TowerDefenseUnlocks : MonoBehaviour
 
     private void Awake()
     {
-        foreach (Unlockable u in debugUnlock)
-            unlocked.Add(u);
+        if(useDebugUnlock)
+            foreach (Unlockable u in debugUnlock)
+                unlocked.Add(u);
 
         fireTower.SetActive(unlocked.Contains(Unlockable.FireTower));
         stunTower.SetActive(unlocked.Contains(Unlockable.StunTower));

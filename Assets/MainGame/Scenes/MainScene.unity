@@ -1453,7 +1453,7 @@ MonoBehaviour:
   sortOrder: 0
   minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
   minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
-  rewardInfo: {fileID: 11400000, guid: 3cf3bfc59a39aa942b32b3a4fbd65bdc, type: 2}
+  rewardInfo: {fileID: 11400000, guid: b20fb7c0a34585643bbc0d8cdbfdc846, type: 2}
   unlocks: 6
 --- !u!114 &738801777
 MonoBehaviour:
