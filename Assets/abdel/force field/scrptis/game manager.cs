@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class shildmanager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class shildmanager : MonoBehaviour
     public GameObject deathscreen;
     public GameObject deathtext;
     public GameObject wintext;
+    public GameObject winbtn;
+    public GameObject loosebtn;
     public GameObject[] debrisObjects;
     public UnityEngine.Events.UnityEvent onAllDebrisDestroyed;
     public bool yay = false;
@@ -22,9 +25,11 @@ public class shildmanager : MonoBehaviour
     }
     void Start()
     {
+        winbtn.SetActive(false);
         deathscreen.SetActive(false);
         deathtext.SetActive(false);
         wintext.SetActive(false);
+        loosebtn.SetActive(false);
         debrisObjects = GameObject.FindGameObjectsWithTag("debris");
         Time.timeScale = 0f;
     }
@@ -73,6 +78,7 @@ public class shildmanager : MonoBehaviour
         deathtext.SetActive(true);
         Time.timeScale = 0f;
         loose = true;
+        loosebtn.SetActive(true);
         }
         
     }
@@ -87,7 +93,16 @@ public class shildmanager : MonoBehaviour
         deathscreen.SetActive(true);
         wintext.SetActive(true);
         yay = true;
+        winbtn.SetActive(true);
         }
         
+    }
+    public void tryagain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Continue()
+    {
+        SceneManager.LoadScene(0);
     }
 }
