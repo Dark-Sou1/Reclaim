@@ -25,7 +25,7 @@ namespace Giacomo
 
         protected void UpdateWave(int wave)
         {
-            waves.text = (wave + 1).ToString();
+            waves.text = (wave + 1).ToString() + "/" + GameManager.Instance.winGameAtWave;
         }
         protected void UpdateLives()
         {

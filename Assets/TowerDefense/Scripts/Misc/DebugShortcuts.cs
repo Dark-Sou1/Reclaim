@@ -19,6 +19,9 @@ public class DebugShortcuts : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow))
                 Time.timeScale -= 1;
 
+            if (Input.GetKeyDown(KeyCode.I))
+                Debug.Log($"TimeScale: {Time.timeScale} - Paused: {ManagedBehaviour.PauseAll.True} ({string.Join(", ", ManagedBehaviour.PauseAll.GetReferences())})");
+
 
         }
     }

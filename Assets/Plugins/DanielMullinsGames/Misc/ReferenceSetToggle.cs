@@ -22,4 +22,6 @@ public class ReferenceSetToggle
     {
         references.Remove(obj);
     }
+
+    public HashSet<object> GetReferences() => references;
 }

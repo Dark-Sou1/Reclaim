@@ -15,8 +15,6 @@ namespace Giacomo
         public void LoseHP(int amount)
         {
             lives -= amount;
-            if (lives <= 0)
-                GameManager.Instance.LoseGame();
             livesChanged?.Invoke();
         }
 

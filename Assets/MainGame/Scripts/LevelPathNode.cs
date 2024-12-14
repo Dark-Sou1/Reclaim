@@ -14,7 +14,7 @@ public class LevelPathNode : Interactable2D
     public DisplayableInfo rewardInfo;
     public Unlockable unlocks;
 
-    private void Start()
+    protected override void ManagedInitialize()
     {
         var r = GetComponent<SpriteRenderer>();
         r.sprite = minigameInfo.icon;
