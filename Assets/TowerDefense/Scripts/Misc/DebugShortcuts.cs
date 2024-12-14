@@ -1,5 +1,6 @@
 using Giacomo;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DebugShortcuts : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class DebugShortcuts : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.I))
                 Debug.Log($"TimeScale: {Time.timeScale} - Paused: {ManagedBehaviour.PauseAll.True} ({string.Join(", ", ManagedBehaviour.PauseAll.GetReferences())})");
 
-
+            if (Input.GetKeyDown(KeyCode.W))
+                SceneManager.LoadScene(0);
         }
     }
 }
