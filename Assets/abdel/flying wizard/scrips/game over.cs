@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class gameover : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class gameover : MonoBehaviour
     public GameObject deathscreen;
     public GameObject deathtext;
     public GameObject wintext;
-
+    public GameObject looseB;
+    public GameObject winB;
     bool End = false;
 
     public int add;
@@ -24,7 +26,10 @@ public class gameover : MonoBehaviour
             instance = this;
     }
     void Start()
-    {  
+    {
+        Time.timeScale = 0f;
+        looseB.SetActive(false);
+        winB.SetActive(false);
         deathscreen.SetActive(false);
         Time.timeScale = 0f;
         deathtext.SetActive(false);
@@ -52,6 +57,7 @@ public class gameover : MonoBehaviour
 
     public void Gameover()
     {
+        looseB.SetActive(true);
         deathscreen.SetActive(true);
         deathtext.SetActive(true);
         End = true;
@@ -63,9 +69,18 @@ public class gameover : MonoBehaviour
     }
     public void win()
     {
+        winB.SetActive(true);
         wintext.SetActive(true);
         deathscreen.SetActive(false);
         End = true;
         Time.timeScale = 0f;
+    }
+    public void tryagain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Continue()
+    {
+        SceneManager.LoadScene(0);
     }
 }

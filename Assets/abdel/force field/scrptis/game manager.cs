@@ -20,18 +20,19 @@ public class shildmanager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 0f;
         if (instance == null)
             instance = this;
     }
     void Start()
     {
+        Time.timeScale = 0f;
         winbtn.SetActive(false);
         deathscreen.SetActive(false);
         deathtext.SetActive(false);
         wintext.SetActive(false);
         loosebtn.SetActive(false);
         debrisObjects = GameObject.FindGameObjectsWithTag("debris");
-        Time.timeScale = 0f;
     }
 
     void Update()

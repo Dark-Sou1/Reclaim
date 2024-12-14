@@ -24,6 +24,7 @@ public class flying : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         gameover.instance.Gameover();
+        Debug.Log ("hit");
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
