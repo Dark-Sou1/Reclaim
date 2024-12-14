@@ -3,16 +3,23 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
-
+using Febucci.UI;
 
 public class QTE : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] TextMeshProUGUI pass;
+    [SerializeField] Animator animator;
+    [SerializeField] GameObject flame;
+    [SerializeField] ParticleSystem flames;
+    [SerializeField] GameObject amogous;
+    [SerializeField] GameObject inputText;
     public int QTEGen;
     public int waitingInput;
     public int correctInput;
     public int countDown;
+    public int rounds = 4;
+    public bool fireThrow = false;
 
     private void Update()
     {
@@ -114,6 +121,7 @@ public class QTE : MonoBehaviour
         {
             countDown = 2;
             pass.SetText("YES!");
+            flame.SetActive(true);
             yield return new WaitForSeconds(0.2f);
             correctInput = 0;
             pass.SetText("");
@@ -121,6 +129,24 @@ public class QTE : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             waitingInput = 0;
             countDown = 2;
+            rounds --;
+
+
+            if (rounds == 0)
+            {
+                animator.SetBool("Throw", true);
+                yield return new WaitForSeconds(0.2f);
+                //flame.SetActive(false);
+                flames.Play();
+                yield return new WaitForSeconds(0.5f);
+                amogous.SetActive(false);
+                yield return new WaitForSeconds(0.2f);
+                //inputText.SetActive(false);
+                pass.SetText("YOU SLAYED DA MONSTA !");
+                text.SetText("YOOOO !!!!");
+                Time.timeScale = 0;
+            }
+
         }
         QTEGen = 7;
         if (correctInput == 2)

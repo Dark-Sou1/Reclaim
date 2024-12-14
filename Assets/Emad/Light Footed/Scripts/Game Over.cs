@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] GameObject restart;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +16,7 @@ public class GameOver : MonoBehaviour
         if (other.CompareTag("Ennemy"))
         {
             text.SetText("Game Over");
+            restart.SetActive(true);
 
             Time.timeScale = 0;
         }

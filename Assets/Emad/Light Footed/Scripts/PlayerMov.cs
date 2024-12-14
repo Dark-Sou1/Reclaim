@@ -9,6 +9,7 @@ public class PlayerMov : MonoBehaviour
     public bool grounded;
     public BoxCollider2D groundCheck;
     public LayerMask groundMask;
+    [SerializeField] Animator Wizard;
 
 
 
@@ -29,16 +30,28 @@ public class PlayerMov : MonoBehaviour
         if (Mathf.Abs(xInput) > 0)
         {
             rb.linearVelocity = new Vector2(xInput * speed, rb.linearVelocity.y);
-        }
+            Wizard.SetBool("isWalking", true);
 
+
+
+        }
+        else
+        {
+            Wizard.SetBool("isWalking", false);
+        }
         if (Mathf.Abs(yInput) > 0 && grounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x , jumpSpeed);
+            Wizard.SetBool("isWalking", true);
         }
+        //else
+     //   {
+       //     Wizard.SetBool("isWalking", false);
+      //  }
         // Vector2 direction = new Vector2(xInput, yInput).normalized;
         // rb.linearVelocity = direction * speed;
 
-        
+
     }
 
     bool Checkground()
