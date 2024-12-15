@@ -29,6 +29,9 @@ public class PlaceCards : MonoBehaviour
     {
         for (int i = 0; i < cards.Length; i++)
         {
+            if (cards[i] == null)
+                continue;
+
             if (Vector3.Distance(cards[i].transform.position, positions[randomIndices[i]].position) > 0.01f)
             {
                 cards[i].transform.position = Vector3.MoveTowards(cards[i].transform.position,positions[randomIndices[i]].position,speed * Time.deltaTime);
