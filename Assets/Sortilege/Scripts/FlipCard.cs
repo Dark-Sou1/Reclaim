@@ -16,8 +16,8 @@ public class FlipCard : MonoBehaviour
     void Start()
     {
         cardSpriteRenderer = GetComponent<SpriteRenderer>();
-        cardManager = FindObjectOfType<CardManager>();
-        audioSource = FindObjectOfType<AudioSource>();
+        cardManager = FindAnyObjectByType<CardManager>();
+        audioSource = FindAnyObjectByType<AudioSource>();
 
     }
 

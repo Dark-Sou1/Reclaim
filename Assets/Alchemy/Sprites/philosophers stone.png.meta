@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 121a198405bccff48b668e66a1f6dcc8
+guid: dc0410b8fe6474b4d89d59be2174fd00
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1792480258135571260
-    second: Berries_0
+      213: -4127966086292358849
+    second: philosophers stone_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Berries_0
+      name: philosophers stone_0
       rect:
         serializedVersion: 2
         x: 5
-        y: 10
-        width: 21
-        height: 19
+        y: 0
+        width: 20
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c4cde2c3b4df17e0800000000000000
-      internalID: -1792480258135571260
+      spriteID: f393fa527b486b6c0800000000000000
+      internalID: -4127966086292358849
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Berries_0: -1792480258135571260
+      philosophers stone_0: -4127966086292358849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

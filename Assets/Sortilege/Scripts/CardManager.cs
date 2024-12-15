@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CardManager : MonoBehaviour
 {
+    [SerializeField] GameObject gameWinPanel;
+
+    private Sortilege.Scripts.GameManager gameManager;
+    
     public GameObject[] selected;
     public GameObject[] cards;
     private AudioSource audioSource;
@@ -13,7 +17,8 @@ public class CardManager : MonoBehaviour
     bool startTimer;
     private void Start()
     {
-        audioSource = FindObjectOfType<AudioSource>();
+        gameManager = FindAnyObjectByType<Sortilege.Scripts.GameManager>();
+        audioSource = FindAnyObjectByType<AudioSource>();
         selected = new GameObject[3];
         StartCoroutine(OnStart());
 
@@ -43,6 +48,20 @@ public class CardManager : MonoBehaviour
             foreach (GameObject card in selected)
             {
                 Destroy(card);
+
+                bool x = true;
+                foreach (var i in cards)
+                {
+                    if (i != null)
+                    {
+                        x = false;
+                    }
+                }
+
+                if (x)
+                {
+                    gameWinPanel.SetActive(true);
+                }
             }
             timer = 0;
             startTimer = false;
@@ -76,7 +95,7 @@ public class CardManager : MonoBehaviour
                 break;
             }
         }
-
+        
     }
 
     private void ResetSelectedCards()
@@ -88,6 +107,7 @@ public class CardManager : MonoBehaviour
                 card.GetComponent<FlipCard>().ResetCard();
             }
         }
+        gameManager.ReduceHealth();
     }
 
     private void ClearSelection()
