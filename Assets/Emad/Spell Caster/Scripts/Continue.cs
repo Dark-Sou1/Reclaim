@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Restart : MonoBehaviour
+public class ContinueSC : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,12 +14,12 @@ public class Restart : MonoBehaviour
     {
         
     }
-
-    public void ReloadScene()
+    public void NextScene()
     {
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
         
+
     }
 }

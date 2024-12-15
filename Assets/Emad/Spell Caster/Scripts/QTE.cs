@@ -14,6 +14,8 @@ public class QTE : MonoBehaviour
     [SerializeField] ParticleSystem flames;
     [SerializeField] GameObject amogous;
     [SerializeField] GameObject inputText;
+    [SerializeField] GameObject win;
+    [SerializeField] GameObject lose;
     public int QTEGen;
     public int waitingInput;
     public int correctInput;
@@ -144,6 +146,7 @@ public class QTE : MonoBehaviour
                 //inputText.SetActive(false);
                 pass.SetText("YOU SLAYED DA MONSTA !");
                 text.SetText("YOOOO !!!!");
+                win.SetActive(true);
                 Time.timeScale = 0;
             }
 
@@ -154,6 +157,7 @@ public class QTE : MonoBehaviour
             countDown = 1;
             text.SetText("You ded");
             pass.SetText("BRUH !!");
+            lose.SetActive(true);
             Time.timeScale = 0;
         // yield return new WaitForSeconds(0.2f);
         // correctInput = 0;
