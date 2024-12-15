@@ -57,7 +57,7 @@ public class PlayerMov : MonoBehaviour
     bool Checkground()
     {
         Debug.DrawLine(transform.position + new Vector3(0, -1.6f, 0), transform.position + new Vector3(0, -4f, 0));
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -1.6f, 0), Vector2.down, .1f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -2, 0), Vector2.down, .1f);
         if (hit)
         {
             Debug.Log(hit.collider.name);

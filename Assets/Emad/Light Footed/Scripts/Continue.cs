@@ -16,7 +16,7 @@ public class Continue : MonoBehaviour
     }
     public void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetSceneByName("MainScene").buildIndex);
-
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }
