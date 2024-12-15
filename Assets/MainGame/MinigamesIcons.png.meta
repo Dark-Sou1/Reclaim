@@ -119,9 +119,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
+        y: 81
         width: 28
-        height: 29
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,9 +141,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 30
-        y: 80
+        y: 81
         width: 28
-        height: 29
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,9 +163,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 80
+        y: 81
         width: 28
-        height: 29
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,9 +185,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 30
-        y: 49
+        y: 50
         width: 28
-        height: 29
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,9 +207,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 49
+        y: 50
         width: 28
-        height: 29
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,9 +229,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 49
+        y: 50
         width: 28
-        height: 29
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,6 +242,72 @@ TextureImporter:
       bones: []
       spriteID: 85cd675544b971ab0800000000000000
       internalID: -5037386940396676008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MinigamesIcons_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af06db4def4361a47862300261c6268d
+      internalID: 1660057353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MinigamesIcons_7
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 19
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96b1df773a03654a9c4f9983eb9dcd2
+      internalID: -25682795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MinigamesIcons_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 31
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a9033507678e743b9cca7fe686feac
+      internalID: -2128806795
       vertices: []
       indices: 
       edges: []
@@ -266,6 +332,9 @@ TextureImporter:
       MinigamesIcons_3: -9179738440397921994
       MinigamesIcons_4: 6388583189526751935
       MinigamesIcons_5: -5037386940396676008
+      MinigamesIcons_6: 1660057353
+      MinigamesIcons_7: -25682795
+      MinigamesIcons_8: -2128806795
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

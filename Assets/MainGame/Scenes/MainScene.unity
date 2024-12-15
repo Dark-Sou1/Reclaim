@@ -3209,6 +3209,7 @@ GameObject:
   - component: {fileID: 1934513911}
   - component: {fileID: 1934513914}
   - component: {fileID: 1934513913}
+  - component: {fileID: 1934513916}
   m_Layer: 0
   m_Name: Potions
   m_TagString: Untagged
@@ -3294,7 +3295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortOrder: 0
   minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
-  minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
+  minigameInfo: {fileID: 11400000, guid: 5f213a4db4b5843479b4774e4b8fc1ad, type: 2}
   rewardInfo: {fileID: 11400000, guid: e7345e73a427ceb41ba815abf1d59b78, type: 2}
   unlocks: 5
 --- !u!114 &1934513914
@@ -3367,6 +3368,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1934513916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934513909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d74462b5b4b45469df9e38e69651cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  small: {fileID: -2128806795, guid: c96488b36c97ace42b8eec33364fba1e, type: 3}
+  big: {fileID: 1660057353, guid: c96488b36c97ace42b8eec33364fba1e, type: 3}
+  spriteRenderer: {fileID: 1934513915}
 --- !u!1 &1986083938
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ab8a30ca197f1e4e983171c11efb686, type: 3}
-  m_Name: LightFooted
+  m_Name: Alchemy
   m_EditorClassIdentifier: 
-  icon: {fileID: -2097329982545654716, guid: c96488b36c97ace42b8eec33364fba1e, type: 3}
-  title: Light Footed
-  description: Use your wizard abilities to jump up into the sky.
+  icon: {fileID: -25682795, guid: c96488b36c97ace42b8eec33364fba1e, type: 3}
+  title: Alchemy
+  description: Collect all the ingridients into to create powerful potions. Don't
+    exaggerate with the ingredients or the pot will explode.
