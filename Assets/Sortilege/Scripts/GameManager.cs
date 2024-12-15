@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,10 +12,13 @@ namespace Sortilege.Scripts
         [SerializeField] Image[] healthBars;
         public int currentHealth;
 
+        private void Start()
+        {
+            currentHealth = healthBars.Length;
+        }
+
         public void ReduceHealth()
         {
-            print(currentHealth);
-            print(healthBars.Length);
             if (currentHealth > 0)
             {
                 healthBars[currentHealth - 1].enabled = false;

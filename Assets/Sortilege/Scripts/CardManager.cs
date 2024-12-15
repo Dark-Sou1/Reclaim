@@ -27,7 +27,6 @@ public class CardManager : MonoBehaviour
     {
         if (selected[0] != null && selected[1] != null && selected[2] != null)
         {
-            print(1);
             if (selected[0].CompareTag(selected[1].tag) && selected[1].CompareTag(selected[2].tag))
             {
                 startTimer = true;
@@ -35,24 +34,25 @@ public class CardManager : MonoBehaviour
             else
             {
                 StartCoroutine(ResetAndClearSelection());
+                print("hello");
+                gameManager.ReduceHealth();
             }
 
         }
         if (startTimer)
         {
             timer += Time.deltaTime;
-            print(timer);
         }
         if (timer >= timeTillFlip)
         {
             foreach (GameObject card in selected)
             {
-                Destroy(card);
+                card.gameObject.SetActive(false);
 
                 bool x = true;
                 foreach (var i in cards)
                 {
-                    if (i != null)
+                    if (i.gameObject.activeInHierarchy)
                     {
                         x = false;
                     }
@@ -107,7 +107,6 @@ public class CardManager : MonoBehaviour
                 card.GetComponent<FlipCard>().ResetCard();
             }
         }
-        gameManager.ReduceHealth();
     }
 
     private void ClearSelection()

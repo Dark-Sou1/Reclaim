@@ -19,9 +19,7 @@ public class PlaceCards : MonoBehaviour
         for (int i = randomIndices.Length - 1; i > 0; i--)
         {
             int j = Random.Range(0, i + 1);
-            int temp = randomIndices[i];
-            randomIndices[i] = randomIndices[j];
-            randomIndices[j] = temp;
+            (randomIndices[i], randomIndices[j]) = (randomIndices[j], randomIndices[i]);
         }
     }
 
