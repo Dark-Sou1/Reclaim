@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -5037386940396676008, guid: c96488b36c97ace42b8eec33364fba1e, type: 3}
   title: Defend the Tower
-  description: 'Reclaim your village by defeating incoming waves. Place towers to
-    stop incoming enemies from reaching your tower and the rest of the village. '
+  description: Reclaim your Village by defeating incoming waves of enemies. Place
+    towers to stop incoming enemies from reaching your tower.

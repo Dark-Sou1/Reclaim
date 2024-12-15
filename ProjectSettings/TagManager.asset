@@ -6,6 +6,9 @@ TagManager:
   tags:
   - fire
   - debris
+  - AetherFruit
+  - Elixir Berries
+  - Philosopher's Core
   layers:
   - Default
   - TransparentFX

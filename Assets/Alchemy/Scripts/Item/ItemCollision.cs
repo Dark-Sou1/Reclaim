@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ItemCollision : MonoBehaviour
 {
-    public GameManager gameManager;
+    public AlchemyGameManager gameManager;
     public AudioSource audioSource;
 
     void OnTriggerEnter2D(Collider2D other)

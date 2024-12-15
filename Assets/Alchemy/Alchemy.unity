@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 180109277}
   - component: {fileID: 180109278}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Elixir1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 185153386}
   - component: {fileID: 185153387}
   m_Layer: 5
-  m_Name: Image (6)
+  m_Name: Philosopher3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 276650669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d5f404361682c43a1cd15a3d93fde3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f29dd2b7bee75f48a1835b425d30413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   appleImages:
@@ -627,15 +627,15 @@ MonoBehaviour:
   - {fileID: 1065482712}
   - {fileID: 1127775824}
   pineappleImages:
-  - {fileID: 185153387}
-  - {fileID: 436597178}
   - {fileID: 1540682280}
+  - {fileID: 436597178}
+  - {fileID: 185153387}
   gameOverPanel: {fileID: 1188112955}
   gameWinPanel: {fileID: 26339862}
   healthBars:
   - {fileID: 1429465257}
   - {fileID: 192085329}
-  currentHealth: 0
+  currentHealth: 2
 --- !u!4 &276650671
 Transform:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 276650669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9673258, y: -1.3619517, z: 0.021392927}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 436597177}
   - component: {fileID: 436597178}
   m_Layer: 5
-  m_Name: Image (7)
+  m_Name: Philosopher2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1115,7 +1115,7 @@ GameObject:
   - component: {fileID: 1065482711}
   - component: {fileID: 1065482712}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Elixir2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1269,7 +1269,7 @@ GameObject:
   - component: {fileID: 1127775823}
   - component: {fileID: 1127775824}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: Elixir3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1557,7 +1557,7 @@ GameObject:
   - component: {fileID: 1221389205}
   - component: {fileID: 1221389206}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Aether1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1969,7 +1969,7 @@ GameObject:
   - component: {fileID: 1479674215}
   - component: {fileID: 1479674216}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Aether2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2044,7 +2044,7 @@ GameObject:
   - component: {fileID: 1540682279}
   - component: {fileID: 1540682280}
   m_Layer: 5
-  m_Name: Image (8)
+  m_Name: Philosopher1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2547,7 +2547,7 @@ GameObject:
   - component: {fileID: 1788833881}
   - component: {fileID: 1788833882}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Aether3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

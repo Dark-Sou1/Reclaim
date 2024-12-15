@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class AlchemyGameManager : MonoBehaviour
 {
     private Dictionary<string, (int required, int collected)> itemGoals = new Dictionary<string, (int, int)>();
 

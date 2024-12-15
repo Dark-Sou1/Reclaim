@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Emad/Spell Caster/SpellCaster.unity
     guid: 3806126050c47d24eacb4b0e4c378494
+  - enabled: 1
+    path: Assets/Alchemy/Alchemy.unity
+    guid: a8eee78a8a0997243bc0ed5e4924b746
+  - enabled: 1
+    path: Assets/Sortilege/Scenes/Sortilege.unity
+    guid: 21f61b229a2f119478ea79f0af8b5115
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
