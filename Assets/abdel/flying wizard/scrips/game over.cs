@@ -77,10 +77,12 @@ public class gameover : MonoBehaviour
     }
     public void tryagain()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void Continue()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }
