@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene: {fileID: 102900000, guid: 3806126050c47d24eacb4b0e4c378494, type: 3}
+  minigameScene: SpellCaster
   minigameInfo: {fileID: 11400000, guid: a0b1d7cbdaa61444eb00a9a11c9786cc, type: 2}
   rewardInfo: {fileID: 11400000, guid: 42a355a3a35cb3d4cb02d68527bc489a, type: 2}
   unlocks: 2
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene: {fileID: 102900000, guid: 21f61b229a2f119478ea79f0af8b5115, type: 3}
+  minigameScene: Sortilege
   minigameInfo: {fileID: 11400000, guid: 133f2d02bf50d3c4db0dd29432a5db5b, type: 2}
   rewardInfo: {fileID: 11400000, guid: de8c03f8b9f4d5b40ae44809b70d3629, type: 2}
   unlocks: 4
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene: {fileID: 102900000, guid: f22e864af2d6edd41bdcf219f3c165e2, type: 3}
+  minigameScene: TowerDefenseLevel
   minigameInfo: {fileID: 11400000, guid: e1c8ef5fc752b6b41a97a59229a00f4d, type: 2}
   rewardInfo: {fileID: 11400000, guid: b20fb7c0a34585643bbc0d8cdbfdc846, type: 2}
   unlocks: 6
@@ -2841,7 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene: {fileID: 102900000, guid: 59544a642c37ba14c8f7f86fd5097fee, type: 3}
+  minigameScene: Light Footed
   minigameInfo: {fileID: 11400000, guid: 0594b6d61d0e88448b2138493d1c167d, type: 2}
   rewardInfo: {fileID: 11400000, guid: 0a0284bad845f9a499ba02fb6468501c, type: 2}
   unlocks: 0
@@ -3009,7 +3009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene: {fileID: 102900000, guid: cb46f1d53bb9ff842af90456838cb2f9, type: 3}
+  minigameScene: flying wizard
   minigameInfo: {fileID: 11400000, guid: 52a5951306352164f9a11d01130e55eb, type: 2}
   rewardInfo: {fileID: 11400000, guid: df2c2dabf7469ca4aaca1dc3e5ebd4f6, type: 2}
   unlocks: 3
@@ -3177,7 +3177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene: {fileID: 102900000, guid: 0f606292be2e4a54e8b0bd71bc199493, type: 3}
+  minigameScene: force field
   minigameInfo: {fileID: 11400000, guid: 2415dc8fa28f754469624a0f2d982d4c, type: 2}
   rewardInfo: {fileID: 11400000, guid: 3cf3bfc59a39aa942b32b3a4fbd65bdc, type: 2}
   unlocks: 1
@@ -3294,7 +3294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  minigameScene: {fileID: 102900000, guid: a8eee78a8a0997243bc0ed5e4924b746, type: 3}
+  minigameScene: Alchemy
   minigameInfo: {fileID: 11400000, guid: 5f213a4db4b5843479b4774e4b8fc1ad, type: 2}
   rewardInfo: {fileID: 11400000, guid: e7345e73a427ceb41ba815abf1d59b78, type: 2}
   unlocks: 5

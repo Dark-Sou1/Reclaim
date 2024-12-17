@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
 
 public class ReferenceResolutionSetter : Singleton<ReferenceResolutionSetter>
 {

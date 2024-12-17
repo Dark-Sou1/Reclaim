@@ -25,7 +25,7 @@ public class LevelPath : Singleton<LevelPath>
         {
             chosenNodes.Add(node);
             TowerDefenseUnlocks.UnlockTower(node.unlocks);
-            SceneManager.LoadScene(node.minigameScene.name);
+            SceneManager.LoadScene(node.minigameScene);
         }
     }
 

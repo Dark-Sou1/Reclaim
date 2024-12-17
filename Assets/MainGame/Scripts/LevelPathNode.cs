@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using Giacomo;
 using UnityEditor;
@@ -8,7 +7,7 @@ using UnityEditor;
 [Serializable]
 public class LevelPathNode : Interactable2D
 {
-    public SceneAsset minigameScene;
+    public string minigameScene;
 
     public DisplayableInfo minigameInfo;
     public DisplayableInfo rewardInfo;
