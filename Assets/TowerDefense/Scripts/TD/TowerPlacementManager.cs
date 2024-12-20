@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,12 @@ namespace Giacomo
 
     public class TowerPlacementManager : Singleton<TowerPlacementManager>
     {
-        public SpriteRenderer previewRenderer;
+        public GameObject preview;
+        SpriteRenderer[] previewRenderers;
 
-        [ShowInInspector, ReadOnly] public Tower placingTower { get; private set; }
+        [ShowInInspector, ReadOnly] 
+        public Tower placingTower { get; private set; }
+
         protected Action onPlace;
         protected Action cancelPlacing;
 
@@ -66,16 +70,15 @@ namespace Giacomo
 
             //draw preview
             Vector3 coords = new Vector3(intCoords.x, intCoords.y);
-            previewRenderer.transform.position = coords;
+            rangePreview.transform.position = coords;
+            preview.transform.position = coords;
             if (hoveringTile && hoveringTile.CanPlace())
             {
-                previewRenderer.color = Color.white;
-
+                previewRenderers.ForEach(x => x.color = Color.white);
             }
             else
             {
-                previewRenderer.color = Color.red;
-
+                previewRenderers.ForEach(x => x.color = Color.red);
             }
         }
 
@@ -84,7 +87,7 @@ namespace Giacomo
             placingTower = null;
             onPlace = null;
             cancelPlacing = null;
-            previewRenderer.sprite = null;
+            Destroy(preview);
             rangePreview.gameObject.SetActive(false);
             InputManager.Instance.SetPlacingStatus(false);
         }
@@ -105,7 +108,8 @@ namespace Giacomo
 
             InputManager.Instance.SetPlacingStatus(true);
             placingTower = tower;
-            previewRenderer.sprite = placingTower.placingPreview;
+            preview = Instantiate(tower.transform.Find("GFX")).gameObject;
+            previewRenderers = preview.GetComponentsInChildren<SpriteRenderer>();
             this.onPlace = onPlace;
             this.cancelPlacing = cancelPlacing;
             startedPlacingThisFrame = true;
