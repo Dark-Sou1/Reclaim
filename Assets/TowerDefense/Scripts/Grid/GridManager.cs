@@ -66,6 +66,8 @@ namespace Giacomo
             return null;
         }
 
+        public Dictionary<Vector2Int, Tile> GetAll() => tiles;
+
         public void Remove(Tile tile)
         {
             tiles?.Remove(tiles.FirstOrDefault(x => x.Value == tile).Key);

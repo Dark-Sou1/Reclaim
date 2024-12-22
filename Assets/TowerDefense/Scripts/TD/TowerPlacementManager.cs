@@ -20,9 +20,7 @@ namespace Giacomo
         protected Action onPlace;
         protected Action cancelPlacing;
 
-        [SerializeField]
-        protected LineRenderer rangePreview;
-
+        public LineRenderer rangePreview;
 
         bool startedPlacingThisFrame;
         public void Update()
