@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
@@ -11,18 +12,25 @@ namespace Giacomo
 
     public class TowerPlacementManager : Singleton<TowerPlacementManager>
     {
-        public GameObject preview;
-        SpriteRenderer[] previewRenderers;
-
         [ShowInInspector, ReadOnly] 
         public Tower placingTower { get; private set; }
 
         protected Action onPlace;
-        protected Action cancelPlacing;
+        protected Action onCancelPlacing;
 
-        public LineRenderer rangePreview;
+        protected GameObject preview;
+        protected SpriteRenderer[] previewRenderers;
 
-        bool startedPlacingThisFrame;
+        protected ScaleWithStat rangePreview;
+        protected bool startedPlacingThisFrame;
+
+        private void Awake()
+        {
+            rangePreview = Instantiate(Resources.Load("TowerDefense/Prefabs/RangePreview"), transform).GetComponent<ScaleWithStat>();
+            rangePreview.gameObject.SetActive(false);
+        }
+
+
         public void Update()
         {
             if(placingTower == null)
@@ -38,7 +46,7 @@ namespace Giacomo
             //cancel placing
             if (Input.GetKey(KeyCode.Escape))
             { 
-                cancelPlacing?.Invoke();
+                onCancelPlacing?.Invoke();
                 StopPlacing();
                 return;
             }
@@ -84,7 +92,7 @@ namespace Giacomo
         {
             placingTower = null;
             onPlace = null;
-            cancelPlacing = null;
+            onCancelPlacing = null;
             Destroy(preview);
             rangePreview.gameObject.SetActive(false);
             InputManager.Instance.SetPlacingStatus(false);
@@ -101,6 +109,7 @@ namespace Giacomo
             float range = tower.b_maxRange*2;
             if (tower.stats)
                 range = tower.stats["maxRange"] * 2;
+
             rangePreview.transform.localScale = Vector3.one * range;
             rangePreview.gameObject.SetActive(true);
 
@@ -109,7 +118,7 @@ namespace Giacomo
             preview = Instantiate(tower.transform.Find("GFX")).gameObject;
             previewRenderers = preview.GetComponentsInChildren<SpriteRenderer>();
             this.onPlace = onPlace;
-            this.cancelPlacing = cancelPlacing;
+            this.onCancelPlacing = cancelPlacing;
             startedPlacingThisFrame = true;
         }
     }

@@ -9,7 +9,7 @@ namespace Giacomo
     public class Stats : MonoBehaviour
     {
         [ShowInInspector]
-        public Dictionary<string, Stat> stats;
+        public Dictionary<string, Stat> stats {  get; private set; }
 
         public Stat this[string s] => stats[s];
         public Stats()
@@ -32,6 +32,8 @@ namespace Giacomo
 
         public void RemoveModifier(string modifierName, string statName)
             => stats[statName].RemoveModifier(modifierName);
+
+        public Stat GetStat(string name) => stats[name];
     }
 
     [Serializable]
