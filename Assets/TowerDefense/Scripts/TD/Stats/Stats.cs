@@ -36,40 +36,100 @@ namespace Giacomo
         public Stat GetStat(string name) => stats[name];
     }
 
-    [Serializable]
+    [Serializable, InlineProperty, BoxGroup("Stats"), LabelWidth(100)]
     public class Stat
     {
+        [SerializeField, LabelText("Base"), HorizontalGroup("Values")]
+        [OnValueChanged("@UpdateValue()")]
+        private float m_baseValue;
+        public float BaseValue { get => m_baseValue; protected set => m_baseValue = value; }
+
+
+        private float m_value;
+        [ShowInInspector, ReadOnly, HorizontalGroup("Values"), LabelText("Current")]
+        public float Value { 
+            get { if (!isInitialized) UpdateValue(); 
+                return m_value; } 
+            private set => m_value = value; 
+        }
+
+        #region RangeEditor
+
+        [HorizontalGroup("Range")]
+        [HorizontalGroup("Range/Min", width: 60, LabelWidth = 30)]
+        [Tooltip("@min?\"Disable minimum value\":\"Enable minimum value\"")]
+        [Button("@min?\"Min On\":\"Min Off\"")]
+        public void ToggleMin()
+        {
+            min = !min;
+            if (min) MinValue = tempMin;
+            else { tempMin = MinValue; MinValue = float.MinValue; }
+            UpdateValue();
+        }
+        [HorizontalGroup("Range")]
+        [HorizontalGroup("Range/Max", width: 60, LabelWidth = 30)]
+        [Tooltip("@max?\"Disable maximum value\":\"Enable maximum value\"")]
+        [Button("@max?\"Max On\":\"Max Off\"")]
+        protected void ToggleMax()
+        {
+            max = !max;
+            if (max) MaxValue = tempMax;
+            else { tempMax = MaxValue; MaxValue = float.MaxValue; }
+            UpdateValue();
+        }
+        [SerializeField, HideInInspector]
+        protected bool min;
+        [SerializeField, HideInInspector]
+        protected bool max;
+        [SerializeField, HideInInspector]
+        protected float tempMin;
+        [SerializeField, HideInInspector]
+        protected float tempMax;
+
+        #endregion 
+
+        [SerializeField]
+        [HorizontalGroup("Range"), EnableIf("@min"), HideLabel]
+        [HorizontalGroup("Range/Min")]
+        [OnValueChanged("@UpdateValue()")]
+        protected float m_minValue;
+        public float MinValue { get => m_minValue; private set => m_minValue = value; }
+
+        [SerializeField]
+        [HorizontalGroup("Range"), EnableIf("@max"), HideLabel]
+        [HorizontalGroup("Range/Max")]
+        [OnValueChanged("@UpdateValue()")]
+        private float m_maxValue;
+        public float MaxValue { get => m_maxValue; private set => m_maxValue = value; }
+
+
         [ShowInInspector]
-        public float baseValue { get; private set; }
-        [ShowInInspector, ReadOnly]
-        public float value { get; private set; }
-        [ShowInInspector]
-        public float minValue { get; private set; }
-        [ShowInInspector]
-        public float maxValue { get; private set; }
-        [ShowInInspector]
+        [OnValueChanged("@UpdateValue()")]
         public Dictionary<string, StatModifier> modifiers { get; private set; }
 
         public event Action<StatValueChangedEventArgs> OnValueChanged;
 
-        public static implicit operator float(Stat s) => s.value;
+        public static implicit operator float(Stat s) => s.Value;
 
+        private bool isInitialized;
+        
         public Stat()
         {
             modifiers = new Dictionary<string, StatModifier>();
         }
+
         public Stat(float baseValue, float minValue, float maxValue) : base()
         {
-            this.baseValue = baseValue;
-            this.minValue = minValue;
-            this.maxValue = maxValue;
+            this.BaseValue = baseValue;
+            this.MinValue = minValue;
+            this.MaxValue = maxValue;
             modifiers = new Dictionary<string, StatModifier>();
             UpdateValue();
         }
 
         public void SetBaseValue(float newValue)
         {
-            baseValue = newValue;
+            BaseValue = newValue;
             UpdateValue();
         }
 
@@ -108,14 +168,16 @@ namespace Giacomo
 
         protected void UpdateValue()
         {
+            isInitialized = true;
+
             float add = modifiers.Sum(x => x.Value.add);
             float multiply = 1 + modifiers.Sum(x => x.Value.multiply - 1);
 
-            float res = baseValue * multiply + add;
-            float newVal = Mathf.Clamp(res, minValue, maxValue);
+            float res = BaseValue * multiply + add;
+            float newVal = Mathf.Clamp(res, MinValue, MaxValue);
 
-            float previousValue = value;
-            value = newVal;
+            float previousValue = Value;
+            Value = newVal;
 
             if (previousValue != newVal)
                 OnValueChanged?.Invoke(new StatValueChangedEventArgs(previousValue, newVal));

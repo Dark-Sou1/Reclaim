@@ -32,7 +32,7 @@ namespace Giacomo
                 if (!hit[i].collider.TryGetComponent(out Targetable t)) continue;
                 if (!hit[i].collider.TryGetComponent(out EffectHandler e)) continue;
 
-                t.Damage(stats["damage"] / stats["attackSpeed"].baseValue);
+                t.Damage(stats["damage"] / stats["attackSpeed"].BaseValue);
 
                 DamageOverTImeEffect burnEffect = new DamageOverTImeEffect(t, stats["burnDPS"]);
                 e.AddEffect("burn", burnEffect, stats["burnDuration"]);

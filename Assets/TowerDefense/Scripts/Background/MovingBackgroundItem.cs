@@ -21,7 +21,7 @@ public class BackgroundItem : MonoBehaviour
 
         icon.transform.localScale = Vector3.one * scaleCurve.Evaluate(dist);
 
-        icon.transform.rotation = Quaternion.Euler(0, 0, rotationCurve.Evaluate(dist) * 90);
+        //icon.transform.rotation = Quaternion.Euler(0, 0, rotationCurve.Evaluate(dist) * 90);
 
         icon.transform.localPosition = dir * positionCurve.Evaluate(dist);
 

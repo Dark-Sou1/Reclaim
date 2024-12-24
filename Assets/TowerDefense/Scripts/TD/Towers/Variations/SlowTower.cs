@@ -26,7 +26,7 @@ namespace Giacomo
                 var dist = Vector2.Distance(transform.position, e.transform.position);
                 if (dist < stats["minRange"] || dist > stats["maxRange"]) continue;
 
-                e.Damage(stats["damage"] / stats["attackSpeed"].baseValue);
+                e.Damage(stats["damage"] / stats["attackSpeed"].BaseValue);
 
 
                 if (e.stats.HasModifier("burn", "moveSpeed")) continue;

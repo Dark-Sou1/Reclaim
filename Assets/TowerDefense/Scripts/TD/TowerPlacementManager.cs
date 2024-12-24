@@ -106,20 +106,23 @@ namespace Giacomo
                 return;
             }
 
-            float range = tower.b_maxRange*2;
-            if (tower.stats)
-                range = tower.stats["maxRange"] * 2;
-
-            rangePreview.transform.localScale = Vector3.one * range;
-            rangePreview.gameObject.SetActive(true);
-
             InputManager.Instance.SetPlacingStatus(true);
-            placingTower = tower;
-            preview = Instantiate(tower.transform.Find("GFX")).gameObject;
-            previewRenderers = preview.GetComponentsInChildren<SpriteRenderer>();
+            this.placingTower = tower;
             this.onPlace = onPlace;
             this.onCancelPlacing = cancelPlacing;
             startedPlacingThisFrame = true;
+
+            //Range preview
+            float range = tower.b_maxRange*2;
+            if (tower.stats)
+                range = tower.stats["maxRange"] * 2;
+            rangePreview.transform.localScale = Vector3.one * range;
+            rangePreview.gameObject.SetActive(true);
+
+            //Tower preview
+            var pos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
+            preview = Instantiate(tower.transform.Find("GFX"), pos, Quaternion.identity).gameObject;
+            previewRenderers = preview.GetComponentsInChildren<SpriteRenderer>();
         }
     }
 }
