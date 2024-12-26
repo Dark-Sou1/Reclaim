@@ -13,10 +13,10 @@ namespace Giacomo
 
         void OnEnable()
         {
-            if (statObject && !statName.IsNullOrWhitespace())
+            if (stat == null && statObject && !statName.IsNullOrWhitespace())
             {
-                stat = statObject.GetComponent<Stats>().GetStat(statName);
-                stat.OnValueChanged += UpdateScale;
+                var s = statObject.GetComponent<IStatObject>().GetStats()[statName];
+                SetStat(s);
             }
             UpdateScale(null);
         }

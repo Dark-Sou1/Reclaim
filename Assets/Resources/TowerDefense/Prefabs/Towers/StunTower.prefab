@@ -124,9 +124,9 @@ MonoBehaviour:
   scaleWithMinRange: []
   minRangeIndicator: {fileID: 0}
   maxRangeIndicator: {fileID: 0}
-  b_rotationSpeed: 0
-  b_damage: 4
-  b_attackSpeed: 1
+  cannon: {fileID: 4493684489330958133}
+  attackAngleThreshold: 360
+  rotateTowardsTarget: 0
   RotationSpeed:
     m_name: 
     m_baseValue: 0
@@ -154,13 +154,8 @@ MonoBehaviour:
     tempMax: 0
     m_minValue: 0
     m_maxValue: 3.4028235e+38
-  cannon: {fileID: 4493684489330958133}
-  attackAngleThreshold: 360
-  rotateTowardsTarget: 0
-  target: {fileID: 0}
   attackSoundVolume: 0.07
-  b_stunDuration: 0.7
-  b_stunChance: 0.35
+  target: {fileID: 0}
   StunDuration:
     m_name: 
     m_baseValue: 0.7
@@ -350,6 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6860416667821647265}
   - component: {fileID: 812788614847482247}
+  - component: {fileID: 2342005138561956880}
   m_Layer: 0
   m_Name: Impact
   m_TagString: Untagged
@@ -395,6 +391,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2342005138561956880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083764732315926193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bf7464aea368c498de28321c7dbe4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: maxRange
+  statObject: {fileID: 1752127049823460849}
+  offset: 0
+  multiply: 2
 --- !u!1 &7383631292340550367
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +486,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.27058825}
+  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.047058824}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -920,8 +932,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0, b: 0, a: 0.53333336}
-      key1: {r: 0, g: 0, b: 0, a: 0.53333336}
+      key0: {r: 1, g: 1, b: 1, a: 0.1254902}
+      key1: {r: 1, g: 1, b: 1, a: 0.1254902}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -966,7 +978,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7383631292340550367}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5dcf248c449edb4c8dc80d2ddaf8d58, type: 3}
   m_Name: 

@@ -61,7 +61,8 @@ namespace Giacomo
         protected override void OnTargetLost()
         {
             fireParticles.Stop();
-            Destroy(fireSound.gameObject);
+            if(fireSound)
+                Destroy(fireSound.gameObject);
         }
         private void OnDisable()
         {

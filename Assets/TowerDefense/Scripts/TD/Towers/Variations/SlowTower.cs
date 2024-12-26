@@ -49,8 +49,8 @@ namespace Giacomo
 
         protected override void OnTargetLost()
         {
-            freezeSound.Stop();
-            Destroy(freezeSound.gameObject);
+            if(freezeSound)
+                Destroy(freezeSound.gameObject);
         }
         private void OnDisable()
         {

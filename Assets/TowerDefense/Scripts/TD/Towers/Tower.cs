@@ -10,9 +10,7 @@ namespace Giacomo
 {
     public class Tower : Interactable2D, IStatObject
     {
-
         public Tile Tile { get; set; }
-
 
         [HideInInspector] public EffectHandler effects;
 
@@ -20,11 +18,8 @@ namespace Giacomo
         public string towerName;
         [TextArea]
         public string towerDescription;
-        public int cost;
-        public Sprite placingPreview;
+
         public Sprite shopIcon;
-        public float b_maxRange = 3;
-        public float b_minRange = 0;
 
         public Stat Cost;
         public Stat MaxRange;
@@ -35,9 +30,6 @@ namespace Giacomo
         [BoxGroup("Sound")]
         [Range(0f, 1f)]
         public float placeSoundVolume = .5f;
-
-        public List<Transform> scaleWithMaxRange = new List<Transform>();
-        public List<Transform> scaleWithMinRange = new List<Transform>();
 
         [SerializeField, HideInInspector] ScaleWithStat minRangeIndicator;
         [SerializeField, HideInInspector] ScaleWithStat maxRangeIndicator;

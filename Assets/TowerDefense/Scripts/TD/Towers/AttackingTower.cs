@@ -131,20 +131,10 @@ namespace Giacomo
 
         private void OnDrawGizmosSelected()
         {
-            if (Application.isPlaying)
-            {
-                Gizmos.color = Color.white;
-                Gizmos.DrawWireSphere(transform.position, MaxRange);
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(transform.position, MinRange);
-            }
-            else
-            {
-                Gizmos.color = Color.white;
-                Gizmos.DrawWireSphere(transform.position, b_maxRange);
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(transform.position, b_minRange);
-            }
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(transform.position, MaxRange);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, MinRange);
         }
     }
 }

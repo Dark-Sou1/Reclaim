@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7507854840275013784}
+  - component: {fileID: 7325335716722007374}
   m_Layer: 0
   m_Name: SlowArea
   m_TagString: Untagged
@@ -32,6 +33,22 @@ Transform:
   - {fileID: 4738994804140623187}
   m_Father: {fileID: 6016853742787298346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7325335716722007374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551670214513407929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33bf7464aea368c498de28321c7dbe4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: maxRange
+  statObject: {fileID: 2367323786301763600}
+  offset: 0
+  multiply: 2
 --- !u!1 &2367323786301763600
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortOrder: 0
   effects: {fileID: 0}
-  towerName: Frost
+  towerName: Freeze
   towerDescription: Slows enemies in an area.
   cost: 100
   placingPreview: {fileID: 6740741442962960701, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
@@ -154,8 +171,6 @@ MonoBehaviour:
     m_maxValue: 3.4028235e+38
   attackSoundVolume: 0.5
   target: {fileID: 0}
-  b_slowDuration: 1.5
-  b_slowAmount: 0.7
   SlowDuration:
     m_name: 
     m_baseValue: 1.5

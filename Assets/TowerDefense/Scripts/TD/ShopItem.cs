@@ -16,7 +16,7 @@ namespace Giacomo
         {
             tower = prefab.GetComponent<Tower>();
             iconUI.sprite = tower.shopIcon;
-            costUI.text = tower.cost.ToString();
+            costUI.text = tower.Cost.ToString();
             GameStats.Instance.coinsChanged += UpdatePriceColor;
             UpdatePriceColor();
         }
@@ -33,7 +33,7 @@ namespace Giacomo
             if (InputManager.Instance && !InputManager.Instance.acceptInput)
                 return;
             //Check player has enough money
-            if (GameStats.Instance && GameStats.Instance.coins < tower.cost)
+            if (GameStats.Instance && GameStats.Instance.coins < tower.Cost)
                 return;
 
             //TOGGLE SELECT
@@ -56,12 +56,12 @@ namespace Giacomo
 
         protected void OnTowerPlaced()
         {
-            GameStats.Instance?.ModifyCoins(-tower.cost);
+            GameStats.Instance?.ModifyCoins(-(int)tower.Cost);
         }
 
         protected void UpdatePriceColor()
         {
-            if(tower.cost <= GameStats.Instance.coins)
+            if(tower.Cost <= GameStats.Instance.coins)
                 costUI.color = TDColors.AffordableColor;
             else
                 costUI.color = TDColors.UnaffordableColor;
