@@ -14,12 +14,11 @@ namespace Giacomo
 
         [HideInInspector] public EffectHandler effects;
 
+        public Sprite shopIcon;
         [Header("General")]
         public string towerName;
         [TextArea]
         public string towerDescription;
-
-        public Sprite shopIcon;
 
         public Stat Cost;
         public Stat MaxRange;

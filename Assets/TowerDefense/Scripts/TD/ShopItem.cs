@@ -16,7 +16,7 @@ namespace Giacomo
         {
             tower = prefab.GetComponent<Tower>();
             iconUI.sprite = tower.shopIcon;
-            costUI.text = tower.Cost.ToString();
+            costUI.text = ((int)tower.Cost).ToString();
             GameStats.Instance.coinsChanged += UpdatePriceColor;
             UpdatePriceColor();
         }
