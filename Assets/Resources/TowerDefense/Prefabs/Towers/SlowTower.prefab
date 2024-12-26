@@ -81,7 +81,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  stats: {fileID: 0}
   effects: {fileID: 0}
   towerName: Frost
   towerDescription: Slows enemies in an area.
@@ -90,22 +89,91 @@ MonoBehaviour:
   shopIcon: {fileID: 6740741442962960701, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
   b_maxRange: 3
   b_minRange: 0
+  Cost:
+    m_name: 
+    m_baseValue: 100
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MaxRange:
+    m_name: 
+    m_baseValue: 3
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MinRange:
+    m_name: 
+    m_baseValue: 0
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   placeSoundVolume: 0.5
   scaleWithMaxRange:
   - {fileID: 7507854840275013784}
   scaleWithMinRange: []
   minRangeIndicator: {fileID: 0}
   maxRangeIndicator: {fileID: 0}
-  b_rotationSpeed: 0
-  b_damage: 1
-  b_attackSpeed: 4
   cannon: {fileID: 1999829596359873009}
   attackAngleThreshold: 360
   rotateTowardsTarget: 0
-  target: {fileID: 0}
+  RotationSpeed:
+    m_name: 
+    m_baseValue: 0
+    min: 1
+    max: 1
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 0
+  Damage:
+    m_name: 
+    m_baseValue: 1
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  AttackSpeed:
+    m_name: 
+    m_baseValue: 4
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 1
+    m_maxValue: 3.4028235e+38
   attackSoundVolume: 0.5
+  target: {fileID: 0}
   b_slowDuration: 1.5
   b_slowAmount: 0.7
+  SlowDuration:
+    m_name: 
+    m_baseValue: 1.5
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  SlowAmount:
+    m_name: 
+    m_baseValue: 0.7
+    min: 1
+    max: 1
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 1
 --- !u!61 &-1293504078115593503
 BoxCollider2D:
   m_ObjectHideFlags: 0

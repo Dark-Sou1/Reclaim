@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 
 namespace Giacomo
 {
-    public class Tower : Interactable2D
+    public class Tower : Interactable2D, IStatObject
     {
 
         public Tile Tile { get; set; }
-        [HideInInspector] public Stats stats;
+
+
         [HideInInspector] public EffectHandler effects;
 
         [Header("General")]
@@ -24,6 +26,12 @@ namespace Giacomo
         public float b_maxRange = 3;
         public float b_minRange = 0;
 
+        public Stat Cost;
+        public Stat MaxRange;
+        public Stat MinRange;
+
+        public Stats stats;
+
         [BoxGroup("Sound")]
         [Range(0f, 1f)]
         public float placeSoundVolume = .5f;
@@ -31,26 +39,36 @@ namespace Giacomo
         public List<Transform> scaleWithMaxRange = new List<Transform>();
         public List<Transform> scaleWithMinRange = new List<Transform>();
 
-        [SerializeField, HideInInspector] Transform minRangeIndicator;
-        [SerializeField, HideInInspector] Transform maxRangeIndicator;
+        [SerializeField, HideInInspector] ScaleWithStat minRangeIndicator;
+        [SerializeField, HideInInspector] ScaleWithStat maxRangeIndicator;
 
         protected bool placedThisFrame = true;
 
         protected override void ManagedInitialize()
         {
-            if(!stats)
-                stats = gameObject.AddComponent<Stats>();
             if(!effects)
                 effects = gameObject.AddComponent<EffectHandler>();
 
-            stats.AddStat("maxRange", b_maxRange, 0);
-            stats.AddStat("minRange", b_minRange, 0);
-            stats["maxRange"].OnValueChanged += UpdateRangeIndicators;
-            stats["minRange"].OnValueChanged += UpdateRangeIndicators;
+            stats = GetStats();
+
             SetupRangeIndicators();
 
             AudioController.Instance.PlaySound2D("tower_" + towerName + "_place", placeSoundVolume);
         }
+
+
+        public virtual Stats GetStats()
+        {
+            if (stats != null)
+                return stats;
+
+            var tempStats = new Stats();
+            tempStats.AddStat("cost", Cost);
+            tempStats.AddStat("maxRange", MaxRange);
+            tempStats.AddStat("minRange", MinRange);
+            return tempStats;
+        }
+        
 
         public override void ManagedLateUpdate()
         {
@@ -60,45 +78,16 @@ namespace Giacomo
 
         protected void SetupRangeIndicators()
         {
-            Color lineColor = new Color(1, 1, 1, .5f);
-            if(maxRangeIndicator == null)
-            {
-                maxRangeIndicator = new GameObject("MaxRangeIndicator").transform;
-                maxRangeIndicator.parent = transform;
-                maxRangeIndicator.transform.position = transform.position;
-                var maxRangeLine = maxRangeIndicator.gameObject.AddComponent<LineRenderer>();
-                maxRangeLine.startColor = lineColor;
-                maxRangeLine.endColor = lineColor;
-                maxRangeLine.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
-                CircularLineRenderer.DrawCircle(maxRangeLine, 1, 0, .03f, Vector2.one/2, 90);
-                scaleWithMaxRange.Add(maxRangeIndicator);
-            }
-            if(minRangeIndicator == null)
-            {
-                minRangeIndicator = new GameObject("MinRangeIndicator").transform;
-                minRangeIndicator.parent = transform;
-                minRangeIndicator.transform.position = transform.position;
-                var minRangeLine = minRangeIndicator.gameObject.AddComponent<LineRenderer>();
-                minRangeLine.startColor = lineColor;
-                minRangeLine.endColor = lineColor; 
-                minRangeLine.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
-                CircularLineRenderer.DrawCircle(minRangeLine, 1, 0, .03f, Vector2.one/2, 90);
-                scaleWithMinRange.Add(minRangeIndicator);
-            }
+            maxRangeIndicator = Instantiate(Resources.Load("TowerDefense/Prefabs/RangePreview"), transform).GetComponent<ScaleWithStat>();
+            maxRangeIndicator.multiply = 2;
+            maxRangeIndicator.SetStat(MaxRange);
+            
+            minRangeIndicator = Instantiate(Resources.Load("TowerDefense/Prefabs/RangePreview"), transform).GetComponent<ScaleWithStat>();
+            minRangeIndicator.multiply = 2;
+            minRangeIndicator.SetStat(MaxRange);
+            
             maxRangeIndicator.gameObject.SetActive(false);
             minRangeIndicator.gameObject.SetActive(false);
-            UpdateRangeIndicators(null);
-        }
-
-        protected void UpdateRangeIndicators(Stat.StatValueChangedEventArgs args)
-        {
-            float max = stats["maxRange"] * 2;
-            foreach(Transform t in scaleWithMaxRange)
-                t.localScale = Vector3.one * max;
-            
-            float min = stats["minRange"] * 2;
-            foreach(Transform t in scaleWithMinRange)
-                t.localScale = Vector3.one * min;
         }
 
         protected override void OnCursorEnter()

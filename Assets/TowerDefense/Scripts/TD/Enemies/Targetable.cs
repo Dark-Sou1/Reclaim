@@ -7,26 +7,36 @@ using UnityEngine;
 
 namespace Giacomo
 {
-    public class Targetable : ManagedBehaviour
+    public class Targetable : ManagedBehaviour, IStatObject
     {
-        [DisableInEditorMode]
+        [HideInEditorMode]
         public float currentHealth = 0;
-        public float b_maxHealth;
         public bool isAlive = true;
 
+        public Stat MaxHealth;
+
         public event Action HealthChanged;
-        
+
         [HideInInspector]
         public Stats stats;
 
 
-        protected override void ManagedInitialize() 
-        { 
-            stats = gameObject.AddComponent<Stats>();
-            stats.AddStat("maxHealth", b_maxHealth);
-            stats.AddStat("damageTakenMultiplier", 1);
-            currentHealth = stats["maxHealth"];
-            stats["maxHealth"].OnValueChanged += OnMaxHealthChanged;
+        protected override void ManagedInitialize()
+        {
+            stats = GetStats();
+
+            currentHealth = MaxHealth;
+            MaxHealth.OnValueChanged += OnMaxHealthChanged;
+        }
+
+        public virtual Stats GetStats() 
+        {
+            if (stats != null) return stats;
+
+            var tempStats = new Stats();
+            tempStats.AddStat("maxHealth", MaxHealth);
+            tempStats.AddStat("damageTakenMultiplier", 1, 0);
+            return tempStats;
         }
 
         protected void OnMaxHealthChanged(Stat.StatValueChangedEventArgs args)
@@ -56,8 +66,8 @@ namespace Giacomo
 
             HealthChanged?.Invoke();
 
-            if (currentHealth > stats["maxHealth"])
-                currentHealth = stats["maxHealth"];
+            if (currentHealth > MaxHealth)
+                currentHealth = MaxHealth;
         }
 
 

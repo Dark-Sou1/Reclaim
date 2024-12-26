@@ -107,11 +107,46 @@ MonoBehaviour:
   currentHealth: 75
   b_maxHealth: 50
   isAlive: 1
-  stats: {fileID: 0}
+  MaxHealth:
+    m_name: 
+    m_baseValue: 50
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   b_moveSpeed: 0.6
   maxPositionOffset: 0.15
   b_damageToTower: 2
   moneyReward: 8
+  MoveSpeed:
+    m_name: 
+    m_baseValue: 0.6
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MoneyReward:
+    m_name: 
+    m_baseValue: 8
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  DamageToTower:
+    m_name: 
+    m_baseValue: 2
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   movement: {fileID: 0}
   EffectHandler: {fileID: 0}
 --- !u!114 &-465786819091301208

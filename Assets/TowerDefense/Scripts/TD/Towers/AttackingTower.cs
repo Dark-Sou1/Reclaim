@@ -5,34 +5,33 @@ namespace Giacomo
 {
     public abstract class AttackingTower : Tower
     {
-        
-        [Header("Tower Stats")]
-        public float b_rotationSpeed = 180;
-
-        [Header("Attack")]
-        public float b_damage = 5;
-        public float b_attackSpeed = 1;
-
         [Header("Advanced")]
         public Transform cannon;
         public float attackAngleThreshold = 5;
         public bool rotateTowardsTarget = true;
 
-        [Header("Runtime")]
-        public Targetable target;
+        public Stat RotationSpeed;
+        public Stat Damage;
+        public Stat AttackSpeed;
 
         [BoxGroup("Sound")]
         [Range(0f, 1f)]
         public float attackSoundVolume = 0.6f;
 
-        protected override void ManagedInitialize()
-        {
-            base.ManagedInitialize();
-            stats.AddStat("rotationSpeed", b_rotationSpeed, 0);
-            stats.AddStat("damage", b_damage, 0);
-            stats.AddStat("attackSpeed", b_attackSpeed, 0);
-        }
+        [Header("Runtime")]
+        public Targetable target;
 
+        public override Stats GetStats()
+        {
+            if(stats != null) 
+                return stats;
+
+            var tempStats = base.GetStats();
+            tempStats.AddStat("rotationSpeed", RotationSpeed);
+            tempStats.AddStat("damage", Damage);
+            tempStats.AddStat("attackSpeed", AttackSpeed);
+            return tempStats;
+        }
 
 
         public override void ManagedUpdate()
@@ -64,7 +63,7 @@ namespace Giacomo
             if (!FacingTarget()) return;
 
             if (Time.time < nextShotTime) return;
-            nextShotTime = Time.time + 1 / stats["attackSpeed"];
+            nextShotTime = Time.time + 1 / AttackSpeed;
 
             Attack();
             var pitch = new AudioParams.Pitch(AudioParams.Pitch.Variation.Medium);
@@ -81,7 +80,7 @@ namespace Giacomo
             if (!t.isAlive) return false;
 
             float distance = Vector3.Distance(t.transform.position, transform.position);
-            if (distance > stats["maxRange"] || distance < stats["minRange"])
+            if (distance > MaxRange || distance < MinRange)
                 return false;
 
             return true;
@@ -102,7 +101,7 @@ namespace Giacomo
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle - 90);
 
-            cannon.rotation = Quaternion.Slerp(cannon.rotation, targetRotation, stats["rotationSpeed"] * Time.deltaTime);
+            cannon.rotation = Quaternion.Slerp(cannon.rotation, targetRotation, RotationSpeed * Time.deltaTime);
         }
 
         protected virtual bool FindNewTarget()
@@ -135,9 +134,9 @@ namespace Giacomo
             if (Application.isPlaying)
             {
                 Gizmos.color = Color.white;
-                Gizmos.DrawWireSphere(transform.position, stats["maxRange"]);
+                Gizmos.DrawWireSphere(transform.position, MaxRange);
                 Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(transform.position, stats["minRange"]);
+                Gizmos.DrawWireSphere(transform.position, MinRange);
             }
             else
             {

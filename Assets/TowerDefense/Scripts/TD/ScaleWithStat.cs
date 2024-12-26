@@ -7,8 +7,8 @@ namespace Giacomo
     {
         [SerializeField] string statName;
         [SerializeField] GameObject statObject;
-        [SerializeField] float offset = 0;
-        [SerializeField] float multiply = 1;
+        public float offset = 0;
+        public float multiply = 1;
         Stat stat;
 
         void OnEnable()

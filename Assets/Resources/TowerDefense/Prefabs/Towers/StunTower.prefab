@@ -82,7 +82,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  stats: {fileID: 0}
   effects: {fileID: 0}
   towerName: Stun
   towerDescription: Damages nearby enemies, and has a chance to stun them for a short
@@ -92,6 +91,34 @@ MonoBehaviour:
   shopIcon: {fileID: 8369671016727015521, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   b_maxRange: 1.5
   b_minRange: 0
+  Cost:
+    m_name: 
+    m_baseValue: 75
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MaxRange:
+    m_name: 
+    m_baseValue: 1.5
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MinRange:
+    m_name: 
+    m_baseValue: 0
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  placeSoundVolume: 0.5
   scaleWithMaxRange:
   - {fileID: 6860416667821647265}
   scaleWithMinRange: []
@@ -100,6 +127,33 @@ MonoBehaviour:
   b_rotationSpeed: 0
   b_damage: 4
   b_attackSpeed: 1
+  RotationSpeed:
+    m_name: 
+    m_baseValue: 0
+    min: 1
+    max: 1
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 0
+  Damage:
+    m_name: 
+    m_baseValue: 4
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  AttackSpeed:
+    m_name: 
+    m_baseValue: 1
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   cannon: {fileID: 4493684489330958133}
   attackAngleThreshold: 360
   rotateTowardsTarget: 0
@@ -107,6 +161,24 @@ MonoBehaviour:
   attackSoundVolume: 0.07
   b_stunDuration: 0.7
   b_stunChance: 0.35
+  StunDuration:
+    m_name: 
+    m_baseValue: 0.7
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  StunChance:
+    m_name: 
+    m_baseValue: 0.35
+    min: 1
+    max: 1
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 1
   impactEffect: {fileID: 6860416667821647265}
 --- !u!61 &-3436987236222513301
 BoxCollider2D:

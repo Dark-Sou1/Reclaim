@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Giacomo
 {
-    public class Stats : MonoBehaviour
+    public class Stats
     {
         [ShowInInspector]
         public Dictionary<string, Stat> stats {  get; private set; }
@@ -17,11 +17,19 @@ namespace Giacomo
             stats = new Dictionary<string, Stat>();
         }
 
+        public void AddStat(string name, Stat stat)
+        {
+            if (stats.ContainsKey(name))
+                Debug.LogError("duplicate stat: " + name + ": " + stat);
+
+            stats.Add(name, stat);
+        }
         public void AddStat(string name, float baseValue, float minValue = float.MinValue, float maxValue = float.MaxValue)
         {
             if (stats.ContainsKey(name))
                 Debug.LogError("duplicate stat: " + name + ": " + baseValue);
-            stats.Add(name, new Stat(baseValue, minValue, maxValue));
+
+            AddStat(name, new Stat(name, baseValue, minValue, maxValue));
         }
 
         public void AddModifier(string modifierName, string statName, float add = 0, float multiply = 1, bool keepHighestIfDuplicate = true)
@@ -39,7 +47,13 @@ namespace Giacomo
     [Serializable, InlineProperty, BoxGroup("Stats"), LabelWidth(100)]
     public class Stat
     {
-        [SerializeField, LabelText("Base"), HorizontalGroup("Values")]
+        [SerializeField, HideInInspector]
+        private string m_name;
+        [HideInInspector]
+        public string Name { get; protected set; }
+
+
+        [SerializeField, HideLabel, HorizontalGroup("Values")]
         [OnValueChanged("@UpdateValue()")]
         private float m_baseValue;
         public float BaseValue { get => m_baseValue; protected set => m_baseValue = value; }
@@ -48,7 +62,7 @@ namespace Giacomo
         private float m_value;
         [ShowInInspector, ReadOnly, HorizontalGroup("Values"), LabelText("Current")]
         public float Value { 
-            get { if (!isInitialized) UpdateValue(); 
+            get { if (!isInitialized) Initialize(); 
                 return m_value; } 
             private set => m_value = value; 
         }
@@ -116,14 +130,26 @@ namespace Giacomo
         public Stat()
         {
             modifiers = new Dictionary<string, StatModifier>();
+            MinValue = float.MinValue;
+            MaxValue = float.MaxValue;
         }
 
-        public Stat(float baseValue, float minValue, float maxValue) : base()
+        public Stat(string name, float baseValue, float minValue, float maxValue) : base()
         {
+            this.Name = name;
             this.BaseValue = baseValue;
             this.MinValue = minValue;
             this.MaxValue = maxValue;
+            
             modifiers = new Dictionary<string, StatModifier>();
+            UpdateValue();
+        }
+
+        protected void Initialize()
+        {
+            isInitialized = true;
+            min = MinValue != float.MinValue;
+            max = MaxValue != float.MaxValue;
             UpdateValue();
         }
 
@@ -168,8 +194,6 @@ namespace Giacomo
 
         protected void UpdateValue()
         {
-            isInitialized = true;
-
             float add = modifiers.Sum(x => x.Value.add);
             float multiply = 1 + modifiers.Sum(x => x.Value.multiply - 1);
 

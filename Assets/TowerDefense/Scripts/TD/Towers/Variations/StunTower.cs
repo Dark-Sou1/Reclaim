@@ -5,18 +5,20 @@ namespace Giacomo
 {
     public class StunTower : AttackingTower
     {
-
-        [Header("Stun stats")]
-        public float b_stunDuration = 1;
-        public float b_stunChance = .5f;
+        public Stat StunDuration;
+        public Stat StunChance;
 
         public Transform impactEffect;
 
-        protected override void ManagedInitialize()
+        public override Stats GetStats()
         {
-            base.ManagedInitialize();
-            stats.AddStat("stunDuration", b_stunDuration, 0);
-            stats.AddStat("stunChance", b_stunChance, 0, 1);
+            if (stats != null) 
+                return stats;
+
+            var tempStats = base.GetStats();
+            tempStats.AddStat("stunDuration", StunDuration);
+            tempStats.AddStat("stunChance", StunChance);
+            return tempStats;
         }
 
         protected override void Attack()
@@ -24,15 +26,15 @@ namespace Giacomo
             foreach (Enemy e in GameManager.Enemies)
             {
                 var dist = Vector2.Distance(transform.position, e.transform.position);
-                if (dist < stats["minRange"] || dist > stats["maxRange"]) continue;
+                if (dist < MinRange || dist > MaxRange) continue;
 
-                e.Damage(stats["damage"]);
+                e.Damage(Damage);
 
-                if (Random.Range(0, 1f) > stats["stunChance"]) continue;
+                if (Random.Range(0, 1f) > StunChance) continue;
 
                 StatModifierEffect stunEffect = new StatModifierEffect("stun", e.stats);
                 stunEffect.AddModifier("moveSpeed", multiply: 0);
-                e.EffectHandler.AddEffect("stun", stunEffect, stats["stunDuration"]);
+                e.EffectHandler.AddEffect("stun", stunEffect, StunDuration);
             }
             StartCoroutine(AttackEffect());
         }

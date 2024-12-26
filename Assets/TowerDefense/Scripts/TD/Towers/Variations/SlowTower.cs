@@ -6,17 +6,20 @@ namespace Giacomo
 {
     public class SlowTower : AttackingTower 
     {
-        [Header("Slow stats")]
-        public float b_slowDuration = 2;
-        public float b_slowAmount = .7f;
+        public Stat SlowDuration;
+        public Stat SlowAmount;
 
         AudioSource freezeSound;
 
-        protected override void ManagedInitialize()
+        public override Stats GetStats()
         {
-            base.ManagedInitialize();
-            stats.AddStat("slowDuration", b_slowDuration, 0);
-            stats.AddStat("slowAmount", b_slowAmount, 0, 1);
+            if (stats != null)
+                return stats;
+
+            var tempStats = base.GetStats();
+            tempStats.AddStat("slowDuration", SlowDuration);
+            tempStats.AddStat("slowAmount", SlowAmount);
+            return tempStats;
         }
 
         protected override void Attack()
@@ -24,15 +27,15 @@ namespace Giacomo
             foreach(Enemy e in GameManager.Enemies)
             {
                 var dist = Vector2.Distance(transform.position, e.transform.position);
-                if (dist < stats["minRange"] || dist > stats["maxRange"]) continue;
+                if (dist < MinRange || dist > MaxRange) continue;
 
-                e.Damage(stats["damage"] / stats["attackSpeed"].BaseValue);
+                e.Damage(Damage / AttackSpeed.BaseValue);
 
 
                 if (e.stats.HasModifier("burn", "moveSpeed")) continue;
                 StatModifierEffect slowEffect = new StatModifierEffect("freeze", e.stats);
-                slowEffect.AddModifier("moveSpeed", multiply: stats["slowAmount"]);
-                e.EffectHandler.AddEffect("freeze", slowEffect, stats["slowDuration"]);
+                slowEffect.AddModifier("moveSpeed", multiply: SlowAmount);
+                e.EffectHandler.AddEffect("freeze", slowEffect, SlowDuration);
             }
         }
 

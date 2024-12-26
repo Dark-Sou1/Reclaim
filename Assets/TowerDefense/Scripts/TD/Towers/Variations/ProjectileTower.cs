@@ -17,23 +17,31 @@ namespace Giacomo
         public float b_splashDamageArea = 0;
         public float b_projectileLifetime = 10;
 
+        public Stat ProjectileSpeed;
+        public Stat SplashDamageArea;
+        public Stat ProjectileLifetime;
+
         [BoxGroup("Sound")]
         [Range(0f, 1f)]
         public float projectileHitSoundVolume = .5f;
 
-        protected override void ManagedInitialize()
+        public override Stats GetStats()
         {
-            base.ManagedInitialize();
-            stats.AddStat("projectileSpeed", b_projectileSpeed);
-            stats.AddStat("splashDamageArea", b_splashDamageArea);
-            stats.AddStat("projectileLifetime", b_projectileLifetime);
+            if (stats != null)
+                return stats;
+
+            var tempStats = base.GetStats();
+            tempStats.AddStat("projectileSpeed", ProjectileSpeed);
+            tempStats.AddStat("SplashDamageArea", SplashDamageArea);
+            tempStats.AddStat("ProjectileLifetime", ProjectileLifetime);
+            return tempStats;
         }
 
         protected override void Attack()
         {
             GameObject go = Instantiate(projectilePrefab, bulletSpawnpoint.position, bulletSpawnpoint.rotation);
             string hitSFX = $"tower_{towerName}_hit";
-            go.GetComponent<Projectile>().Initialize(stats["damage"], stats["projectileSpeed"], stats["projectileLifetime"], stats["splashDamageArea"], target, destroyProjectileOnTargetDeath, hitSFX, projectileHitSoundVolume);
+            go.GetComponent<Projectile>().Initialize(Damage, ProjectileSpeed, ProjectileLifetime, SplashDamageArea, target, destroyProjectileOnTargetDeath, hitSFX, projectileHitSoundVolume);
         }
     }
 }

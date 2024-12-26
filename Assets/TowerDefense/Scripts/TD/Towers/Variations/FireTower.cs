@@ -5,10 +5,11 @@ namespace Giacomo
     public class FireTower : AttackingTower
     {
         [Header("Fire Attack")]
-        public float b_burnDuration = 2;
-        public float b_burnDPS = 5;
         public ParticleSystem fireParticles;
         public Collider2D attackCollider;
+
+        public Stat BurnDuration;
+        public Stat BurnDPS;
 
         AudioSource fireSound;
         RaycastHit2D[] hit = new RaycastHit2D[50];
@@ -18,9 +19,18 @@ namespace Giacomo
         {
             base.ManagedInitialize();
             contactFilter.useTriggers = true;
-            stats.AddStat("burnDuration", b_burnDuration);
-            stats.AddStat("burnDPS", b_burnDPS);
             fireParticles.Stop();
+        }
+
+        public override Stats GetStats()
+        {
+            if (stats != null)
+                return stats;
+
+            var tempStats = base.GetStats();
+            tempStats.AddStat("burnDuration", BurnDuration);
+            tempStats.AddStat("burnDPS", BurnDPS);
+            return tempStats;
         }
 
         protected override void Attack()
@@ -32,10 +42,10 @@ namespace Giacomo
                 if (!hit[i].collider.TryGetComponent(out Targetable t)) continue;
                 if (!hit[i].collider.TryGetComponent(out EffectHandler e)) continue;
 
-                t.Damage(stats["damage"] / stats["attackSpeed"].BaseValue);
+                t.Damage(Damage / AttackSpeed.BaseValue);
 
-                DamageOverTImeEffect burnEffect = new DamageOverTImeEffect(t, stats["burnDPS"]);
-                e.AddEffect("burn", burnEffect, stats["burnDuration"]);
+                DamageOverTImeEffect burnEffect = new DamageOverTImeEffect(t, BurnDPS);
+                e.AddEffect("burn", burnEffect, BurnDuration);
                 e.RemoveEffect("freeze");
             }
         }

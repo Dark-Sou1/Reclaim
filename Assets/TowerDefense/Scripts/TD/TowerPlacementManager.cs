@@ -27,6 +27,7 @@ namespace Giacomo
         private void Awake()
         {
             rangePreview = Instantiate(Resources.Load("TowerDefense/Prefabs/RangePreview"), transform).GetComponent<ScaleWithStat>();
+            rangePreview.multiply = 2;
             rangePreview.gameObject.SetActive(false);
         }
 
@@ -113,10 +114,10 @@ namespace Giacomo
             startedPlacingThisFrame = true;
 
             //Range preview
-            float range = tower.b_maxRange*2;
-            if (tower.stats)
-                range = tower.stats["maxRange"] * 2;
-            rangePreview.transform.localScale = Vector3.one * range;
+            // range = tower.b_maxRange*2;
+            //float range =  * 2;
+            rangePreview.SetStat(tower.MaxRange);
+            //rangePreview.transform.localScale = Vector3.one * range;
             rangePreview.gameObject.SetActive(true);
 
             //Tower preview

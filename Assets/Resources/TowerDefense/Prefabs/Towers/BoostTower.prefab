@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  stats: {fileID: 0}
   effects: {fileID: 0}
   towerName: Boost
   towerDescription: Boosts the range and attack speed of adjacent towers.
@@ -57,6 +56,33 @@ MonoBehaviour:
   shopIcon: {fileID: 5045188630873096290, guid: 8901a8cc285876e48b882143dec27bd8, type: 3}
   b_maxRange: 0
   b_minRange: 0
+  Cost:
+    m_name: 
+    m_baseValue: 100
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MaxRange:
+    m_name: 
+    m_baseValue: 0
+    min: 1
+    max: 1
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 0
+  MinRange:
+    m_name: 
+    m_baseValue: 0
+    min: 1
+    max: 1
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 0
   placeSoundVolume: 0.5
   scaleWithMaxRange: []
   scaleWithMinRange: []
@@ -265,7 +291,7 @@ SpriteRenderer:
   m_Size: {x: 0.2, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7194890482863598931

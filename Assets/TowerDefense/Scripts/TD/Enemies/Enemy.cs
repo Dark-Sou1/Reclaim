@@ -4,10 +4,12 @@ namespace Giacomo
 {
     public class Enemy : Targetable
     {
-        public float b_moveSpeed = 1;
         public float maxPositionOffset = 0.25f;
-        public int b_damageToTower = 1;
-        public int moneyReward = 10;
+
+        public Stat MoveSpeed;
+        public Stat MoneyReward;
+        public Stat DamageToTower;
+
 
         public FollowPathMovement movement;
 
@@ -21,9 +23,6 @@ namespace Giacomo
             if(!TryGetComponent(out EffectHandler))
                 EffectHandler = gameObject.AddComponent<EffectHandler>();
             
-            stats.AddStat("moveSpeed", b_moveSpeed, 0);
-            stats.AddStat("damageToTower", b_damageToTower, 0);
-
             movement = GetComponent<FollowPathMovement>();
             Vector2 positionOffset = new Vector2(
                 Random.Range(-maxPositionOffset, maxPositionOffset),
@@ -37,15 +36,26 @@ namespace Giacomo
             GameManager.AddEnemy(this);
         }
 
+        public override Stats GetStats()
+        {
+            if(stats != null) return stats;
+            
+            var tempStats = base.GetStats();
+            tempStats.AddStat("moveSpeed", MoveSpeed);
+            tempStats.AddStat("moneyReward", MoneyReward);
+            tempStats.AddStat("damageToTower", DamageToTower);
+            return tempStats;
+        }
+
         public override void ManagedUpdate()
         {
-            float moveAmount = stats["moveSpeed"] * Time.deltaTime;
+            float moveAmount = MoveSpeed * Time.deltaTime;
             movement.Move(moveAmount);
         }
 
         protected void ReachedHomeTile()
         {
-            GameStats.Instance?.LoseHP((int)stats["damageToTower"]);
+            GameStats.Instance?.LoseHP((int)DamageToTower);
             Kill();
         }
 
@@ -56,7 +66,7 @@ namespace Giacomo
 
         protected void Die()
         {
-            GameStats.Instance.ModifyCoins(moneyReward);
+            GameStats.Instance.ModifyCoins((int)MoneyReward);
 
             var pitch = new AudioParams.Pitch(AudioParams.Pitch.Variation.Small);
             var repetition = new AudioParams.Repetition(.05f);

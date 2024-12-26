@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  stats: {fileID: 0}
   effects: {fileID: 0}
   towerName: Flamethrower
   towerDescription: Fires in the direction of an enemy, damaging and burning enemies
@@ -59,24 +58,93 @@ MonoBehaviour:
   shopIcon: {fileID: -3495968029663358996, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
   b_maxRange: 2.2
   b_minRange: 0
+  Cost:
+    m_name: 
+    m_baseValue: 150
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MaxRange:
+    m_name: 
+    m_baseValue: 2.2
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MinRange:
+    m_name: 
+    m_baseValue: 0
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   placeSoundVolume: 0.5
   scaleWithMaxRange:
   - {fileID: 2759899366994034821}
   scaleWithMinRange: []
   minRangeIndicator: {fileID: 0}
   maxRangeIndicator: {fileID: 0}
-  b_rotationSpeed: 180
-  b_damage: 4
-  b_attackSpeed: 8
   cannon: {fileID: 8711475530282827606}
   attackAngleThreshold: 360
   rotateTowardsTarget: 1
-  target: {fileID: 0}
+  RotationSpeed:
+    m_name: 
+    m_baseValue: 180
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  Damage:
+    m_name: 
+    m_baseValue: 4
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  AttackSpeed:
+    m_name: 
+    m_baseValue: 4
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   attackSoundVolume: 0.102
+  target: {fileID: 0}
   b_burnDuration: 3
   b_burnDPS: 5
   fireParticles: {fileID: 4868819765368545494}
   attackCollider: {fileID: 1090290185925106595}
+  BurnDuration:
+    m_name: 
+    m_baseValue: 3
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  BurnDPS:
+    m_name: 
+    m_baseValue: 5
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
 --- !u!61 &-5241396943819277720
 BoxCollider2D:
   m_ObjectHideFlags: 0

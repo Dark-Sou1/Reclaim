@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortOrder: 0
-  stats: {fileID: 0}
   effects: {fileID: 0}
   towerName: Cannon
   towerDescription: Shoots at a single target dealing splash damage.
@@ -57,25 +56,103 @@ MonoBehaviour:
   shopIcon: {fileID: 6137813302077351160, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
   b_maxRange: 3.1
   b_minRange: 0
+  Cost:
+    m_name: 
+    m_baseValue: 75
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MaxRange:
+    m_name: 
+    m_baseValue: 3.1
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  MinRange:
+    m_name: 
+    m_baseValue: 0
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   placeSoundVolume: 0.5
   scaleWithMaxRange: []
   scaleWithMinRange: []
   minRangeIndicator: {fileID: 0}
   maxRangeIndicator: {fileID: 0}
-  b_rotationSpeed: 180
-  b_damage: 7
-  b_attackSpeed: 2
   cannon: {fileID: 6944747023187206097}
   attackAngleThreshold: 5
   rotateTowardsTarget: 1
-  target: {fileID: 0}
+  RotationSpeed:
+    m_name: 
+    m_baseValue: 180
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  Damage:
+    m_name: 
+    m_baseValue: 5
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  AttackSpeed:
+    m_name: 
+    m_baseValue: 2
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   attackSoundVolume: 0.6
+  target: {fileID: 0}
   projectilePrefab: {fileID: 8598423996874606982, guid: e6194e598376ae141aa03420272ff9e2, type: 3}
   bulletSpawnpoint: {fileID: 8621983799480754852}
   destroyProjectileOnTargetDeath: 0
   b_projectileSpeed: 3
   b_splashDamageArea: 0.75
   b_projectileLifetime: 10
+  ProjectileSpeed:
+    m_name: 
+    m_baseValue: 3
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  SplashDamageArea:
+    m_name: 
+    m_baseValue: 0.75
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
+  ProjectileLifetime:
+    m_name: 
+    m_baseValue: 10
+    min: 1
+    max: 0
+    tempMin: 0
+    tempMax: 0
+    m_minValue: 0
+    m_maxValue: 3.4028235e+38
   projectileHitSoundVolume: 0.804
 --- !u!61 &-8063346384651002629
 BoxCollider2D:
