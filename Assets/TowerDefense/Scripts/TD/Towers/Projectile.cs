@@ -30,8 +30,9 @@ namespace Giacomo
             this.splashArea = splashArea;
             this.target = target;
             this.destroyIfTargetDied = destroyIfTargetDied;
+            lastTargetPosition = target.transform.position;
 
-            if(!string.IsNullOrEmpty(hitSoundEffect))
+            if (!string.IsNullOrEmpty(hitSoundEffect))
                 this.hitSoundEffect = hitSoundEffect;
             this.hitSoundVolume = hitSoundVolume;
         }

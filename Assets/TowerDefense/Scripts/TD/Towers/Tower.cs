@@ -26,13 +26,11 @@ namespace Giacomo
 
         public Stats stats;
 
-        [BoxGroup("Sound")]
-        [Range(0f, 1f)]
+        [BoxGroup("Sound"), Range(0f, 1f)]
         public float placeSoundVolume = .5f;
 
-        [SerializeField, HideInInspector] ScaleWithStat minRangeIndicator;
-        [SerializeField, HideInInspector] ScaleWithStat maxRangeIndicator;
-
+        protected ScaleWithStat minRangeIndicator;
+        protected ScaleWithStat maxRangeIndicator;
         protected bool placedThisFrame = true;
 
         protected override void ManagedInitialize()

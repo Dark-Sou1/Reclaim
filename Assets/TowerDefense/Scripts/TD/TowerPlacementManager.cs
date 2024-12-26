@@ -45,10 +45,9 @@ namespace Giacomo
             }
 
             //cancel placing
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKey(KeyCode.Escape) || Input.GetMouseButtonDown(1))
             { 
-                onCancelPlacing?.Invoke();
-                StopPlacing();
+                CancelPlacing();
                 return;
             }
 
@@ -68,6 +67,8 @@ namespace Giacomo
                     t.name = placingTower.name;
                     hoveringTile.PlaceTower(t);
                     onPlace?.Invoke();
+
+                    AudioController.Instance.PlaySound2D("ui_confirm");
 
                     StopPlacing();
                     return;
@@ -89,7 +90,14 @@ namespace Giacomo
             }
         }
 
-        public void StopPlacing()
+        public void CancelPlacing()
+        {
+            onCancelPlacing?.Invoke();
+            StopPlacing();
+            AudioController.Instance.PlaySound2D("ui_cancel");
+        }
+
+        protected void StopPlacing()
         {
             placingTower = null;
             onPlace = null;
@@ -103,7 +111,7 @@ namespace Giacomo
         {
             if (placingTower == tower)
             {
-                StopPlacing();
+                CancelPlacing();
                 return;
             }
 
@@ -124,6 +132,8 @@ namespace Giacomo
             var pos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
             preview = Instantiate(tower.transform.Find("GFX"), pos, Quaternion.identity).gameObject;
             previewRenderers = preview.GetComponentsInChildren<SpriteRenderer>();
+
+            AudioController.Instance.PlaySound2D("ui_confirm");
         }
     }
 }

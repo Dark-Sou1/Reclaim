@@ -26,7 +26,7 @@ namespace Giacomo
             //If already placing, deselect instead
             if(TowerPlacementManager.Instance.placingTower == tower)
             {
-                TowerPlacementManager.Instance.StopPlacing();
+                TowerPlacementManager.Instance.CancelPlacing();
                 return;
             }
             //Check input is not occupied (for example playing a potion or a different tower)

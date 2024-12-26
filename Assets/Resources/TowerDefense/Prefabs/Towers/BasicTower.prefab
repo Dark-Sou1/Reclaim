@@ -49,13 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortOrder: 0
   effects: {fileID: 0}
+  shopIcon: {fileID: -1075722017825404786, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
   towerName: Basic
   towerDescription: Shoots at a single target. Has average stats.
-  cost: 50
-  placingPreview: {fileID: -1075722017825404786, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
-  shopIcon: {fileID: -1075722017825404786, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
-  b_maxRange: 3.4
-  b_minRange: 0
   Cost:
     m_name: 
     m_baseValue: 50
@@ -79,13 +75,11 @@ MonoBehaviour:
     m_baseValue: 0
     min: 1
     max: 0
-    tempMin: 0
+    tempMin: 0.44
     tempMax: 0
     m_minValue: 0
     m_maxValue: 3.4028235e+38
   placeSoundVolume: 0.5
-  scaleWithMaxRange: []
-  scaleWithMinRange: []
   minRangeIndicator: {fileID: 0}
   maxRangeIndicator: {fileID: 0}
   cannon: {fileID: 8523013753695896763}
@@ -118,7 +112,7 @@ MonoBehaviour:
     tempMax: 0
     m_minValue: 0
     m_maxValue: 3.4028235e+38
-  attackSoundVolume: 0.465
+  attackSoundVolume: 0.402
   target: {fileID: 0}
   projectilePrefab: {fileID: 8598423996874606982, guid: 87ca5140c912f71448bc74b68ca0074a, type: 3}
   bulletSpawnpoint: {fileID: 2646325776021732203}
