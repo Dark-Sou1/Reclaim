@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143269408887725404}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: -2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -80,8 +80,6 @@ MonoBehaviour:
     m_minValue: 0
     m_maxValue: 3.4028235e+38
   placeSoundVolume: 0.5
-  minRangeIndicator: {fileID: 0}
-  maxRangeIndicator: {fileID: 0}
   cannon: {fileID: 8523013753695896763}
   attackAngleThreshold: 5
   rotateTowardsTarget: 1

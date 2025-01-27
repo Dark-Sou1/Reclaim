@@ -229,12 +229,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7192482838115729359, guid: 6d3043b844b1446478e5d2cfbd2461c8, type: 3}
+  m_Sprite: {fileID: -7945901444079236628, guid: 77afb12a836618344af36aa7f2d235c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.33333334, y: 0.33333334}
+  m_Size: {x: 0.46875, y: 0.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 40
-  b_maxHealth: 60
   isAlive: 1
   MaxHealth:
     m_name: 
@@ -264,10 +263,7 @@ MonoBehaviour:
     tempMax: 0
     m_minValue: 0
     m_maxValue: 3.4028235e+38
-  b_moveSpeed: 1
   maxPositionOffset: 0.25
-  b_damageToTower: 2
-  moneyReward: 10
   MoveSpeed:
     m_name: 
     m_baseValue: 1

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2312358700089777820}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -49,13 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortOrder: 0
   effects: {fileID: 0}
+  shopIcon: {fileID: 6137813302077351160, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
   towerName: Cannon
   towerDescription: Shoots at a single target dealing splash damage.
-  cost: 75
-  placingPreview: {fileID: 6137813302077351160, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
-  shopIcon: {fileID: 6137813302077351160, guid: 58437be6c97c11b4c938fc8f5c4cdf84, type: 3}
-  b_maxRange: 3.1
-  b_minRange: 0
   Cost:
     m_name: 
     m_baseValue: 75
@@ -84,10 +80,6 @@ MonoBehaviour:
     m_minValue: 0
     m_maxValue: 3.4028235e+38
   placeSoundVolume: 0.5
-  scaleWithMaxRange: []
-  scaleWithMinRange: []
-  minRangeIndicator: {fileID: 0}
-  maxRangeIndicator: {fileID: 0}
   cannon: {fileID: 6944747023187206097}
   attackAngleThreshold: 5
   rotateTowardsTarget: 1
